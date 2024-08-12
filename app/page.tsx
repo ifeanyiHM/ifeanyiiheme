@@ -1,10 +1,29 @@
-// "use client";
+"use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
+    };
+    window.addEventListener("resize", setVh);
+    setVh();
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
+
   return (
-    <header className="flex flex-col h-screen relative ">
+    <header
+      style={{ minHeight: "calc(var(--vh, 1vh) * 100)" }}
+      className="flex flex-col h-screen relative "
+    >
       <div className="flex-grow flex flex-col justify-between sm:my-[5rem] xl:mt-[2rem] xl:mb-[1rem] px-[3.125rem] sm:px-[6.25rem] py-[4.375rem] sm:py-[7.5rem] xl:pt-[7rem] xl:pb-0">
         <h1 className="my-[1rem] text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]">
           Hello!{" "}
