@@ -21,7 +21,7 @@ export default function RootLayout({
       {/* bg-[#171c28]  */}
 
       <body
-        className={`${sourceSans.className}  min-h-screen bg-[#0f172a] text-[#e7e7e7] `}
+        className={`${sourceSans.className}   bg-[#0f172a] text-[#e7e7e7] `}
       >
         <PortfolioProvider>
           <>
