@@ -15,25 +15,25 @@ const PortContext = createContext<PortfolioContextProps>(defaultPortfolioProps);
 function PortfolioProvider({ children }: PortfolioProviderProps) {
   const [lightMode, setLightMode] = useState(false);
 
-  // useEffect(() => {
-  //   const injectCursorPosition = (event: PointerEvent) => {
-  //     document.documentElement.style.setProperty(
-  //       "--x",
-  //       Math.round(event.clientX).toString()
-  //     );
-  //     document.documentElement.style.setProperty(
-  //       "--y",
-  //       Math.round(event.clientY).toString()
-  //     );
-  //   };
+  useEffect(() => {
+    const injectCursorPosition = (event: PointerEvent) => {
+      document.documentElement.style.setProperty(
+        "--x",
+        Math.round(event.clientX).toString()
+      );
+      document.documentElement.style.setProperty(
+        "--y",
+        Math.round(event.clientY).toString()
+      );
+    };
 
-  //   document.body.addEventListener("pointermove", injectCursorPosition);
+    document.body.addEventListener("pointermove", injectCursorPosition);
 
-  //   // Cleanup the event listener on component unmount
-  //   return () => {
-  //     document.body.removeEventListener("pointermove", injectCursorPosition);
-  //   };
-  // }, []);
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.body.removeEventListener("pointermove", injectCursorPosition);
+    };
+  }, []);
 
   useEffect(() => {
     if (lightMode) {
