@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dark {
+  aspect-ratio: 4/3;
+  background: radial-gradient(
+      circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+      rgba(59, 130, 246, 0.1),
+      transparent 550px
+    ),
+    #0f172a;
+  background-attachment: fixed;
+  position: relative;
+  /* color: #e7e7e7; */
+}
+
+.lightMode {
+  background-color: #fff;
+  color: #444452;
+}
+
+.switchBtnR {
+  display: block;
+  width: 45px;
+  height: 25px;
+  border-radius: 100px;
+  background: #bae67e;
+  position: relative;
+  transition: all 0.5s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border: 1px solid #bdc3c7;
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
+}
+
+.switchBtnL {
+  transition: all 0.5s;
+  background: #474646;
+
+  &::before {
+    transition: all 0.5s;
+    transform: translate(-100%);
+  }
+}
+
+.wave {
+  &:hover {
+    animation: smooth 1s ease-in-out 0.2s 1;
+
+    @keyframes smooth {
+      0% {
+        transform: translateY(-5px);
+      }
+
+      50% {
+        transform: translateY(7px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.mail-address {
+  span {
+    transition-delay: 0.5s;
+  }
+
+  &:hover span {
+    transform: translateY(-100%);
+    transition-delay: 0s;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100px;
+    height: 100%;
+    width: calc(100% + 100px);
+    background-color: #007bff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.8s;
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+    transform-origin: right;
+    transition-delay: 0.5s;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .switchBtnR {
+    width: 50px;
+    height: 30px;
+
+    &::before {
+      width: 23px;
+      height: 23px;
+    }
+  }
+
+  .switchBtnL {
+    &::before {
+      transform: translate(-80%);
+    }
+  }
+}
+
+/* color: #0f172a; */
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
