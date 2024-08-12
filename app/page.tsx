@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <header className="flex flex-col h-full ">
-      <div className="flex-grow flex flex-col justify-between sm:my-[5rem] xl:mt-[2rem] xl:mb-[1rem] px-[3.125rem] sm:px-[6.25rem] py-[4.375rem] sm:py-[7.5rem] xl:pt-[7rem] xl:pb-0">
+      <div className="flex-grow flex flex-col justify-between sm:my-[5rem] xl:mt-[2rem] xl:mb-[0] px-[3.125rem] sm:px-[6.25rem] py-[4.375rem] sm:py-[7.5rem] xl:pt-[7rem] xl:pb-0">
         <h1 className="my-[1rem] text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]">
           Hello!{" "}
           <span className="wave cursor-pointer text-[1.875rem] xl:text-[3rem]">
