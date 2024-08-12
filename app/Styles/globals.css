@@ -1,12 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.dark {
-  aspect-ratio: 4/3;
-  background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(59, 130, 246, 0.1), transparent 550px), #0f172a;
-  background-attachment: fixed;
-  position: relative;
-  /* color: #e7e7e7; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .lightMode {
