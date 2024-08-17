@@ -20,6 +20,25 @@
   background-color: #fff;
   color: #444452;
 }
+.lightMode .box {
+  border: 1px solid #bae67e;
+}
+.lightMode .btn::before, .lightMode .btn::after {
+  width: 15px;
+  height: 15px;
+}
+.lightMode .btn::before {
+  top: -5px;
+  left: -5px;
+  border-top: 2px solid rgb(0, 123, 255);
+  border-left: 2px solid rgb(0, 123, 255);
+}
+.lightMode .btn::after {
+  bottom: -5px;
+  right: -5px;
+  border-bottom: 2px solid rgb(0, 123, 255);
+  border-right: 2px solid rgb(0, 123, 255);
+}
 
 .switchBtnR {
   display: block;
@@ -92,6 +111,86 @@
   transition-delay: 0.5s;
 }
 
+.box {
+  position: absolute;
+  top: 90%;
+  left: 85%;
+  border: 1px solid #f5f4f4;
+  animation: boxes 12s ease-in infinite;
+  transform: scale(0);
+}
+.box:nth-child(3) {
+  top: 82%;
+  left: 70%;
+  animation-delay: 2s;
+}
+.box:nth-child(4) {
+  top: 91%;
+  left: 70%;
+  animation-delay: 4s;
+}
+.box:nth-child(5) {
+  top: 81%;
+  left: 85%;
+  animation-delay: 6s;
+}
+.box:nth-child(6) {
+  top: 87%;
+  left: 65%;
+  animation-delay: 8s;
+}
+.box:nth-child(7) {
+  top: 83%;
+  left: 80%;
+  animation-delay: 10s;
+}
+@keyframes boxes {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+.btn::before, .btn::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  transition: all 0.25s;
+}
+.btn::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #007bff;
+  border-left: 2px solid #007bff;
+}
+.btn::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid #007bff;
+  border-right: 2px solid #007bff;
+}
+.btn:hover::before, .btn:hover::after {
+  height: 100%;
+  width: 100%;
+}
+
+/* scrolling styles */
+.animate {
+  opacity: 0;
+  filter: blur(5px);
+  transition: 0.5s;
+}
+
+.show-animate .animate {
+  opacity: 1;
+  filter: blur(0px);
+}
+
 @media screen and (min-width: 1024px) {
   .switchBtnR {
     width: 50px;
@@ -103,6 +202,30 @@
   }
   .switchBtnL::before {
     transform: translate(-80%);
+  }
+  .box {
+    top: 90%;
+    left: 95%;
+  }
+  .box:nth-child(3) {
+    top: 82%;
+    left: 91%;
+  }
+  .box:nth-child(4) {
+    top: 91%;
+    left: 91%;
+  }
+  .box:nth-child(5) {
+    top: 81%;
+    left: 95%;
+  }
+  .box:nth-child(6) {
+    top: 87%;
+    left: 87%;
+  }
+  .box:nth-child(7) {
+    top: 73%;
+    left: 90%;
   }
 }
 /* color: #0f172a; */

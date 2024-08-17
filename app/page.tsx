@@ -2,53 +2,14 @@
 
 import Link from "next/link";
 import usePortfolio from "./_context/usePortfolio";
-import { useEffect, useState } from "react";
+import GridBackground from "./Components/GridBackground";
 
 export default function Home() {
   const { lightMode } = usePortfolio();
 
-  const [numOfSpans, setNumOfSpans] = useState(5);
-
-  useEffect(() => {
-    const updateNumOfSpans = () => {
-      const width = window.innerWidth;
-      if (width >= 1024) {
-        setNumOfSpans(12); // mobile: <640px
-      } else if (width >= 768 && width < 1024) {
-        setNumOfSpans(8); // tablet: 640px to <768px
-      } else {
-        setNumOfSpans(5); // desktop: >=768px
-      }
-    };
-
-    // Initialize the number of spans based on current screen size
-    updateNumOfSpans();
-
-    // Add event listener to update on window resize
-    window.addEventListener("resize", updateNumOfSpans);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", updateNumOfSpans);
-    };
-  }, []);
-  console.log(numOfSpans);
-
-  const spansArray = Array(numOfSpans).fill(null);
   return (
     <>
-      {lightMode && (
-        <div
-          className={`grid grid-cols-${numOfSpans} w-full min-h-screen fixed z-[-1]`}
-        >
-          {spansArray.map((_, index) => (
-            <span
-              key={index}
-              className=" border border-t-0 border-b-0 border-[#f5f4f4]"
-            ></span>
-          ))}
-        </div>
-      )}
+      {lightMode && <GridBackground />}
       <header className="flex flex-col h-screen xl:h-full ">
         <div className="flex-grow flex flex-col justify-between sm:my-[5rem] xl:mt-[2rem] xl:mb-[0] px-[3.125rem] sm:px-[6.25rem] py-[4.375rem] sm:py-[7.5rem] xl:pt-[7rem] xl:pb-0">
           <h1 className="my-[1rem] text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]">

@@ -14,6 +14,7 @@ const PortContext = createContext<PortfolioContextProps>(defaultPortfolioProps);
 
 function PortfolioProvider({ children }: PortfolioProviderProps) {
   const [lightMode, setLightMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const injectCursorPosition = (event: PointerEvent) => {
@@ -50,6 +51,8 @@ function PortfolioProvider({ children }: PortfolioProviderProps) {
       value={{
         lightMode,
         setLightMode,
+        isMenuOpen,
+        setIsMenuOpen,
       }}
     >
       {children}
