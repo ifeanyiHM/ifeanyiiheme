@@ -12,7 +12,7 @@ export const merriweather = Merriweather({
   weight: ["400", "700"],
 });
 
-function Page() {
+function AboutPage() {
   const { lightMode, isMenuOpen } = usePortfolio();
 
   return (
@@ -82,4 +82,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default AboutPage;
