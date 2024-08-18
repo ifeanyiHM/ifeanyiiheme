@@ -5,7 +5,7 @@ import GridBackground from "../Components/GridBackground";
 import Link from "next/link";
 import React, { useState } from "react";
 import { otherProjects, projects } from "../Data/PortfolioProps";
-import { merriweather } from "../page";
+import { merriweather } from "../fonts/fonts";
 
 function Page() {
   const [expandedTexts, setExpandedTexts] = useState<boolean[]>(

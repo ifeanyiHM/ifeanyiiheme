@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
 import "./Styles/globals.css";
 import { PortfolioProvider } from "./_context/PortfolioContext";
 import Navigation from "./Components/Navigation";
 import MenuPage from "./Components/MenuPage";
-
-const sourceSans = Source_Sans_3({ subsets: ["latin"] });
+import { sourceSans } from "./fonts/fonts";
 
 export const metadata: Metadata = {
   title: "Ifeanyi Iheme | Frontend Engineer",

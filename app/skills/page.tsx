@@ -2,7 +2,7 @@
 import usePortfolio from "../_context/usePortfolio";
 import GridBackground from "../Components/GridBackground";
 import { skillCategories } from "../Data/PortfolioProps";
-import { merriweather } from "../page";
+import { merriweather } from "../fonts/fonts";
 
 function Page() {
   const { lightMode } = usePortfolio();

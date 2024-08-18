@@ -6,7 +6,7 @@ import usePortfolio from "../_context/usePortfolio";
 import { MdArrowOutward } from "react-icons/md";
 
 import Link from "next/link";
-import { merriweather } from "../page";
+import { merriweather } from "../fonts/fonts";
 
 function AboutPage() {
   const { lightMode, isMenuOpen } = usePortfolio();
