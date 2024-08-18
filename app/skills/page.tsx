@@ -9,7 +9,7 @@ const merriweather = Merriweather({
   weight: ["400", "700"],
 });
 
-function page() {
+function Page() {
   const { lightMode } = usePortfolio();
 
   return (
@@ -58,4 +58,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
