@@ -52,6 +52,20 @@ export const skillCategories = [
   },
 ];
 
+export interface ProjectProps {
+  title: string;
+  images: {
+    src: string;
+    alt: string;
+  }[];
+  description: string;
+  links: {
+    href: string;
+    label: string;
+  }[];
+  technologies: string[];
+}
+
 export const projects = [
   {
     title: "Pheonix Global",
