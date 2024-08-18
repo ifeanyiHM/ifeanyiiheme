@@ -2,10 +2,10 @@
 import Image from "next/image";
 import usePortfolio from "../_context/usePortfolio";
 import GridBackground from "../Components/GridBackground";
-import { merriweather } from "../about/page";
 import Link from "next/link";
 import React, { useState } from "react";
 import { otherProjects, projects } from "../Data/PortfolioProps";
+import { merriweather } from "../page";
 
 function Page() {
   const [expandedTexts, setExpandedTexts] = useState<boolean[]>(

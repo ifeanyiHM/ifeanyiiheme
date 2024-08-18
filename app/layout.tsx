@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Merriweather, Source_Sans_3 } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./Styles/globals.css";
 import { PortfolioProvider } from "./_context/PortfolioContext";
 import Navigation from "./Components/Navigation";
 import MenuPage from "./Components/MenuPage";
 
 const sourceSans = Source_Sans_3({ subsets: ["latin"] });
-export const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Ifeanyi Iheme | Frontend Engineer",

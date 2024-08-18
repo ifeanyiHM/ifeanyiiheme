@@ -1,16 +1,12 @@
 "use client";
 import Image from "next/image";
-import { Merriweather } from "next/font/google";
+
 import { socialLinks } from "../Data/PortfolioProps";
 import usePortfolio from "../_context/usePortfolio";
 import { MdArrowOutward } from "react-icons/md";
 
 import Link from "next/link";
-
-export const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import { merriweather } from "../page";
 
 function AboutPage() {
   const { lightMode, isMenuOpen } = usePortfolio();

@@ -3,6 +3,12 @@
 import Link from "next/link";
 import usePortfolio from "./_context/usePortfolio";
 import GridBackground from "./Components/GridBackground";
+import { Merriweather } from "next/font/google";
+
+export const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default function Home() {
   const { lightMode } = usePortfolio();

@@ -1,13 +1,8 @@
 "use client";
-import { Merriweather } from "next/font/google";
 import usePortfolio from "../_context/usePortfolio";
 import GridBackground from "../Components/GridBackground";
 import { skillCategories } from "../Data/PortfolioProps";
-
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import { merriweather } from "../page";
 
 function Page() {
   const { lightMode } = usePortfolio();
