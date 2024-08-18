@@ -3,11 +3,11 @@ import Image from "next/image";
 
 import { socialLinks } from "../Data/PortfolioProps";
 import usePortfolio from "../_context/usePortfolio";
-import { MdArrowOutward } from "react-icons/md";
 
 import Link from "next/link";
 import { merriweather } from "../fonts/fonts";
 import CrossGridBackground from "../Components/CrossGridBackground";
+import SocialLink from "../Components/SocialLink";
 
 function AboutPage() {
   const { lightMode, isMenuOpen } = usePortfolio();
@@ -28,7 +28,7 @@ function AboutPage() {
           <div className="md:max-w-[78%] md:mx-auto">
             <div className="flex items-center justify-between">
               <h1
-                className={`${merriweather.className} text-[2rem]  md:text-[3rem] uppercase font-semibold`}
+                className={`${merriweather.className} text-[2rem]  md:text-[3rem] uppercase`}
               >
                 About
               </h1>
@@ -37,7 +37,7 @@ function AboutPage() {
                   <li
                     key={index}
                     className={`${
-                      lightMode ? "hover:text-[#bae67e]" : "hover:text-[#fff]"
+                      lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"
                     }  hover:scale-[1.3] transition-all duration-300 ease-in-out`}
                   >
                     <Link href={link.href} target={link.target}>
@@ -47,8 +47,12 @@ function AboutPage() {
                 ))}
               </ul>
             </div>
-            <hr className="mb-[1rem] lg:mb-[1.5rem] border-[#444452]" />
-            <p className="lg:w-[75%] lg:text-[1.4rem]">
+            <hr
+              className={`${
+                lightMode ? "border-[#d1cece]" : "border-[#444452]"
+              } mb-[1rem] lg:mb-[1.5rem] `}
+            />
+            <p className="lg:w-[75%] lg:text-[1.4rem] mb-[0.5rem]">
               Hey, my name is Charles Bruyerre and I use Sharlee as my nickname
               across social medias. I’m a graphic designer, UX/UI designer &amp;
               front-end web developer from France. I’m also passionate about pop
@@ -56,23 +60,11 @@ function AboutPage() {
               I’m always curious to learn more when it comes to new technologies
               and creative coding.
             </p>
-            <div
-              className={`${
-                lightMode ? "hover:text-[#bae67e]" : "hover:text-[#fff]"
-              } group inline-flex gap-[0.5rem] items-center pt-[0.5rem] text-[#64748b] transition-all duration-200 ease-in-out mr-0`}
-            >
-              <Link
-                className="block font-semibold md:text-[1.1rem]"
-                href="/ifeanyi_iheme_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Full Resume
-              </Link>
-              <span className="group-hover:translate-x-[0.2rem] group-hover:-translate-y-[0.2rem] transition-all duration-300 ease-in-out">
-                <MdArrowOutward />
-              </span>
-            </div>
+            <SocialLink
+              href="/ifeanyi_iheme_resume.pdf"
+              title="View Full Resume"
+              classProp="md:text-[1.1rem]"
+            />
           </div>
         </div>
       </div>

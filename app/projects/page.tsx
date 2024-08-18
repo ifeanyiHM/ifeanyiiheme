@@ -3,7 +3,7 @@ import Image from "next/image";
 import usePortfolio from "../_context/usePortfolio";
 import GridBackground from "../Components/GridBackground";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { otherProjects, projects } from "../Data/PortfolioProps";
 import { merriweather } from "../fonts/fonts";
 
@@ -13,6 +13,32 @@ function Page() {
   );
 
   const { lightMode } = usePortfolio();
+
+  const animateWorksRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollDistance = window.scrollY;
+
+      animateWorksRef.current.forEach((work) => {
+        if (work) {
+          const workDistance = work.offsetTop;
+
+          if (scrollDistance >= workDistance - 150) {
+            work.classList.add("show-animate");
+          } else {
+            work.classList.remove("show-animate");
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleExpand = (index: number) => {
     setExpandedTexts((prev) => {
@@ -37,7 +63,15 @@ function Page() {
         </h2>
         <div className="flex flex-col gap-[5rem] lg:gap-[15rem]">
           {projects.map((project, index) => (
-            <div key={index}>
+            <div
+              className={index !== 0 ? "animate" : ""}
+              key={index}
+              ref={(el) => {
+                if (el) {
+                  animateWorksRef.current[index] = el;
+                }
+              }}
+            >
               <div className="relative w-full lg:w-[98%] pb-[47%] lg:pb-[44%]">
                 {project.images.map((image, idx) => {
                   const classes = [
@@ -46,25 +80,33 @@ function Page() {
                     "right-[1rem] md:right-[3rem] w-[14.25%] h-[58.53%]",
                   ];
                   return (
-                    <div
-                      key={idx}
-                      className={`${
-                        lightMode && idx > 0
-                          ? "shadow-[5px_-5px_5px_rgb(68,68,82,0.1),-5px_5px_5px_rgb(68,68,82,0.1)]"
-                          : idx === 0 && lightMode
-                          ? "shadow-[0_0_10px_rgb(68,68,82,0.3)] "
-                          : ""
-                      } ${classes[idx]} absolute bottom-0 rounded-[7px]`}
-                    >
-                      <Image
-                        className={`object-cover ${
-                          lightMode ? "rounded-[7px]" : " rounded-[3px]"
-                        } `}
-                        fill
-                        src={image.src}
-                        alt={image.alt}
-                      />
-                    </div>
+                    <>
+                      {" "}
+                      <div
+                        key={idx}
+                        className={`${
+                          lightMode && idx > 0
+                            ? "shadow-[5px_-5px_5px_rgb(68,68,82,0.1),-5px_5px_5px_rgb(68,68,82,0.1)]"
+                            : idx === 0 && lightMode
+                            ? "shadow-[0_0_10px_rgb(68,68,82,0.3)]"
+                            : ""
+                        } ${classes[idx]} absolute bottom-0 rounded-[7px]`}
+                      >
+                        <Image
+                          className={`object-cover ${
+                            lightMode ? "rounded-[7px]" : "rounded-[3px]"
+                          } `}
+                          fill
+                          src={image.src}
+                          alt={image.alt}
+                        />
+                      </div>
+                      {lightMode && (
+                        <div
+                          className={`${classes[idx]} absolute bg-[rgb(0,0,0,0.02)] bottom-0`}
+                        ></div>
+                      )}
+                    </>
                   );
                 })}
               </div>
@@ -132,7 +174,14 @@ function Page() {
           Other Projects
         </h2>
 
-        <table className="table-auto w-full xl:w-[98%] text-left">
+        <table
+          className="animate table-auto w-full xl:w-[98%] text-left"
+          ref={(el) => {
+            if (el) {
+              animateWorksRef.current[animateWorksRef.current.length] = el;
+            }
+          }}
+        >
           <thead>
             <tr
               className={`${

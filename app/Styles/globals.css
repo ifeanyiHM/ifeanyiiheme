@@ -22,7 +22,7 @@ body {
   color: #444452;
 }
 .lightMode .box {
-  border: 1px solid #bae67e;
+  border: 1px solid #007bff;
 }
 .lightMode .btn::before, .lightMode .btn::after {
   width: 15px;
@@ -180,15 +180,17 @@ body {
   width: 100%;
 }
 
-/* scrolling styles */
+/* project scrolling styles */
 .animate {
   opacity: 0;
   filter: blur(5px);
-  transition: 0.5s;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-out, transform 0.7s ease-out;
 }
 
-.show-animate .animate {
+.show-animate {
   opacity: 1;
+  transform: translateY(0);
   filter: blur(0px);
 }
 

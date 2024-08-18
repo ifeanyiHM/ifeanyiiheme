@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import usePortfolio from "../_context/usePortfolio";
 import { socialLinks, socials } from "../Data/PortfolioProps";
 import CrossGridBackground from "./CrossGridBackground";
+import AnimatedBackgroundBox from "./AnimatedBackgroundBox";
 
 function MenuPage() {
   const { lightMode, isMenuOpen, setIsMenuOpen } = usePortfolio();
@@ -62,7 +63,7 @@ function MenuPage() {
             <div className="hidden lg:block lg:mr-auto">
               <h1
                 className={`${
-                  lightMode ? "text-[#bae67e]" : "text-[#fff]"
+                  lightMode ? "text-[#007bff]" : "text-[#fff]"
                 } text-[0.8rem] uppercase`}
               >
                 socials
@@ -72,7 +73,7 @@ function MenuPage() {
                   <li
                     key={index}
                     className={`
-                    ${lightMode ? "hover:text-[#bae67e]" : "hover:text-[#fff]"}
+                    ${lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"}
                     transform transition-transform duration-300 ease-in-out 
                     ${isMenuOpen ? `${link.delay} scale-y-[1]` : "scale-y-0"}
                   `}
@@ -97,11 +98,11 @@ function MenuPage() {
                   ${
                     isActive
                       ? lightMode
-                        ? "text-[#bae67e]"
+                        ? "text-[#007bff]"
                         : "text-[#fff]"
                       : "text-[#64748b]"
                   }
-                  ${lightMode ? "hover:text-[#bae67e]" : "hover:text-[#fff]"}
+                  ${lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"}
                   group flex gap-[0.5rem] items-center 
                   transition-[transform] duration-300 ease-in-out lg:mr-auto
                   ${isMenuOpen ? `${link.delay} scale-y-[1]` : "scale-y-0"}
@@ -111,12 +112,12 @@ function MenuPage() {
                     className={`
                     ${
                       isActive
-                        ? `w-[4rem] ${lightMode ? "bg-[#bae67e]" : "bg-[#fff]"}`
+                        ? `w-[4rem] ${lightMode ? "bg-[#007bff]" : "bg-[#fff]"}`
                         : "bg-[#64748b] w-[2.5rem]"
                     }
                     ${
                       lightMode
-                        ? "group-hover:bg-[#bae67e]"
+                        ? "group-hover:bg-[#007bff]"
                         : "group-hover:bg-[#fff]"
                     }
                     
@@ -137,7 +138,7 @@ function MenuPage() {
             <li
               key={index}
               className={`${
-                lightMode ? "hover:text-[#bae67e]" : "hover:text-[#fff]"
+                lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"
               }  hover:scale-[1.2] transition-all duration-300 ease-in-out`}
             >
               <Link href={link.href} target={link.target}>
@@ -147,11 +148,7 @@ function MenuPage() {
           ))}
         </ul>
 
-        {Array(6)
-          .fill(null)
-          .map((_, index) => (
-            <div key={index} className="box w-[0.625rem] h-[0.625rem]"></div>
-          ))}
+        <AnimatedBackgroundBox />
       </div>
     </div>
   );

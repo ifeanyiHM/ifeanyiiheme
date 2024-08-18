@@ -31,10 +31,9 @@ body {
     #fff;
   background-attachment: fixed;
   color: #444452;
-  // color: #f5f4f4;
 
   .box {
-    border: 1px solid #bae67e;
+    border: 1px solid #007bff;
   }
 
   .btn {
@@ -220,15 +219,17 @@ body {
   }
 }
 
-/* scrolling styles */
+/* project scrolling styles */
 .animate {
   opacity: 0;
   filter: blur(5px);
-  transition: 0.5s;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-out, transform 0.7s ease-out;
 }
 
-.show-animate .animate {
+.show-animate {
   opacity: 1;
+  transform: translateY(0);
   filter: blur(0px);
 }
 
