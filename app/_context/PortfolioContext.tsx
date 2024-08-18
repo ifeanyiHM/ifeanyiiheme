@@ -39,10 +39,10 @@ function PortfolioProvider({ children }: PortfolioProviderProps) {
   useEffect(() => {
     if (lightMode) {
       document.body.classList.add("lightMode");
-      document.body.classList.remove("dark");
+      // document.body.classList.remove("dark");
     } else {
       document.body.classList.remove("lightMode");
-      document.body.classList.add("dark");
+      // document.body.classList.add("dark");
     }
   }, [lightMode]);
 

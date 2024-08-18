@@ -7,12 +7,14 @@ import { MdArrowOutward } from "react-icons/md";
 
 import Link from "next/link";
 import { merriweather } from "../fonts/fonts";
+import CrossGridBackground from "../Components/CrossGridBackground";
 
 function AboutPage() {
   const { lightMode, isMenuOpen } = usePortfolio();
 
   return (
     <>
+      {lightMode && <CrossGridBackground />}
       <div className="flex flex-col md:flex-row-reverse  px-[1.5rem] md:px-0 gap-[1.5rem] md:gap-0 min-h-screen mt-[4.3rem] md:mt-0 ">
         <div className="relative md:top-0 w-full md:w-[47%] lg:w-[23%] h-[60vh] md:h-[78vh] lg:h-[87vh]">
           <Image
