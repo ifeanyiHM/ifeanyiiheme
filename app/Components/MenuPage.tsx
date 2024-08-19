@@ -23,11 +23,11 @@ function MenuPage() {
     <div
       className={`${lightMode ? "bg-[#fff]" : "bg-[#0f172a] "}
         ${!isMenuOpen ? "opacity-0 delay-[0.5s] z-[-1]" : "opacity-100 z-[50]"}
-         fixed w-full top-0 bottom-0 left-0 right-0 bg-[#0f172a] transition-all duration-700 ease-in-out `}
+         fixed w-full top-0 left-0 right-0 bg-[#0f172a] transition-all duration-700 ease-in-out `}
     >
       <CrossGridBackground />
 
-      <div className="relative h-screen flex flex-col gap-[3rem] md:justify-around pt-[5rem] pb-[1rem]">
+      <div className="relative h-screen flex flex-col gap-[3rem] md:justify-around pt-[7rem] pb-[1rem] md:py-0">
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
           <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
             <div>
