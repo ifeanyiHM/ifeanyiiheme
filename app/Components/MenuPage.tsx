@@ -27,7 +27,7 @@ function MenuPage() {
     >
       <CrossGridBackground />
 
-      <div className="relative h-[100svh] flex flex-col gap-[5rem] md:gap-[3rem] md:justify-around pt-[7rem] pb-[1rem] md:py-0">
+      <div className="relative h-[100svh] flex flex-col gap-[6rem] md:gap-[3rem] md:justify-around pt-[7rem] pb-[1rem] md:py-0">
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
           <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
             <div>
@@ -72,7 +72,7 @@ function MenuPage() {
         </div>
 
         {/* to be displayed on mobile */}
-        <ul className="list-none lg:hidden ml-[5rem] md:ml-[7rem] flex gap-[1rem] md:gap-[1.5rem] text-[1.5rem] md:text-[2rem] text-[#64748b]">
+        <ul className="list-none lg:hidden ml-[1rem] md:ml-[7rem] flex gap-[1rem] md:gap-[1.5rem] text-[1.5rem] md:text-[2rem] text-[#64748b]">
           {socialsMobile.map((link, index) => (
             <SocialMobile key={index} link={link} />
           ))}
