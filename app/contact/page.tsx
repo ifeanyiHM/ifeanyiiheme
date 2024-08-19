@@ -50,13 +50,22 @@ function Page() {
             </h2>
             <ul className="w-[60%] md:w-[50%] lg:w-auto flex flex-col gap-[0.4rem] md:text-[1.5rem]">
               <li>
-                <SocialLink href="#" title="Github" />
+                <SocialLink
+                  href="https://github.com/ifeanyiHM"
+                  title="Github"
+                />
               </li>
               <li>
-                <SocialLink href="#" title="Linkedin" />
+                <SocialLink
+                  href="https://www.linkedin.com/in/ifeanyihm/"
+                  title="Linkedin"
+                />
               </li>
               <li>
-                <SocialLink href="#" title="Twitter" />
+                <SocialLink
+                  href="https://twitter.com/ifeanyimichaell"
+                  title="Twitter"
+                />
               </li>
             </ul>
           </div>
