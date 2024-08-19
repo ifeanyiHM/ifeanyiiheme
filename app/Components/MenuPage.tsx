@@ -27,7 +27,7 @@ function MenuPage() {
     >
       <CrossGridBackground />
 
-      <div className="relative h-screen flex flex-col justify-center md:justify-around  gap-[3rem]">
+      <div className="relative h-screen flex flex-col justify-between md:justify-around pt-[4rem] pb-[1rem]">
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
           <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
             <div>
@@ -62,7 +62,7 @@ function MenuPage() {
           <ul
             className={`${
               lightMode ? "text-[#64748b]" : "text-[#444452]"
-            } menu  ml-[3rem] md:m-0 lg:w-[60%] list-none flex flex-col gap-[1rem] md:gap-[2rem] lg:gap-[0.5rem]  text-[1.8rem] md:text-[2.5rem] lg:text-[3rem] md:font-semibold lg:font-bold`}
+            } menu  ml-[3rem] md:m-0 lg:w-[60%] list-none flex flex-col gap-[0.5rem] md:gap-[1.5rem] lg:gap-[0.5rem] text-[1.8rem] md:text-[2.5rem] lg:text-[3rem] md:font-semibold lg:font-bold`}
           >
             {menuItems.map((link, index) => {
               const isActive = pathName === link.href;
