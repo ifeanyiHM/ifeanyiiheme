@@ -6,7 +6,7 @@ function SideNav() {
   const { lightMode } = usePortfolio();
 
   return (
-    <div className="fixed h-screen top-0 left-[1rem] flex flex-col justify-between py-[5rem]">
+    <div className="hidden xl:flex fixed h-screen top-0 left-[1rem] flex-col justify-between py-[5rem]">
       <div className="flex flex-col items-center gap-[3rem]">
         <span
           className={`${
