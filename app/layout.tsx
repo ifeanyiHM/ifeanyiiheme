@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/app/styles/globals.css";
+import "./Styles/globals.css";
 import { PortfolioProvider } from "./_context/PortfolioContext";
 import Navigation from "./Components/Navigation";
 import MenuPage from "./Components/MenuPage";
