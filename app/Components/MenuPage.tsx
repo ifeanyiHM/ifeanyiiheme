@@ -27,7 +27,7 @@ function MenuPage() {
     >
       <CrossGridBackground />
 
-      <div className="relative h-screen flex flex-col justify-between md:justify-around pt-[4rem] pb-[1rem]">
+      <div className="relative h-screen flex flex-col gap-[3rem] md:justify-around pt-[5rem] pb-[1rem]">
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
           <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
             <div>
