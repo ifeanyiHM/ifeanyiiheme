@@ -26,7 +26,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <h2 className="text-[1.75rem] my-[2rem] font-[300] sm:text-[2rem] md:text-[2.25rem] lg:text-[3rem] max-w-[47rem]">
+          <h2 className="text-[1.75rem] my-[1rem] md:my-[2rem] font-[300] sm:text-[2rem] md:text-[2.25rem] lg:text-[3rem] max-w-[47rem]">
             I&apos;m <span className="font-bold">Ifeanyi Iheme</span>
             <Image
               className=" inline pb-[0.5rem] md:pb-[1rem] w-[0.875rem] md:w-[1.125rem]"
