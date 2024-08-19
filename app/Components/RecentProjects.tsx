@@ -22,6 +22,29 @@ function RecentProjects({ project, index }: WorkProps) {
     150
   );
 
+  //   useEffect(() => {
+  //     const handleScroll = () => {
+  //       const scrollDistance = window.scrollY;
+
+  //       animateWorksRef.current.forEach((work) => {
+  //         if (work) {
+  //           const workDistance = work.offsetTop;
+
+  //           if (scrollDistance >= workDistance - 150) {
+  //             work.classList.add("show-animate");
+  //           } else {
+  //             work.classList.remove("show-animate");
+  //           }
+  //         }
+  //       });
+  //     };
+  //     window.addEventListener("scroll", handleScroll);
+
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll);
+  //     };
+  //   }, []);
+
   const toggleExpand = (index: number) => {
     setExpandedTexts((prev) => {
       const newText = [...prev];

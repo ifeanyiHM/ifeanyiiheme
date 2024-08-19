@@ -13,6 +13,29 @@ function OtherProjects() {
     200
   );
 
+  //   useEffect(() => {
+  //     const handleScroll = () => {
+  //       const scrollDistance = window.scrollY;
+
+  //       animateWorksRef.current.forEach((work) => {
+  //         if (work) {
+  //           const workDistance = work.offsetTop;
+
+  //           if (scrollDistance >= workDistance - 150) {
+  //             work.classList.add("show-animate");
+  //           } else {
+  //             work.classList.remove("show-animate");
+  //           }
+  //         }
+  //       });
+  //     };
+  //     window.addEventListener("scroll", handleScroll);
+
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll);
+  //     };
+  //   }, []);
+
   return (
     <table
       className="animate table-auto w-full xl:w-[98%] text-left"
