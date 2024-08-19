@@ -93,31 +93,69 @@ body {
 }
 
 .wave {
-  &:hover {
-    animation: smooth 1s ease-in-out 0.2s 1;
+  animation: waving 2.5s ease-in-out 1;
+  transform-origin: 70% 70%;
+}
 
-    @keyframes smooth {
-      0% {
-        transform: translateY(-5px);
-      }
+.wave:hover {
+  animation: waving 2.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
 
-      50% {
-        transform: translateY(7px);
-      }
+@keyframes waving {
+  0% {
+    transform: rotate(-5px);
+  }
 
-      100% {
-        transform: translateY(0);
-      }
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.pointing {
+  animation: pointing 0.8s ease-in-out infinite alternate;
+  transform-origin: left;
+}
+
+@keyframes pointing {
+  0% {
+    transform: scaleX(1.1);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
 
 .mail-address {
   span {
+    border-bottom: 4px solid #007bff;
+    transition: border-bottom 0s ease 3s, transform 0.3s ease;
     transition-delay: 0.5s;
   }
 
   &:hover span {
+    border: 0;
     transform: translateY(-100%);
     transition-delay: 0s;
   }
@@ -139,6 +177,26 @@ body {
     transform: scaleX(1);
     transform-origin: right;
     transition-delay: 0.5s;
+  }
+}
+
+.mode {
+  &:hover {
+    animation: smooth 1s ease-in-out 0.2s 1;
+
+    @keyframes smooth {
+      0% {
+        transform: translateY(-5px);
+      }
+
+      50% {
+        transform: translateY(7px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
   }
 }
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { otherProjects, projects } from "../Data/PortfolioProps";
 import { merriweather } from "../fonts/fonts";
+import SideNav from "../Components/SideNav";
 
 function Page() {
   const [expandedTexts, setExpandedTexts] = useState<boolean[]>(
@@ -51,6 +52,7 @@ function Page() {
   return (
     <div>
       <GridBackground />
+      <SideNav />
       <div className="w-[80.47%] mx-auto mb-[2rem]">
         <h1
           className={`${merriweather.className} text-[2rem] my-[5rem] md:my-[7rem] md:text-[3rem] uppercase`}

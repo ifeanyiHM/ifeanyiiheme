@@ -42,7 +42,7 @@ function Navigation() {
             rounded-lg  h-[0.125rem] xl:h-[0.1rem]  ml-auto transition-all duration-300 ease-in-out`}
         ></span>
       </span>
-      <span className="text-[1.3rem] wave">
+      <span className="text-[1.3rem] mode">
         <MdOutlineLightMode />
       </span>
       <span
@@ -51,7 +51,7 @@ function Navigation() {
           lightMode ? "switchBtnL" : ""
         } cursor-pointer switchBtnR `}
       ></span>
-      <span className="text-[1.3rem] wave">
+      <span className="text-[1.3rem] mode">
         <MdOutlineDarkMode />
       </span>
     </nav>

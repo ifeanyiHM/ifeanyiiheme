@@ -4,6 +4,7 @@ import SocialLink from "../Components/SocialLink";
 import usePortfolio from "../_context/usePortfolio";
 import GridBackground from "../Components/GridBackground";
 import AnimatedBackgroundBox from "../Components/AnimatedBackgroundBox";
+import SideNav from "../Components/SideNav";
 
 function Page() {
   const { lightMode } = usePortfolio();
@@ -11,6 +12,7 @@ function Page() {
   return (
     <>
       <GridBackground />
+      <SideNav />
       <div className="flex flex-col justify-center w-full h-screen px-[1.5rem] md:px-[3rem] lg:0 lg:w-[90%] xl:w-[70%] mx-auto">
         <h1
           className={`${merriweather.className} text-[2rem] md:text-[3rem] uppercase`}
@@ -19,7 +21,7 @@ function Page() {
         </h1>
         <hr
           className={`${
-            lightMode ? "border-[rgb(209,206,206)]" : "border-[#444452]"
+            lightMode ? "border-[#d1cece]" : "border-[#64748b]"
           } mt-[0.5rem] mb-[1.5rem] lg:mb-[2rem]`}
         />
         <div className="flex flex-col lg:flex-row lg:items-baseline lg:justify-between xl:justify-normal lg:w-[95%] xl:w-full gap-[1.5rem] lg:gap-0">

@@ -19,18 +19,66 @@ export const defaultPortfolioProps: PortfolioContextProps = {
   setIsMenuOpen: () => {},
 };
 
-export const socials = [
-  { title: "email", href: "#", delay: "delay-[700ms]" },
-  { title: "twitter", href: "#", delay: "delay-[800ms]" },
-  { title: "linkedin", href: "#", delay: "delay-[900ms]" },
-  { title: "github", href: "#", delay: "delay-[1000ms]" },
+export const menuItems = [
+  { href: "/", title: "WelcOme", delay: "delay-[500ms]" },
+  { href: "/about", title: "BackGrouNd", delay: "delay-[600ms]" },
+  { href: "/skills", title: "sKIlLs", delay: "delay-[700ms]" },
+  { href: "/projects", title: "ProJecTs", delay: "delay-[800ms]" },
+  { href: "/contact", title: "ConTaCt", delay: "delay-[900ms]" },
+  {
+    href: "/ifeanyi_iheme_resume.pdf",
+    target: "_blank",
+    title: "ResUme",
+    delay: "delay-[900ms]",
+  },
 ];
 
-export const socialLinks = [
-  { href: "#", icon: <AiOutlineMail />, target: "_blank" },
-  { href: "#", icon: <BsLinkedin />, target: "_blank" },
-  { href: "#", icon: <RiTwitterXFill />, target: "_blank" },
-  { href: "#", icon: <FaGithub />, target: "_blank" },
+export const recentWorks = [
+  {
+    title: "inkshare",
+    link: "https://inkshare.vercel.app/",
+    delay: "delay-[0.7s]",
+  },
+  {
+    title: "kickoffkit",
+    link: "https://kickoffkit.vercel.app/",
+    delay: "delay-[0.8s]",
+  },
+  {
+    title: "pheonixGlobal",
+    link: "https://1502properties.com/",
+    delay: "delay-[0.9s]",
+  },
+];
+
+export const socialsDesktop = [
+  {
+    title: "email",
+    href: "mailto:ifeanyihm@gmail.com",
+    delay: "delay-[700ms]",
+  },
+  {
+    title: "twitter",
+    href: "https://twitter.com/ifeanyimichaell",
+    delay: "delay-[800ms]",
+  },
+  {
+    title: "linkedin",
+    href: "https://www.linkedin.com/in/ifeanyihm/",
+    delay: "delay-[900ms]",
+  },
+  {
+    title: "github",
+    href: "https://github.com/ifeanyiHM",
+    delay: "delay-[1000ms]",
+  },
+];
+
+export const socialsMobile = [
+  { href: "mailto:ifeanyihm@gmail.com", icon: <AiOutlineMail /> },
+  { href: "https://www.linkedin.com/in/ifeanyihm/", icon: <BsLinkedin /> },
+  { href: "https://twitter.com/ifeanyimichaell", icon: <RiTwitterXFill /> },
+  { href: "https://github.com/ifeanyiHM", icon: <FaGithub /> },
 ];
 
 export const skillCategories = [

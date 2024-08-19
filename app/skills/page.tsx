@@ -1,6 +1,7 @@
 "use client";
 import usePortfolio from "../_context/usePortfolio";
 import GridBackground from "../Components/GridBackground";
+import SideNav from "../Components/SideNav";
 import { skillCategories } from "../Data/PortfolioProps";
 import { merriweather } from "../fonts/fonts";
 
@@ -10,6 +11,7 @@ function Page() {
   return (
     <>
       <GridBackground />
+      <SideNav />
       {/* bg-[#121213] rgba(22,26,49,0.5)*/}
       <div className="lg:flex flex-col lg:items-center lg:justify-center w-full min-h-screen">
         <h1
@@ -34,7 +36,7 @@ function Page() {
               <div key={index} className="flex flex-col gap-[0.5rem]">
                 <h2
                   className={`${
-                    lightMode ? "text-[#bae67e]" : "text-[#fff]"
+                    lightMode ? "text-[#007bff]" : "text-[#fff]"
                   } mb-[0.5rem] md:text-[1.4rem]`}
                 >
                   {category.title}
