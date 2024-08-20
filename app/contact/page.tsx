@@ -13,7 +13,7 @@ function Page() {
     <>
       <GridBackground />
       <SideNav />
-      <div className="flex flex-col justify-center w-full h-screen px-[1.5rem] md:px-[3rem] lg:0 lg:w-[90%] xl:w-[70%] mx-auto">
+      <div className="flex flex-col justify-center w-full h-[100svh] px-[1.5rem] md:px-[3rem] lg:0 lg:w-[90%] xl:w-[70%] mx-auto">
         <h1
           className={`${merriweather.className} text-[2rem] md:text-[3rem] uppercase`}
         >
