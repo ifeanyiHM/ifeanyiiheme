@@ -12,10 +12,10 @@ function Page() {
     <>
       <GridBackground />
       <SideNav />
-      {/* bg-[#121213] rgba(22,26,49,0.5)*/}
-      <div className="lg:flex flex-col lg:items-center lg:justify-center w-full min-h-screen">
+
+      <div className="lg:flex flex-col lg:items-center lg:justify-center w-full min-h-[100svh]">
         <h1
-          className={`${merriweather.className} lg:hidden text-[2rem] pt-[7rem] pb-[1rem] md:pb-[2rem] ml-[4rem] md:w-[65%] md:mx-auto md:text-[3rem] uppercase `}
+          className={`${merriweather.className} lg:hidden text-[2rem] pt-[6rem] pb-[1rem] md:pb-[2rem] ml-[4rem] md:w-[65%] md:mx-auto md:text-[3rem] uppercase `}
         >
           Skill
         </h1>
