@@ -3,6 +3,7 @@ import { MdOutlineLightMode } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 import usePortfolio from "../_context/usePortfolio";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 function Navigation() {
   const { lightMode, setLightMode, isMenuOpen, setIsMenuOpen } = usePortfolio();

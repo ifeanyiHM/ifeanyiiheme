@@ -21,10 +21,10 @@ export const defaultPortfolioProps: PortfolioContextProps = {
 
 export const menuItems = [
   { href: "/", title: "WelcOme", delay: "delay-[500ms]" },
-  { href: "/about", title: "BackGrouNd", delay: "delay-[600ms]" },
+  { href: "/about", title: "AbOuT", delay: "delay-[600ms]" },
   { href: "/skills", title: "sKIlLs", delay: "delay-[700ms]" },
   { href: "/projects", title: "ProJecTs", delay: "delay-[800ms]" },
-  { href: "/contact", title: "ConTaCt", delay: "delay-[900ms]" },
+  { href: "/contact", title: "ConTaCts", delay: "delay-[900ms]" },
   {
     href: "/ifeanyi_iheme_resume.pdf",
     target: "_blank",

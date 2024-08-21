@@ -1,6 +1,5 @@
-import { usePathname } from "next/navigation";
-import usePortfolio from "../_context/usePortfolio";
 import Link from "next/link";
+import usePortfolio from "../_context/usePortfolio";
 
 interface MenuItemsProps {
   link: {
@@ -14,8 +13,6 @@ interface MenuItemsProps {
 
 function MenuItems({ link, isActive }: MenuItemsProps) {
   const { lightMode, isMenuOpen, setIsMenuOpen } = usePortfolio();
-
-  const pathName = usePathname();
 
   return (
     <li

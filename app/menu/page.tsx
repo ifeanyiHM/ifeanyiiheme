@@ -1,54 +1,90 @@
 "use client";
-import Link from "next/link";
-import GridBackground from "../Components/GridBackground";
 import { usePathname } from "next/navigation";
 
-function Page() {
+import usePortfolio from "../_context/usePortfolio";
+import CrossGridBackground from "../Components/CrossGridBackground";
+import MenuItems from "../Components/MenuItems";
+import AnimatedBackgroundBox from "../Components/AnimatedBackgroundBox";
+import {
+  menuItems,
+  recentWorks,
+  socialsDesktop,
+  socialsMobile,
+} from "../Data/PortfolioProps";
+import {
+  RecentWorks,
+  SocialDesktop,
+  SocialMobile,
+} from "../Components/OtherMenuItems";
+
+function MenuPage() {
+  const { lightMode, isMenuOpen } = usePortfolio();
+
   const pathName = usePathname();
-  const links = [
-    { href: "/", title: "welcome" },
-    { href: "/about", title: "background" },
-    { href: "/projects", title: "projects" },
-    { href: "/contact", title: "contact" },
-    { href: "/contact", title: "resume" },
-  ];
 
   return (
-    <>
-      <GridBackground />
+    <div
+      className={`${lightMode ? "bg-[#fff]" : "bg-[#0f172a] "}
+        ${!isMenuOpen ? "opacity-100 z-[50]" : "opacity-100 z-[50]"}
+         fixed w-full top-0 left-0 right-0 bg-[#0f172a] transition-all duration-700 ease-in-out `}
+    >
+      <CrossGridBackground />
 
-      <div className="relative h-screen flex flex-col justify-center gap-[3rem] px-[3.125rem] sm:px-[6.25rem] md:px-[9rem] xl:px-0 ">
-        <ul className="menu flex flex-col  gap-[1.5rem] md:gap-[3rem] xl:gap-[1.5rem]  text-[1.8rem] md:text-[2.1rem] xl:text-[2.8rem] font-bold uppercase text-[#64748b]">
-          {links.map((link, index) => {
-            const isActive = pathName.startsWith(link.href);
-            return (
-              <li
-                key={index}
+      <div className="relative h-[100svh] flex flex-col gap-[6rem] md:gap-[3rem] md:justify-around pt-[7rem] pb-[1rem] md:py-0">
+        <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
+          <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
+            <div>
+              <h1 className="text-[1.2rem] uppercase">recent works</h1>
+
+              {/* recent works */}
+              <ul className="text-[1.9rem] font-bold">
+                {recentWorks.map((item, index) => (
+                  <RecentWorks key={index} item={item} />
+                ))}
+              </ul>
+            </div>
+
+            {/* To be displayed on desktop */}
+            <div className="hidden lg:block lg:mr-auto">
+              <h1
                 className={`${
-                  isActive ? "text-[#fff]" : "text-[#64748b]"
-                }  group hover:text-[#fff]  flex gap-[0.5rem] items-center transition-all duration-300 ease-in-out`}
+                  lightMode ? "text-[#007bff]" : "text-[#fff]"
+                } text-[0.8rem] uppercase`}
               >
-                <hr
-                  className={`${
-                    isActive ? "bg-[#fff] w-[5rem]" : "bg-[#64748b] w-[3rem]"
-                  } group-hover:w-[5rem] transition-all duration-300 ease-in-out  group-hover:bg-[#fff] border-0 h-[1px] w-[3rem]`}
-                />
+                socials
+              </h1>
+              <ul className="text-[1.2rem] font-bold underline uppercase">
+                {socialsDesktop.map((link, index) => (
+                  <SocialDesktop key={index} link={link} />
+                ))}
+              </ul>
+            </div>
+          </div>
 
-                <Link href={link.href}>{link.title}</Link>
-              </li>
-            );
-          })}
+          {/* menu list */}
+          <ul
+            className={`${
+              lightMode ? "text-[#64748b]" : "text-[#444452]"
+            } menu  ml-[3rem] md:m-0 lg:w-[60%] list-none flex flex-col gap-[0.5rem] md:gap-[1.5rem] lg:gap-[0.5rem] text-[1.8rem] md:text-[2.5rem] lg:text-[3rem] md:font-semibold lg:font-bold`}
+          >
+            {menuItems.map((link, index) => {
+              const isActive = pathName === link.href;
+              return <MenuItems key={index} link={link} isActive={isActive} />;
+            })}
+          </ul>
+        </div>
+
+        {/* to be displayed on mobile */}
+        <ul className="list-none lg:hidden ml-[1rem] md:ml-[7rem] flex gap-[1rem] md:gap-[1.5rem] text-[1.5rem] md:text-[2rem] text-[#64748b]">
+          {socialsMobile.map((link, index) => (
+            <SocialMobile key={index} link={link} />
+          ))}
         </ul>
-        <div>lsdl;sdls;dl;</div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
+
+        <AnimatedBackgroundBox />
       </div>
-    </>
+    </div>
   );
 }
 
-export default Page;
+export default MenuPage;
