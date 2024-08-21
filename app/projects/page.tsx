@@ -140,7 +140,7 @@ function Page() {
                   {expandedTexts[index]
                     ? project.description
                     : `${project.description.slice(0, 70)}`}
-                  <span className="hidden lg:table-cell">
+                  <span className="hidden lg:inline">
                     {project.description.slice(70)}
                   </span>
                   <>

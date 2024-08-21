@@ -28,16 +28,23 @@ function SkillsSkeleton() {
               <div
                 className={`${
                   lightMode ? "bg-gray-300" : "bg-[#050f27]"
-                } mb-[0.5rem] w-[5.5rem] md:w-[6.5rem] h-[1rem] rounded-[8px] md:h-[1.5rem] bg-[1rem] md:bg-[1.4rem]`}
+                } mb-[0.5rem] w-[5.5rem] md:w-[6.5rem] h-[1rem] rounded-[4px] md:h-[1.5rem] bg-[1rem] md:bg-[1.4rem]`}
               ></div>
-              {Array.from({ length: 5 }).map((_, idx) => (
-                <div
-                  key={idx}
-                  className={`${
-                    lightMode ? "bg-gray-300" : "bg-[#050f27] "
-                  } bg-[1rem] mt-[0.5rem] w-[5rem] md:w-[5.5rem] rounded-[8px] h-[1rem] md:h-[1.3rem] md:bg-[1.2rem]`}
-                ></div>
-              ))}
+              <div
+                className={`${
+                  lightMode ? "bg-gray-300" : "bg-[#050f27]"
+                } flex flex-col gap-[0.5rem] rounded-[8px] w-[5rem] md:w-[5.5rem]`}
+              >
+                {Array.from({
+                  length:
+                    index === 0 ? 5 : index === 1 ? 4 : index === 2 ? 3 : 2,
+                }).map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`bg-[1rem] mt-[0.5rem] w-[5rem] md:w-[5.5rem] h-[1rem] md:h-[1.3rem] md:bg-[1.2rem]`}
+                  ></div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

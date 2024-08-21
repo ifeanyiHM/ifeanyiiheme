@@ -18,20 +18,17 @@ function AboutSkeleton() {
             <h1
               className={`${
                 lightMode ? "bg-gray-300" : "bg-[#050f27]"
-              } h-[2.5rem] md:h-[3.8rem] lg:h-[3.5rem] w-[7rem] md:w-[10rem] lg:w-[11rem rounded-[0.5rem]`}
+              } h-[2.5rem] md:h-[3.8rem] lg:h-[3.5rem] w-[7rem] md:w-[10rem] lg:w-[11rem] rounded-[0.5rem]`}
             ></h1>
-            <ul className="list-none flex gap-[1rem] text-[1rem] md:text-[1.2rem] text-[#64748b]">
+            <ul
+              className={`${
+                lightMode ? "bg-gray-300" : "bg-[#050f27]"
+              } list-none flex gap-[1rem] rounded-[0.2rem]`}
+            >
               {Array.from({ length: 4 }).map((_, index) => (
-                <li
-                  key={index}
-                  className={`${
-                    lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"
-                  }  hover:scale-[1.3] transition-all duration-300 ease-in-out`}
-                >
+                <li key={index}>
                   <div
-                    className={`${
-                      lightMode ? "bg-gray-300" : "bg-[#050f27]"
-                    } h-[1.2rem] w-[1rem] md:w-[1.2rem]  md:h-[1.7rem] rounded-[0.2rem]`}
+                    className={` h-[1.2rem] w-[1rem] md:w-[1.2rem] md:h-[1.7rem]`}
                   ></div>
                 </li>
               ))}
