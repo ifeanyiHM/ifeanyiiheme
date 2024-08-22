@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Ifeanyi Iheme",
     images: [
       {
-        url: "https://ifeanyiiheme.vercel.app/opengraph-image.png",
+        url: "https://ifeanyiiheme.vercel.app/images/opengraph-image.png",
         width: 1280,
         height: 800,
         type: "image/png",
