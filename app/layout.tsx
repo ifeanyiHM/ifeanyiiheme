@@ -29,6 +29,28 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
   },
+  twitter: {
+    card: "summary",
+    site: "https://yourwebsite.com/",
+    // site: "@yourtwitterhandle",
+    creator: "@yourtwitterhandle",
+    title: "Ifeanyi Iheme | Front-End Engineer",
+    description:
+      "Front-end engineer passionate about solving problems and creating beautiful, easy-to-use web interfaces.",
+    images: [
+      {
+        url: "https://yourwebsite.com/img/og.png",
+      },
+    ],
+  },
+  keywords: [
+    "front-end",
+    "development",
+    "web",
+    "ifeanyi",
+    "iheme",
+    "javascript",
+  ],
 };
 
 export default function RootLayout({
@@ -43,7 +65,7 @@ export default function RootLayout({
       <body className={`${sourceSans.className} bg-[#0f172a] text-[#e7e7e7] `}>
         <PortfolioProvider>
           <>
-            <Navigation />
+            {/* <Navigation /> */}
             <MenuPage />
             {children}
           </>
