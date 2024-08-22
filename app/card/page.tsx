@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CrossGridBackground from "../Components/CrossGridBackground";
+// import CrossGridBackground from "../Components/CrossGridBackground";
 // import { merriweather } from "../fonts/fonts";
 import { Poppins } from "next/font/google";
 
