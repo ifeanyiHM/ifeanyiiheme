@@ -18,12 +18,13 @@ function ProjectPage() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollDistance = window.scrollY;
+      const threshold = window.innerWidth >= 768 ? 300 : 400;
 
       animateWorksRef.current.forEach((work) => {
         if (work) {
           const workDistance = work.offsetTop;
 
-          if (scrollDistance >= workDistance - 300) {
+          if (scrollDistance >= workDistance - threshold) {
             work.classList.add("show-animate");
           } else {
             work.classList.remove("show-animate");

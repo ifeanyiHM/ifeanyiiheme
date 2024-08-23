@@ -71,11 +71,20 @@ function MenuPage() {
         </div>
 
         {/* to be displayed on mobile */}
-        <ul className="list-none lg:hidden ml-[1rem] md:ml-[7rem] flex gap-[1rem] md:gap-[1.5rem] text-[1.5rem] md:text-[2rem] text-[#64748b]">
-          {socialsMobile.map((link, index) => (
-            <SocialMobile key={index} link={link} />
-          ))}
-        </ul>
+        <div className="lg:hidden flex items-center justify-between mx-[1rem] md:mx-[7rem]">
+          <ul className="list-none flex gap-[1rem] md:gap-[1.5rem] text-[1.2rem] md:text-[2rem] text-[#64748b]">
+            {socialsMobile.map((link, index) => (
+              <SocialMobile key={index} link={link} />
+            ))}
+          </ul>
+          <span
+            className={` ${
+              lightMode ? " text-[#444452]" : " text-[#64748b]"
+            }  tracking-[0.2rem]`}
+          >
+            ©/2024
+          </span>
+        </div>
 
         <AnimatedBackgroundBox />
       </div>
