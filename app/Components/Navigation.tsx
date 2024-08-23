@@ -45,9 +45,9 @@ function Navigation() {
         ></span>
       </span>
       <span
-        className={`${
-          isAboutPage && !isMenuOpen ? "md:hidden" : ""
-        } text-[1.3rem] mode`}
+        className={`${isAboutPage && !isMenuOpen ? "md:hidden" : ""} ${
+          lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
+        }  text-[1.3rem] mode`}
       >
         <MdOutlineLightMode />
       </span>
@@ -58,8 +58,8 @@ function Navigation() {
         } cursor-pointer switchBtnR `}
       ></span>
       <span
-        className={`${
-          isAboutPage && !isMenuOpen ? "md:hidden" : ""
+        className={`${isAboutPage && !isMenuOpen ? "md:hidden" : ""} ${
+          lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
         } text-[1.3rem] mode`}
       >
         <MdOutlineDarkMode />

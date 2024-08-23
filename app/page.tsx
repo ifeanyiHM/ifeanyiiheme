@@ -11,7 +11,11 @@ export default function Home() {
   return (
     <>
       {lightMode && <GridBackground />}
-      <header className="flex flex-col h-[100svh] xl:h-full">
+      <header
+        className={` ${
+          lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
+        } flex flex-col h-[100svh] xl:h-full`}
+      >
         <div className="flex-grow flex flex-col justify-between sm:my-[5rem] xl:mt-[2rem] xl:mb-[0] pl-[1.8rem] pr-[3.125rem] sm:px-[6.25rem] pt-[3.575rem] sm:pt-[5.5rem] xl:pt-[5.2rem] xl:pb-0">
           <div className="flex items-center gap-[1rem] lg:gap-[1.5rem] mt-[3rem] mb-[1rem] md:my-[1rem]">
             <h1 className=" text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]">

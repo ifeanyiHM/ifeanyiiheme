@@ -58,7 +58,7 @@ export default function RootLayout({
     <html lang="en">
       {/* bg-[#171c28]  */}
 
-      <body className={`${sourceSans.className} bg-[#0f172a] text-[#e7e7e7] `}>
+      <body className={`${sourceSans.className} bg-[#0f172a] text-[#94a3b8] `}>
         <PortfolioProvider>
           <>
             <Navigation />

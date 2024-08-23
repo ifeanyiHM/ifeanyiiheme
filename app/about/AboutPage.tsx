@@ -29,7 +29,9 @@ function AboutPage() {
           <div className="md:max-w-[78%] md:mx-auto">
             <div className="flex items-center justify-between">
               <h1
-                className={`${merriweather.className} text-[2rem]  md:text-[3rem] uppercase`}
+                className={`${merriweather.className} ${
+                  lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
+                } text-[2rem]  md:text-[3rem] uppercase`}
               >
                 About
               </h1>
