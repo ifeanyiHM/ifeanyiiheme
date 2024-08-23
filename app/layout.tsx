@@ -22,13 +22,30 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://ifeanyiiheme.vercel.app/images/opengraph-image.png",
-        width: 1280,
-        height: 800,
+        width: 1200,
+        height: 630,
         type: "image/png",
       },
     ],
     locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ifeanyi Iheme | Front-End Engineer",
+    description:
+      "Front-end engineer passionate about solving problems and creating beautiful, easy-to-use web interfaces.",
+    images: ["https://ifeanyiiheme.vercel.app/images/opengraph-image.png"],
+    site: "https://ifeanyiiheme.vercel.app",
+  },
+  keywords: [
+    "front-end",
+    "development",
+    "software",
+    "web",
+    "ifeanyi",
+    "iheme",
+    "javascript",
+  ],
 };
 
 export default function RootLayout({
