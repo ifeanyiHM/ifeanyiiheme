@@ -176,7 +176,7 @@ function ProjectPage() {
         <thead>
           <tr
             className={`${
-              lightMode ? "border-b-[rgb(0,123,255,0.3)]" : "border-b-[#152342]"
+              lightMode ? "border-b-[rgb(68,68,82,0.2)]" : "border-b-[#152342]"
             } border-b uppercase`}
           >
             <th className="py-[0.5rem] md:py-[1rem]">Project</th>
@@ -193,7 +193,7 @@ function ProjectPage() {
               key={idx}
               className={`${
                 lightMode
-                  ? "border-b-[rgb(0,123,255,0.3)]"
+                  ? "border-b-[rgb(68,68,82,0.2)]"
                   : "border-b-[#152342]"
               } ${otherProjects.length - 1 !== idx ? "border-b" : ""}`}
             >

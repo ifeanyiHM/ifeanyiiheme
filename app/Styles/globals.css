@@ -234,14 +234,14 @@ body {
 .btn::before {
   top: 0;
   left: 0;
-  border-top: 2px solid #007bff;
-  border-left: 2px solid #007bff;
+  border-top: 2px solid #d8dce0;
+  border-left: 2px solid #d8dce0;
 }
 .btn::after {
   bottom: 0;
   right: 0;
-  border-bottom: 2px solid #007bff;
-  border-right: 2px solid #007bff;
+  border-bottom: 2px solid #d8dce0;
+  border-right: 2px solid #d8dce0;
 }
 .btn:hover::before, .btn:hover::after {
   height: 100%;
