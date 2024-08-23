@@ -10,9 +10,10 @@ function Navigation() {
 
   const pathName = usePathname();
   const isAboutPage = pathName === "/about";
-  const lightModeColor = isAboutPage
-    ? "bg-[#e7e7e7] md:bg-black"
-    : "bg-[#e7e7e7]";
+  const lightModeColor =
+    isAboutPage && !isMenuOpen
+      ? "bg-[#e7e7e7] md:bg-[#6c80ad]"
+      : "bg-[#e7e7e7]";
 
   return (
     <nav className="z-[100] fixed flex items-center gap-[0.5rem] py-[0.5rem] top-[1rem] lg:top-[2rem] right-[1.5rem] lg:right-[2rem]">
@@ -43,7 +44,11 @@ function Navigation() {
             rounded-lg h-[0.125rem] xl:h-[0.13rem] ml-auto transition-all duration-300 ease-in-out`}
         ></span>
       </span>
-      <span className="text-[1.3rem] mode">
+      <span
+        className={`${
+          isAboutPage && !isMenuOpen ? "md:hidden" : ""
+        } text-[1.3rem] mode`}
+      >
         <MdOutlineLightMode />
       </span>
       <span
@@ -52,7 +57,11 @@ function Navigation() {
           lightMode ? "switchBtnL" : ""
         } cursor-pointer switchBtnR `}
       ></span>
-      <span className="text-[1.3rem] mode">
+      <span
+        className={`${
+          isAboutPage && !isMenuOpen ? "md:hidden" : ""
+        } text-[1.3rem] mode`}
+      >
         <MdOutlineDarkMode />
       </span>
     </nav>

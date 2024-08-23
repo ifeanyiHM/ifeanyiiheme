@@ -36,6 +36,7 @@ export const metadata: Metadata = {
       "Front-end engineer passionate about solving problems and creating beautiful, easy-to-use web interfaces.",
     images: ["https://ifeanyiiheme.vercel.app/images/opengraph-image.png"],
     site: "https://ifeanyiiheme.vercel.app",
+    creator: "@ifeanyimichaell",
   },
   keywords: [
     "front-end",
