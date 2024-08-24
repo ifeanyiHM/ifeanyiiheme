@@ -9,7 +9,9 @@ function SkillsPage() {
   return (
     <div className="lg:flex flex-col lg:items-center lg:justify-center w-full min-h-[100svh]">
       <h1
-        className={`${merriweather.className} lg:hidden text-[2rem] pt-[6rem] pb-[1rem] md:pb-[2rem] ml-[4rem] md:w-[65%] md:mx-auto md:text-[3rem] uppercase `}
+        className={`${merriweather.className} ${
+          lightMode ? "text-[#444452]" : "text-[#fff]"
+        } lg:hidden text-[2rem] pt-[6rem] pb-[1rem] md:pb-[2rem] ml-[4rem] md:w-[65%] md:mx-auto md:text-[3rem] uppercase`}
       >
         Skills
       </h1>
@@ -21,7 +23,7 @@ function SkillsPage() {
         <h1
           className={`${merriweather.className} ${
             lightMode ? "text-[#444452]" : "text-[#fff]"
-          } hidden lg:block pb-[2rem] text-[3rem] uppercase `}
+          } hidden lg:block pb-[2rem] text-[3rem] uppercase`}
         >
           Skill
         </h1>

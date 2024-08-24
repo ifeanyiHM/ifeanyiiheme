@@ -10,7 +10,9 @@ function ContactPage() {
   return (
     <div className="flex flex-col justify-center w-full h-[100svh] px-[1.5rem] md:px-[3rem] lg:0 lg:w-[90%] xl:w-[70%] mx-auto">
       <h1
-        className={`${merriweather.className} text-[2rem] md:text-[3rem] uppercase`}
+        className={`${merriweather.className} ${
+          lightMode ? "text-[#444452]" : "text-[#fff]"
+        } text-[2rem] md:text-[3rem] uppercase`}
       >
         Contact
       </h1>
@@ -23,12 +25,12 @@ function ContactPage() {
         <div className="flex items-center xl:w-[60%] lg:gap-[2.5rem]">
           <h2
             className={`${
-              lightMode ? "font-[400]" : "font-[300]"
-            } w-[40%] md:w-[50%] lg:w-auto text-[1.3rem] md:text-[1.7rem] tracking-[0.15rem]`}
+              lightMode ? "font-[400] text-[#417dbd]" : "font-[300] text-[#fff]"
+            } w-[40%] md:w-[50%] lg:w-auto text-[1.1rem] md:text-[1.5rem] tracking-[0.15rem] uppercase`}
           >
             Mail
           </h2>
-          <div className="w-[60%] md:w-[50%] lg:w-auto md:text-[1.5rem]">
+          <div className="w-[60%] md:w-[50%] lg:w-auto md:text-[1.3rem]">
             <SocialLink
               href="mailto:ifeanyihm@gmail.com"
               title="ifeanyihm@gmail.com"
@@ -38,12 +40,12 @@ function ContactPage() {
         <div className="flex xl:w-[40%] lg:gap-[2.5rem]">
           <h2
             className={`${
-              lightMode ? "font-[400]" : "font-[300]"
-            } w-[40%] md:w-[50%] lg:w-auto text-[1.3rem] md:text-[1.7rem] tracking-[0.15rem]`}
+              lightMode ? "font-[400] text-[#417dbd]" : "font-[300] text-[#fff]"
+            } w-[40%] md:w-[50%] lg:w-auto text-[1.1rem] md:text-[1.5rem] tracking-[0.15rem] uppercase`}
           >
             Socials
           </h2>
-          <ul className="w-[60%] md:w-[50%] lg:w-auto flex flex-col gap-[0.4rem] md:text-[1.5rem]">
+          <ul className="w-[60%] md:w-[50%] lg:w-auto flex flex-col gap-[0.4rem] md:text-[1.3rem]">
             <li>
               <SocialLink href="https://github.com/ifeanyiHM" title="Github" />
             </li>

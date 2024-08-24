@@ -7,18 +7,8 @@
   box-sizing: border-box;
 }
 
-body {
-  height: 100%;
-  max-height: 100%;
-  aspect-ratio: 4/1;
-  background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(59, 130, 246, 0.1), transparent 550px), #0f172a;
-  background-attachment: fixed;
-  position: relative;
-}
-
 .lightMode {
-  background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(0, 0, 0, 0.04), transparent 300px), #fff;
-  background-attachment: fixed;
+  background-color: #fff;
   color: #444452;
 }
 .lightMode .box {
@@ -234,14 +224,14 @@ body {
 .btn::before {
   top: 0;
   left: 0;
-  border-top: 2px solid #d8dce0;
-  border-left: 2px solid #d8dce0;
+  border-top: 2px solid #417dbd;
+  border-left: 2px solid #417dbd;
 }
 .btn::after {
   bottom: 0;
   right: 0;
-  border-bottom: 2px solid #d8dce0;
-  border-right: 2px solid #d8dce0;
+  border-bottom: 2px solid #417dbd;
+  border-right: 2px solid #417dbd;
 }
 .btn:hover::before, .btn:hover::after {
   height: 100%;
@@ -261,6 +251,18 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+  body {
+    height: 100%;
+    max-height: 100%;
+    aspect-ratio: 4/1;
+    background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(59, 130, 246, 0.1), transparent 550px), #0f172a;
+    background-attachment: fixed;
+    position: relative;
+  }
+  .lightMode {
+    background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(0, 0, 0, 0.04), transparent 300px), #fff;
+    background-attachment: fixed;
+  }
   .switchBtnR {
     width: 50px;
     height: 30px;

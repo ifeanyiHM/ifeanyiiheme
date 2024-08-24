@@ -51,13 +51,19 @@ function ProjectPage() {
   return (
     <div className="w-[80.47%] mx-auto mb-[2rem]">
       <h1
-        className={`${merriweather.className} text-[2rem] my-[5rem] md:my-[7rem] md:text-[3rem] uppercase`}
+        className={`${merriweather.className}  ${
+          lightMode ? "text-[#444452]" : "text-[#fff]"
+        } text-[2rem] my-[5rem] md:my-[7rem] md:text-[3rem] uppercase`}
       >
         Projects.
       </h1>
 
-      <h2 className="text-[1.2rem] mb-[1rem] md:text-[1.5rem]">
-        My Recent works
+      <h2
+        className={` ${
+          lightMode ? "text-[#417dbd]" : "text-[#fff] font-[300]"
+        } text-[1.3rem] mb-[1rem] md:text-[1.5rem] uppercase`}
+      >
+        Recent works
       </h2>
       <div className="flex flex-col gap-[5rem] lg:gap-[15rem]">
         {projects.map((project, index) => (
@@ -103,7 +109,11 @@ function ProjectPage() {
             </div>
             <div>
               <div className="md:flex md:items-center md:justify-between md:mr-[3rem] lg:mr-[4.5rem] md:mt-[1.5rem] md:mb-[1rem] ">
-                <h3 className="text-[1.3rem] md:text-[1.5rem] mt-[1rem] mb-[0.5rem] md:my-0 uppercase">
+                <h3
+                  className={`${
+                    lightMode ? "text-[#417dbd]" : "text-[#fff]"
+                  } text-[1.1rem] md:text-[1.3rem] mt-[1rem] mb-[0.5rem] md:my-0 uppercase`}
+                >
                   {project.title}
                 </h3>
                 <div
@@ -117,8 +127,10 @@ function ProjectPage() {
                       href={link.href}
                       target="_blank"
                       className={`${
-                        lightMode ? "bg-[rgb(0,123,255)]" : " py-[0.2rem] "
-                      } relative md:py-[0.2rem] text-[#fff] px-[0.8rem] md:px-[1rem] btn`}
+                        lightMode
+                          ? "bg-[#417dbd] text-[#fff]"
+                          : " py-[0.2rem] text-[#417dbd]"
+                      } relative md:py-[0.2rem] px-[0.8rem] md:px-[1rem] btn`}
                     >
                       {link.label}
                     </Link>
@@ -149,7 +161,7 @@ function ProjectPage() {
                     className={`${
                       lightMode
                         ? "shadow-[0_0_5px_rgb(68,68,82,0.5)]"
-                        : "shadow-[0_0_5px_rgb(0,123,255,0.5)]"
+                        : "shadow-[0_0_5px_rgb(0,123,255,0.5)] text-[#417dbd]"
                     } text-[0.9rem] md:text-[1rem] md:py-[0.2rem] px-[0.8rem] md:px-[1rem]`}
                   >
                     {tech}
@@ -161,7 +173,11 @@ function ProjectPage() {
         ))}
       </div>
 
-      <h2 className="text-[1.2rem] mt-[5rem] mb-[1rem] md:text-[1.5rem]">
+      <h2
+        className={`${
+          lightMode ? "text-[#417dbd]" : "text-[#fff] font-[300]"
+        } text-[1.2rem] mt-[5rem] mb-[1rem] md:text-[1.5rem] uppercase`}
+      >
         Other Projects
       </h2>
 
@@ -176,7 +192,9 @@ function ProjectPage() {
         <thead>
           <tr
             className={`${
-              lightMode ? "border-b-[rgb(68,68,82,0.2)]" : "border-b-[#152342]"
+              lightMode
+                ? "border-b-[rgb(68,68,82,0.2)] text-[#444452]"
+                : "border-b-[#152342] text-[#fff]"
             } border-b uppercase`}
           >
             <th className="py-[0.5rem] md:py-[1rem]">Project</th>
@@ -215,7 +233,7 @@ function ProjectPage() {
                     className={`${
                       lightMode
                         ? "shadow-[0_0_5px_rgb(68,68,82,0.5)]"
-                        : "shadow-[0_0_5px_rgb(0,123,255,0.5)]"
+                        : "shadow-[0_0_5px_rgb(0,123,255,0.5)] text-[#417dbd]"
                     } ${
                       index === 1 ? "hidden md:inline" : ""
                     } mr-[0.5rem] md:mr-[1rem] text-[0.9rem] md:text-[1rem] md:py-[0.2rem] px-[0.2rem] md:px-[1rem]`}
@@ -230,7 +248,12 @@ function ProjectPage() {
                 </Link>
               </td>
               <td className="hidden md:table-cell text-left xl:w-[12%]">
-                <Link href={project.codeLink} className="hover:underline">
+                <Link
+                  href={project.codeLink}
+                  className={`${
+                    lightMode ? "text-[#417dbd]" : "text-[#fff] font-[300]"
+                  } hover:underline`}
+                >
                   Code
                 </Link>
               </td>
