@@ -27,15 +27,15 @@
     &::before {
       top: -5px;
       left: -5px;
-      border-top: 2px solid rgb(0, 123, 255);
-      border-left: 2px solid rgb(0, 123, 255);
+      border-top: 2px solid #417dbd;
+      border-left: 2px solid #417dbd;
     }
 
     &::after {
       bottom: -5px;
       right: -5px;
-      border-bottom: 2px solid rgb(0, 123, 255);
-      border-right: 2px solid rgb(0, 123, 255);
+      border-bottom: 2px solid #417dbd;
+      border-right: 2px solid #417dbd;
     }
   }
 }
@@ -257,7 +257,7 @@
     height: 90%;
     transition: all 0.25s;
   }
-  // #007bff
+
   &::before {
     top: 0;
     left: 0;

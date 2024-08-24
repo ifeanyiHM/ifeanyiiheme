@@ -147,7 +147,7 @@ function ProjectPage() {
                 <>
                   <span className="lg:hidden">...</span>{" "}
                   <span
-                    className="lg:hidden text-[rgb(0,123,255)] hover:underline cursor-pointer"
+                    className="lg:hidden text-[#417dbd] hover:underline cursor-pointer"
                     onClick={() => toggleExpand(index)}
                   >
                     {expandedTexts[index] ? " Hide text" : " See more"}

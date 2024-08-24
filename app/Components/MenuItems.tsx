@@ -20,11 +20,11 @@ function MenuItems({ link, isActive }: MenuItemsProps) {
         ${
           isActive
             ? lightMode
-              ? "text-[#007bff]"
+              ? "text-[#417dbd]"
               : "text-[#fff]"
             : "text-[#64748b]"
         }
-        ${lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"}
+        ${lightMode ? "hover:text-[#417dbd]" : "hover:text-[#fff]"}
         group flex gap-[0.5rem] items-center 
         transition-[transform] duration-300 ease-in-out lg:mr-auto
         ${isMenuOpen ? `${link.delay} scale-y-[1]` : "scale-y-0"}
@@ -34,10 +34,10 @@ function MenuItems({ link, isActive }: MenuItemsProps) {
         className={`
         ${
           isActive
-            ? `w-[4rem] ${lightMode ? "bg-[#007bff]" : "bg-[#fff]"}`
+            ? `w-[4rem] ${lightMode ? "bg-[#417dbd]" : "bg-[#fff]"}`
             : "bg-[#64748b] w-[2.5rem]"
         }
-        ${lightMode ? "group-hover:bg-[#007bff]" : "group-hover:bg-[#fff]"}
+        ${lightMode ? "group-hover:bg-[#417dbd]" : "group-hover:bg-[#fff]"}
         
         lg:group-hover:w-[4rem] transition-all duration-500 ease-in-out border-0 h-[1px] w-[2.5rem]`}
       />

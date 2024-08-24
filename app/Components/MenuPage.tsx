@@ -30,7 +30,13 @@ function MenuPage() {
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
           <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
             <div>
-              <h1 className="text-[1.2rem] uppercase">recent works</h1>
+              <h1
+                className={`${
+                  lightMode ? "text-[#417dbd]" : "text-[#fff]"
+                } text-[1.1rem] uppercase`}
+              >
+                recent works
+              </h1>
 
               {/* recent works */}
               <ul className="text-[1.9rem] font-bold">
@@ -44,8 +50,8 @@ function MenuPage() {
             <div className="hidden lg:block lg:mr-auto">
               <h1
                 className={`${
-                  lightMode ? "text-[#007bff]" : "text-[#fff]"
-                } text-[0.8rem] uppercase`}
+                  lightMode ? "text-[#417dbd]" : "text-[#fff]"
+                } text-[0.8rem] font-semibold uppercase`}
               >
                 socials
               </h1>

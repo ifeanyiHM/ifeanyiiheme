@@ -40,7 +40,7 @@ export function SocialDesktop({ link }: SocialDesktopProps) {
   return (
     <li
       className={`
-    ${lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"}
+    ${lightMode ? "hover:text-[#417dbd]" : "hover:text-[#fff]"}
     transform transition-transform duration-300 ease-in-out 
     ${isMenuOpen ? `${link.delay} scale-y-[1]` : "scale-y-0"}
   `}
@@ -64,7 +64,7 @@ export function SocialMobile({ link }: SocialMobileProps) {
   return (
     <li
       className={`${
-        lightMode ? "hover:text-[#007bff]" : "hover:text-[#fff]"
+        lightMode ? "hover:text-[#417dbd]" : "hover:text-[#fff]"
       }  hover:scale-[1.2] transition-all duration-300 ease-in-out`}
     >
       <Link href={link.href} target="_blank">
