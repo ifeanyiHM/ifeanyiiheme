@@ -32,7 +32,7 @@ function SkillsPage() {
             <div key={index} className="flex flex-col gap-[0.5rem]">
               <h2
                 className={`${
-                  lightMode ? "text-[#007bff]" : "text-[#fff]"
+                  lightMode ? "text-[#417dbd]" : "text-[#fff]"
                 } mb-[0.5rem] md:text-[1.4rem]`}
               >
                 {category.title}
