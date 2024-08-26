@@ -62,7 +62,7 @@ function AboutPage() {
               this commitment has helped me successfully complete various
               projects, both independently and as part of a team. I love to
               learn about new technologies. ‘Let the beauty of what you love be
-              what you do.’ – Rumihhhh
+              what you do.’ – Rumi
             </p>
             <SocialLink
               href="/Ifeanyi_Iheme_resume.docx.pdf"
