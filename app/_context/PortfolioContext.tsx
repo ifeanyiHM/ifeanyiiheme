@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import {
   defaultPortfolioProps,
@@ -39,10 +38,8 @@ function PortfolioProvider({ children }: PortfolioProviderProps) {
   useEffect(() => {
     if (lightMode) {
       document.body.classList.add("lightMode");
-      // document.body.classList.remove("dark");
     } else {
       document.body.classList.remove("lightMode");
-      // document.body.classList.add("dark");
     }
   }, [lightMode]);
 

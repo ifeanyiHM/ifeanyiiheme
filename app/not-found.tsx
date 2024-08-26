@@ -27,31 +27,30 @@ function NotFound() {
             priority
           />
         </div>
+
         <div className="flex gap-[1.5rem]">
-          <button
-            onClick={() => router.back()}
-            className={`${
-              lightMode
-                ? "shadow-[0_0_5px_rgb(68,68,82,0.5)]"
-                : "shadow-[0_0_5px_rgb(0,123,255,0.5)]"
-            } flex items-center gap-[0.4rem] py-[0.2rem] px-[1rem] transition-all duration-300 hover:scale-[1.1]`}
-          >
-            <span className="arrow">
-              <BiArrowBack />
-            </span>
-            <span> back</span>
-          </button>
-          <button
-            onClick={() => router.push("/")}
-            className={`${
-              lightMode
-                ? "shadow-[0_0_5px_rgb(68,68,82,0.5)]"
-                : "shadow-[0_0_5px_rgb(0,123,255,0.5)]"
-            } flex items-center gap-[0.4rem] py-[0.2rem] px-[1rem] transition-all duration-300 hover:scale-[1.1]`}
-          >
-            <IoHomeOutline />
-            <span>home</span>
-          </button>
+          {["Back", "Home"].map((label, index) => {
+            const isBackButton = label === "Back";
+
+            return (
+              <button
+                key={index}
+                onClick={() =>
+                  isBackButton ? router.back() : router.push("/")
+                }
+                className={`${
+                  lightMode
+                    ? "shadow-[0_0_5px_rgb(68,68,82,0.5)]"
+                    : "shadow-[0_0_5px_rgb(0,123,255,0.5)]"
+                } flex items-center gap-[0.4rem] py-[0.2rem] px-[1rem] transition-all duration-300 hover:scale-[1.1]`}
+              >
+                <span className={isBackButton ? "arrow" : ""}>
+                  {isBackButton ? <BiArrowBack /> : <IoHomeOutline />}
+                </span>
+                <span>{label.toLowerCase()}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </>

@@ -30,6 +30,12 @@
   border-bottom: 2px solid #417dbd;
   border-right: 2px solid #417dbd;
 }
+.lightMode::-webkit-scrollbar-thumb:hover {
+  background: #417dbd;
+}
+.lightMode:hover::-webkit-scrollbar-thumb {
+  background: rgba(65, 125, 189, 0.5);
+}
 
 .switchBtnR {
   display: block;
@@ -60,6 +66,27 @@
 .switchBtnL::before {
   transition: all 0.5s;
   transform: translate(-100%);
+}
+
+body::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100vw;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 100vw;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #b2b5b9;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+  background: rgba(178, 181, 185, 0.5);
 }
 
 .wave {

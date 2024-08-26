@@ -38,6 +38,18 @@
       border-right: 2px solid #417dbd;
     }
   }
+
+  &::-webkit-scrollbar-thumb {
+    &:hover {
+      background: #417dbd;
+    }
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: rgb(65, 125, 189, 0.5);
+    }
+  }
 }
 
 //toggle light and darmode botton style
@@ -71,6 +83,29 @@
   &::before {
     transition: all 0.5s;
     transform: translate(-100%);
+  }
+}
+
+//scrollbar styling - only necessary for project page and about page on mobile
+body::-webkit-scrollbar {
+  width: 0.6rem;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100vw;
+}
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 100vw;
+
+  &:hover {
+    background: #b2b5b9;
+  }
+}
+
+body:hover {
+  &::-webkit-scrollbar-thumb {
+    background: rgb(178, 181, 185, 0.5);
   }
 }
 

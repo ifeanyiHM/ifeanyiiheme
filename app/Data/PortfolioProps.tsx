@@ -114,7 +114,7 @@ export interface ProjectProps {
   technologies: string[];
 }
 
-export const projects = [
+export const recentProjects = [
   {
     title: "Pheonix Global",
     images: [
