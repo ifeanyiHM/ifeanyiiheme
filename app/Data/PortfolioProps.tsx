@@ -26,7 +26,7 @@ export const menuItems = [
   { href: "/projects", title: "ProJecTs", delay: "delay-[800ms]" },
   { href: "/contact", title: "ConTaCts", delay: "delay-[900ms]" },
   {
-    href: "/ifeanyi_iheme_resume.docx.pdf",
+    href: "/Ifeanyi_Iheme_resume.docx.pdf",
     target: "_blank",
     title: "ResUme",
     delay: "delay-[900ms]",
