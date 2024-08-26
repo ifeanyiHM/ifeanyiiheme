@@ -26,7 +26,7 @@ export const menuItems = [
   { href: "/projects", title: "ProJecTs", delay: "delay-[800ms]" },
   { href: "/contact", title: "ConTaCts", delay: "delay-[900ms]" },
   {
-    href: "/ifeanyi_iheme_resume.pdf",
+    href: "/ifeanyi_iheme_resume.docx.pdf",
     target: "_blank",
     title: "ResUme",
     delay: "delay-[900ms]",
@@ -249,17 +249,3 @@ export const otherProjects = [
     codeLink: "https://github.com/ifeanyiHM/A-React-calculator-app",
   },
 ];
-
-// export interface submittedProfileProps {
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-//   imageFile: string;
-// }
-
-// export interface dropDownListProps {
-//   name: string;
-//   value: string;
-//   src: string;
-//   color: string;
-// }

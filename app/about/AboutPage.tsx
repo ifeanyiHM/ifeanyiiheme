@@ -65,7 +65,7 @@ function AboutPage() {
               what you do.’ – Rumi
             </p>
             <SocialLink
-              href="/ifeanyi_iheme_resume.pdf"
+              href="/ifeanyi_iheme_resume.docx.pdf"
               title="View Full Resume"
               classProp="md:text-[1.1rem]"
             />
