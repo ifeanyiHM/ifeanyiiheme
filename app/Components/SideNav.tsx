@@ -22,7 +22,7 @@ function SideNav() {
           lightMode ? " text-[#444452]" : " text-[#64748b]"
         } -rotate-90 tracking-[0.2rem]`}
       >
-        ©/2024
+        ©/{new Date().getFullYear()}
       </span>
     </div>
   );

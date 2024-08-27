@@ -19,7 +19,7 @@ function Navigation() {
     <nav className="z-[100] fixed flex items-center gap-[0.5rem] py-[0.5rem] top-[1rem] lg:top-[2rem] right-[1.5rem] lg:right-[2rem]">
       <span
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="relative flex flex-col gap-[0.2rem] mr-[0.3rem] cursor-pointer transition-all duration-300 ease-in-out"
+        className="relative group flex flex-col gap-[0.2rem] mr-[0.3rem] cursor-pointer transition-all duration-300 ease-in-out"
       >
         <span
           className={`${lightMode ? "bg-[#444452]" : lightModeColor}
@@ -27,7 +27,7 @@ function Navigation() {
             isMenuOpen
               ? "absolute rotate-[43deg] w-[1.1rem]"
               : "rotate-[0] w-[0.8rem]"
-          } rounded-lg h-[0.125rem] xl:h-[0.13rem] transition-all duration-300 ease-in-out`}
+          } rounded-lg group-hover:w-[1.3rem] h-[0.125rem] xl:h-[0.13rem] transition-all duration-300 ease-in-out`}
         ></span>
         <span
           className={`${lightMode ? "bg-[#444452]" : lightModeColor} 
@@ -41,7 +41,7 @@ function Navigation() {
                 ? "absolute rotate-[-40deg] w-[1.1rem]"
                 : "rotate-[0] w-[0.8rem]"
             }
-            rounded-lg h-[0.125rem] xl:h-[0.13rem] ml-auto transition-all duration-300 ease-in-out`}
+            rounded-lg group-hover:w-[1.3rem] h-[0.125rem] xl:h-[0.13rem] ml-auto transition-all duration-300 ease-in-out`}
         ></span>
       </span>
       <span
