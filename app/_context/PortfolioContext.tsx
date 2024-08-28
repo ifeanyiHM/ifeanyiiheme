@@ -4,6 +4,7 @@ import {
   defaultPortfolioProps,
   PortfolioContextProps,
 } from "../Data/PortfolioProps";
+import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
 
 interface PortfolioProviderProps {
   children: ReactNode;
@@ -12,8 +13,11 @@ interface PortfolioProviderProps {
 const PortContext = createContext<PortfolioContextProps>(defaultPortfolioProps);
 
 function PortfolioProvider({ children }: PortfolioProviderProps) {
-  const [lightMode, setLightMode] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lightMode, setLightMode] = useBrowserStorageState<boolean>(
+    false,
+    "lightmode"
+  );
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const injectCursorPosition = (event: PointerEvent) => {
