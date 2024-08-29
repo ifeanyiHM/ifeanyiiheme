@@ -60,9 +60,10 @@ function AboutPage() {
               heart into everything I do. I’m committed to personal growth and
               strive for high productivity in my work. As a front-end engineer,
               this commitment has helped me successfully complete various
-              projects, both independently and as part of a team. I love to
-              learn about new technologies. ‘Let the beauty of what you love be
-              what you do.’ – Rumi
+              projects, both independently and as part of a team. This
+              commitment drives my passion for learning new technologies and
+              staying updated with the latest trends. ‘Let the beauty of what
+              you love be what you do.’ – Rumi
             </p>
             <SocialLink
               href="/Ifeanyi_Iheme_resume.docx.pdf"
