@@ -16,7 +16,7 @@ export default function Home() {
           lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
         } flex flex-col h-[100svh] xl:h-full`}
       >
-        <div className="flex-grow flex flex-col justify-between sm:my-[5rem] xl:mt-[2rem] xl:mb-[0] pl-[1.8rem] pr-[3.125rem] sm:px-[6.25rem] pt-[3.575rem] sm:pt-[5.5rem] xl:pt-[5.2rem] xl:pb-0">
+        <div className="flex-grow flex flex-col justify-between sm:my-[5rem] lg:mt-[2rem] lg:mb-[0] pl-[1.8rem] pr-[3.125rem] sm:px-[6.25rem] pt-[3.575rem] sm:pt-[5.5rem] lg:pt-[5.2rem] lg:pb-0">
           <div className="flex items-center gap-[1rem] lg:gap-[1.5rem] mt-[3rem] mb-[1rem] md:my-[1rem]">
             <h1 className=" text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]">
               Hello!
@@ -25,7 +25,7 @@ export default function Home() {
               <Image src="/images/waving.png" fill alt="waving hand" priority />
             </div>
           </div>
-          <h2 className="text-[1.75rem] my-[1rem] md:my-[2rem] font-[300] sm:text-[2rem] md:text-[2.25rem] lg:text-[3rem] max-w-[47rem]">
+          <h2 className="text-[1.75rem] my-[1rem] md:my-[2rem] lg:my-[1rem] xl:my-[2rem] font-[300] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.87rem] xl:text-[3rem] max-w-[47rem]">
             I&apos;m <span className="font-bold">Ifeanyi Iheme</span>
             <Image
               className=" inline pb-[0.5rem] md:pb-[1rem] w-[0.875rem] md:w-[1.125rem]"

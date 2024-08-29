@@ -37,7 +37,7 @@ function ProjectPage() {
   }, []);
 
   return (
-    <div className="w-[80.47%] mx-auto mb-[2rem]">
+    <div className="w-[80.47%] mx-auto mb-[2rem] lg:ml-[10rem] xl:ml-auto">
       <h1
         className={`${merriweather.className}  ${
           lightMode ? "text-[#444452]" : "text-[#fff]"

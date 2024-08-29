@@ -55,7 +55,7 @@ function AboutPage() {
                 lightMode ? "border-[#d1cece]" : "border-[#64748b]"
               } mb-[1rem] lg:mb-[1.5rem] `}
             />
-            <p className="lg:w-[75%] lg:text-[1.4rem] mb-[0.5rem]">
+            <p className="lg:w-[90%] xl:w-[85%] lg:text-[1.4rem] mb-[0.5rem]">
               I’m a dedicated individual based in Lagos, Nigeria, who puts my
               heart into everything I do. I’m committed to personal growth and
               strive for high productivity in my work. As a front-end engineer,

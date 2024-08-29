@@ -39,7 +39,7 @@ function AboutSkeleton() {
               lightMode ? "border-gray-300" : "border-[#050f27]"
             } mb-[1rem] lg:mb-[1.5rem] `}
           />
-          <div className="flex flex-col gap-[0.4rem] lg:w-[75%] lg:text-[1.4rem] mb-[0.5rem] w-full">
+          <div className="flex flex-col gap-[0.4rem] lg:w-[90%] xl:w-[85%] lg:text-[1.4rem] mb-[0.5rem] w-full">
             <div
               className={`${
                 lightMode ? "bg-gray-300" : "bg-[#050f27]"
