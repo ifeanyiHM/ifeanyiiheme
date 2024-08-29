@@ -37,7 +37,7 @@ function SkillsSkeleton() {
               >
                 {Array.from({
                   length:
-                    index === 0 ? 5 : index === 1 ? 4 : index === 2 ? 3 : 2,
+                    index === 0 ? 5 : index === 1 ? 6 : index === 2 ? 3 : 5,
                 }).map((_, idx) => (
                   <div
                     key={idx}

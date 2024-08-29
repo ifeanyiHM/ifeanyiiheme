@@ -88,7 +88,14 @@ export const skillCategories = [
   },
   {
     title: "Frameworks",
-    skills: ["React", "Nextjs", "Tailwind", "Bootstrap"],
+    skills: [
+      "React",
+      "Nextjs",
+      "Tailwind",
+      "Styled Component",
+      "CSS Modules",
+      "Bootstrap",
+    ],
   },
   {
     title: "Design",
@@ -96,7 +103,7 @@ export const skillCategories = [
   },
   {
     title: "Tools",
-    skills: ["Git", "GitHub"],
+    skills: ["Supabase", "GitHub", "Git", "Vercel", "SEO"],
   },
 ];
 

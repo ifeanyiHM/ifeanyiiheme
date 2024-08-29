@@ -18,7 +18,7 @@ function SkillsPage() {
       <div
         className={`${
           lightMode ? "text-[#444452]" : "text-[#afafbf]"
-        } ml-[4rem] md:w-[65%] lg:w-[60%] lg:h-[65vh] lg:px-[5rem] lg:pt-[3rem] lg:shadow-[0px_4px_15px_rgba(0,0,0,0.3)] md:mx-auto rounded-[2rem]`}
+        } ml-[4rem] md:w-[65%] lg:w-[60%] lg:h-[70vh] lg:px-[5rem] lg:pt-[3rem] lg:shadow-[0px_4px_15px_rgba(0,0,0,0.3)] md:mx-auto rounded-[2rem]`}
       >
         <h1
           className={`${merriweather.className} ${
