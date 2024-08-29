@@ -107,7 +107,9 @@ function RecentProject({ project, index }: RecentProjectProps) {
             {project.description.slice(70)}
           </span>
           <>
-            <span className="lg:hidden">...</span>{" "}
+            <span className="lg:hidden">
+              {expandedTexts[index] ? "" : "..."}
+            </span>{" "}
             <span
               className="lg:hidden text-[#417dbd] hover:underline cursor-pointer"
               onClick={() => toggleExpand(index)}
