@@ -19,10 +19,16 @@ export default function Home() {
         <div className="flex-grow flex flex-col justify-between sm:my-[5rem] lg:mt-[2rem] lg:mb-[0] pl-[1.8rem] pr-[3.125rem] sm:px-[6.25rem] pt-[3.575rem] sm:pt-[5.5rem] lg:pt-[5.2rem] lg:pb-0">
           <div className="flex items-center gap-[1rem] lg:gap-[1.5rem] mt-[3rem] mb-[1rem] md:my-[1rem]">
             <h1 className=" text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]">
-              Hello!
+              Hello! <span className="text-[0] w-0">friend how are you</span>
             </h1>
             <div className="wave cursor-pointer relative w-[1.875rem] h-[1.875rem] md:w-[2.5rem] md:h-[2.5rem] lg:w-[2.8rem] lg:h-[2.8rem]">
-              <Image src="/images/waving.png" fill alt="waving hand" priority />
+              <Image
+                src="/images/waving.png"
+                width={100}
+                height={100}
+                alt="waving hand"
+                priority
+              />
             </div>
           </div>
           <h2 className="text-[1.75rem] my-[1rem] md:my-[2rem] lg:my-[1rem] xl:my-[2rem] font-[300] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.87rem] xl:text-[3rem] max-w-[47rem]">

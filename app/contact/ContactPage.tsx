@@ -14,7 +14,7 @@ function ContactPage() {
           lightMode ? "text-[#444452]" : "text-[#fff]"
         } text-[2rem] md:text-[3rem] uppercase`}
       >
-        Contact
+        Contact <span className="text-[0] w-0">Ifeanyi Iheme Michael</span>
       </h1>
       <hr
         className={`${

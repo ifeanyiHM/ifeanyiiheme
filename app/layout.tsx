@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     "front-end",
     "development",
     "software",
-    "web",
+    "website",
     "ifeanyi",
     "iheme",
-    "javascript",
+    "portfolio",
   ],
 };
 
@@ -56,7 +56,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* bg-[#171c28]  */}
+      <head>
+        <link rel="canonical" href="https://ifeanyiiheme.vercel.app" />
+      </head>
 
       <body className={`${sourceSans.className} bg-[#0f172a] text-[#94a3b8] `}>
         <PortfolioProvider>

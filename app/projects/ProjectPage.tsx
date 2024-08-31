@@ -43,7 +43,8 @@ function ProjectPage() {
           lightMode ? "text-[#444452]" : "text-[#fff]"
         } text-[2rem] my-[5rem] md:my-[7rem] md:text-[3rem] uppercase`}
       >
-        Projects.
+        Projects.{" "}
+        <span className="text-[0] w-0">and past and recent works</span>
       </h1>
 
       <h2

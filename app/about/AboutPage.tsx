@@ -18,11 +18,13 @@ function AboutPage() {
       <div className="flex flex-col md:flex-row-reverse  px-[1.5rem] md:px-0 gap-[1.5rem] md:gap-0 min-h-screen mt-[4.3rem] md:mt-0 ">
         <div className="relative md:top-0 w-full md:w-[47%] lg:w-[23%] h-[60vh] md:h-[78vh] lg:h-[87vh]">
           <Image
-            className="object-cover rounded-3xl md:rounded-none md:rounded-bl-3xl"
+            className="object-cover rounded-3xl md:rounded-none md:rounded-bl-3xl w-full h-full"
             src={profilePic}
             alt="profile picture"
-            fill
+            width={1304}
+            height={1741}
             placeholder="blur"
+            title="Ifeanyi Iheme"
           />
         </div>
         <div className="pb-[1rem] md:pb-0 md:w-[53%] lg:w-[67%] md:self-center">
@@ -33,7 +35,8 @@ function AboutPage() {
                   lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
                 } text-[2rem]  md:text-[3rem] uppercase`}
               >
-                About
+                About{" "}
+                <span className="text-[0] w-0">Ifeanyi Iheme Michael</span>
               </h1>
               <ul className="list-none flex gap-[1rem] text-[1rem] md:text-[1.2rem] text-[#64748b]">
                 {socialsMobile.map((link, index) => (
