@@ -22,7 +22,7 @@ function MenuPage() {
     <div
       className={`${lightMode ? "bg-[#fff]" : "bg-[#0f172a] "}
         ${!isMenuOpen ? "opacity-0 delay-[0.5s] z-[-1]" : "opacity-100 z-[50]"}
-         fixed w-full top-0 left-0 right-0 bg-[#0f172a] transition-all duration-700 ease-in-out `}
+         fixed w-full top-0 left-0 right-0 bottom-0 bg-[#0f172a] transition-all duration-700 ease-in-out `}
     >
       <CrossGridBackground />
 
