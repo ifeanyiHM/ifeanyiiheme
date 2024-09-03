@@ -33,10 +33,12 @@ function AboutPage() {
               <h1
                 className={`${merriweather.className} ${
                   lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
-                } text-[2rem]  md:text-[3rem] uppercase`}
+                } relative text-[2rem] md:text-[3rem] uppercase`}
               >
                 About{" "}
-                <span className="text-[0] w-0">Ifeanyi Iheme Michael</span>
+                <span className="absolute text-[0] w-0">
+                  Ifeanyi Iheme Michael
+                </span>
               </h1>
               <ul className="list-none flex gap-[1rem] text-[1rem] md:text-[1.2rem] text-[#64748b]">
                 {socialsMobile.map((link, index) => (

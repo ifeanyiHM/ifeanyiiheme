@@ -11,9 +11,10 @@ function SkillsPage() {
       <h1
         className={`${merriweather.className} ${
           lightMode ? "text-[#444452]" : "text-[#fff]"
-        } lg:hidden text-[2rem] pt-[6rem] pb-[1rem] md:pb-[2rem] ml-[4rem] md:w-[65%] md:mx-auto md:text-[3rem] uppercase`}
+        } relative lg:hidden text-[2rem] pt-[6rem] pb-[1rem] md:pb-[2rem] ml-[4rem] md:w-[65%] md:mx-auto md:text-[3rem] uppercase`}
       >
-        Skills <span className="text-[0] w-0">software development</span>
+        Skills{" "}
+        <span className="absolute text-[0] w-0">software development</span>
       </h1>
       <div
         className={`${

@@ -12,9 +12,10 @@ function ContactPage() {
       <h1
         className={`${merriweather.className} ${
           lightMode ? "text-[#444452]" : "text-[#fff]"
-        } text-[2rem] md:text-[3rem] uppercase`}
+        } relative text-[2rem] md:text-[3rem] uppercase`}
       >
-        Contact <span className="text-[0] w-0">Ifeanyi Iheme Michael</span>
+        Contact{" "}
+        <span className="absolute text-[0] w-0">Ifeanyi Iheme Michael</span>
       </h1>
       <hr
         className={`${

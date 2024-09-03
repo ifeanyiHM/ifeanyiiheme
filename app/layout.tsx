@@ -38,15 +38,6 @@ export const metadata: Metadata = {
     site: "https://ifeanyiiheme.vercel.app",
     creator: "@ifeanyimichaell",
   },
-  keywords: [
-    "front-end",
-    "development",
-    "software",
-    "website",
-    "ifeanyi",
-    "iheme",
-    "portfolio",
-  ],
 };
 
 export default function RootLayout({
