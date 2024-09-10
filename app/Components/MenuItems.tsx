@@ -24,7 +24,7 @@ function MenuItems({ link, isActive }: MenuItemsProps) {
               : "text-[#fff]"
             : "text-[#64748b]"
         }
-        ${lightMode ? "hover:text-[#417dbd]" : "hover:text-[#fff]"}
+        ${lightMode ? "lg:hover:text-[#417dbd]" : "lg:hover:text-[#fff]"}
         group flex gap-[0.5rem] items-center 
         transition-[transform] duration-300 ease-in-out lg:mr-auto
         ${isMenuOpen ? `${link.delay} scale-y-[1]` : "scale-y-0"}
@@ -37,7 +37,9 @@ function MenuItems({ link, isActive }: MenuItemsProps) {
             ? `w-[4rem] ${lightMode ? "bg-[#417dbd]" : "bg-[#fff]"}`
             : "bg-[#64748b] w-[2.5rem]"
         }
-        ${lightMode ? "group-hover:bg-[#417dbd]" : "group-hover:bg-[#fff]"}
+        ${
+          lightMode ? "lg:group-hover:bg-[#417dbd]" : "lg:group-hover:bg-[#fff]"
+        }
         
         lg:group-hover:w-[4rem] transition-all duration-500 ease-in-out border-0 h-[1px] w-[2.5rem]`}
       />
