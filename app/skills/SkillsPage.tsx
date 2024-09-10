@@ -50,7 +50,7 @@ function SkillsPage() {
           </div>
         </div>
       </div>
-      <div className="relative px-[1.5rem] pb-[3rem] mt-[5rem] text-[#fff] md:pb-0 h-[23.125rem] md:h-[35.188rem] lg:h-[38.188rem] xl:h-[41.188rem]">
+      <div className="relative px-[1.5rem] pb-[3rem] mt-[5rem] text-[#fff] md:pb-0 h-[27.125rem] md:h-[35.188rem] lg:h-[38.188rem] xl:h-[41.188rem]">
         <div className="md:w-[80%] lg:w-[60%] xl:w-[40%] md:ml-[3rem] lg:ml-[15%]">
           <h4
             className={`${
@@ -62,7 +62,7 @@ function SkillsPage() {
           <div
             className={` ${
               lightMode ? "text-[#444452]" : "text-[#fff]"
-            } flex flex-col gap-[1.3rem] md:gap-[1.5rem] lg:gap-[1.9rem]`}
+            } flex flex-col gap-[1.3rem] md:gap-[1.5rem] lg:gap-[1.9rem] mb-[2rem]`}
           >
             {skillCategories[0].skills.map((skill, index) => (
               <div key={index}>
@@ -110,7 +110,7 @@ function SkillsPage() {
           </div>
         </div>
 
-        <div className="absolute inset-0 h-[23.125rem] md:h-[40.188rem] lg:h-[45.188rem] xl:h-[47.188rem] overflow-hidden top-[1rem] md:top-[-9rem] z-[-1] translate-x-[65%] xl:translate-x-[50%]">
+        <div className="absolute inset-0 h-[23rem] md:h-[40.188rem] lg:h-[45.188rem] xl:h-[47.188rem] overflow-hidden top-[1rem] md:top-[-9rem] z-[-1] translate-x-[65%] xl:translate-x-[50%]">
           <Image
             className="object-cover"
             src="/images/tec.png"

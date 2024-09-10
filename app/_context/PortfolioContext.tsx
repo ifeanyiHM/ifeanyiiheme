@@ -45,7 +45,23 @@ function PortfolioProvider({ children }: PortfolioProviderProps) {
     } else {
       document.body.classList.remove("lightMode");
     }
+
+    return () => {
+      document.body.classList.remove("lightMode");
+    };
   }, [lightMode]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
 
   return (
     <PortContext.Provider
