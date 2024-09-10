@@ -84,26 +84,44 @@ export const socialsMobile = [
 export const skillCategories = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SCSS/SASS"],
+    skills: [
+      { language: "HTML5", percentage: "80" },
+      { language: "CSS3", percentage: "85" },
+      { language: "JavaScript", percentage: "70" },
+      { language: "TypeScript", percentage: "75" },
+      { language: "NodeJS", percentage: "40" },
+      { language: "SCSS / SASS", percentage: "90" },
+    ],
   },
   {
     title: "Frameworks",
     skills: [
-      "React",
-      "Nextjs",
-      "Tailwind",
-      "Styled Component",
-      "CSS Modules",
-      "Bootstrap",
+      { language: "React", percentage: "" },
+      { language: "Nextjs", percentage: "" },
+      { language: "Tailwind", percentage: "" },
+      { language: "ExpressJS", percentage: "" },
+      { language: "Styled Component", percentage: "" },
+      { language: "CSS Modules", percentage: "" },
+      { language: "Bootstrap", percentage: "" },
     ],
   },
   {
     title: "Design",
-    skills: ["Figma", "Canva", "Adobe XD"],
+    skills: [
+      { language: "Figma", percentage: "" },
+      { language: "Canva", percentage: "" },
+      { language: "Adobe XD", percentage: "" },
+    ],
   },
   {
     title: "Tools",
-    skills: ["Supabase", "GitHub", "Git", "Vercel", "SEO"],
+    skills: [
+      { language: "Supabase", percentage: "" },
+      { language: "GitHub", percentage: "" },
+      { language: "Git", percentage: "" },
+      { language: "Vercel", percentage: "" },
+      { language: "SEO", percentage: "" },
+    ],
   },
 ];
 

@@ -28,7 +28,7 @@ function MenuPage() {
 
       <div className="relative h-[100svh] flex flex-col gap-[6rem] md:gap-[3rem] md:justify-around pt-[7rem] pb-[1rem] md:py-0">
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
-          <div className="hidden lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem]">
+          <div className="hidden relative lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem] lg:mt-[1rem]">
             <div>
               <p
                 className={`${
@@ -61,6 +61,14 @@ function MenuPage() {
                 ))}
               </ul>
             </div>
+
+            <span
+              className={` ${
+                lightMode ? "text-[#444452]" : "text-[#64748b]"
+              } hidden absolute bottom-[1rem] lg:block tracking-[0.2rem]`}
+            >
+              ©/{new Date().getFullYear()}
+            </span>
           </div>
 
           {/* menu list */}
@@ -88,7 +96,7 @@ function MenuPage() {
               lightMode ? " text-[#444452]" : " text-[#64748b]"
             }  tracking-[0.2rem]`}
           >
-            ©/2024
+            ©/{new Date().getFullYear()}
           </span>
         </div>
 
