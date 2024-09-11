@@ -71,7 +71,7 @@ function AboutPage() {
               you love be what you do.’ – Rumi
             </p>
             <SocialLink
-              href="/Ifeanyi_Iheme_resume.docx.pdf"
+              href="/Ifeanyi_Iheme_resume.pdf"
               title="View Full Resume"
               classProp="md:text-[1.1rem]"
             />
