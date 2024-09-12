@@ -11,8 +11,9 @@ const StarBackground = () => {
   const [stars, setStars] = useState<StarProps[]>([]);
 
   useEffect(() => {
-    const count = 200;
-    const newStars = [];
+    const screenWidth = window.innerWidth;
+    const count = screenWidth <= 640 ? 100 : 200;
+    const newStars: StarProps[] = [];
 
     for (let i = 0; i < count; i++) {
       const x = Math.floor(Math.random() * window.innerWidth);
