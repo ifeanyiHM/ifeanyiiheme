@@ -277,6 +277,20 @@ body:hover::-webkit-scrollbar-thumb {
   filter: blur(0px);
 }
 
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @media screen and (min-width: 1024px) {
   body {
     height: 100%;

@@ -4,13 +4,13 @@ import Link from "next/link";
 import usePortfolio from "./_context/usePortfolio";
 import GridBackground from "./Components/GridBackground";
 import Image from "next/image";
+import StarBackground from "./Components/StarBackgroud";
 
 export default function Home() {
   const { lightMode } = usePortfolio();
 
   return (
     <>
-      {lightMode && <GridBackground />}
       <header
         className={` ${
           lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
@@ -72,6 +72,10 @@ export default function Home() {
           </h3>
         </div>
       </header>
+      <div className="fixed inset-0">
+        <StarBackground />
+      </div>
+      {lightMode && <GridBackground />}
     </>
   );
 }
