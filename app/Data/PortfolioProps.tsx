@@ -88,7 +88,7 @@ export const skillCategories = [
       { language: "HTML5", percentage: "80" },
       { language: "CSS3", percentage: "85" },
       { language: "JavaScript", percentage: "70" },
-      { language: "TypeScript", percentage: "75" },
+      { language: "TypeScript", percentage: "80" },
       { language: "NodeJS", percentage: "45" },
       { language: "SCSS / SASS", percentage: "90" },
     ],
