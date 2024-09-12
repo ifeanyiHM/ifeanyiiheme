@@ -16,7 +16,7 @@ function Navigation() {
       : "bg-[#e7e7e7]";
 
   return (
-    <nav className="z-[100] fixed flex items-center gap-[0.5rem] py-[0.5rem] top-[1rem] lg:top-[2rem] right-[1.5rem] lg:right-[2rem]">
+    <nav className="z-[150] fixed flex items-center gap-[0.5rem] py-[0.5rem] top-[1rem] lg:top-[2rem] right-[1.5rem] lg:right-[2rem]">
       <span
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="relative group flex flex-col gap-[0.2rem] mr-[0.3rem] cursor-pointer transition-all duration-300 ease-in-out"
