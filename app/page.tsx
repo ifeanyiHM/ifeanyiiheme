@@ -11,6 +11,10 @@ export default function Home() {
 
   return (
     <>
+      <div className="fixed inset-0">
+        <StarBackground />
+      </div>
+      {lightMode && <GridBackground />}
       <header
         className={` ${
           lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
@@ -72,10 +76,6 @@ export default function Home() {
           </h3>
         </div>
       </header>
-      <div className="fixed inset-0">
-        <StarBackground />
-      </div>
-      {lightMode && <GridBackground />}
     </>
   );
 }
