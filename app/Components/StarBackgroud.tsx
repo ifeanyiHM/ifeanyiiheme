@@ -12,7 +12,7 @@ const StarBackground = () => {
 
   useEffect(() => {
     const screenWidth = window.innerWidth;
-    const count = screenWidth <= 640 ? 100 : 200;
+    const count = screenWidth <= 640 ? 80 : 150;
     const newStars: StarProps[] = [];
 
     for (let i = 0; i < count; i++) {
