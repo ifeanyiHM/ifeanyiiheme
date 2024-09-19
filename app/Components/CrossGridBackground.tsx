@@ -5,7 +5,7 @@ function CrossGridBackground() {
   const { lightMode } = usePortfolio();
 
   return (
-    <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-[repeat(15,_minmax(0,_1fr))] w-full min-h-screen fixed top-0 z-[-1]">
+    <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-[repeat(15,_minmax(0,_1fr))] w-full min-h-screen fixed top-0 bottom-0 z-[-1]">
       {Array(54)
         .fill(null)
         .map((_, index) => (

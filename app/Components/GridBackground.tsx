@@ -5,7 +5,7 @@ function GridBackground() {
   const { lightMode } = usePortfolio();
 
   return (
-    <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 w-full min-h-screen fixed z-[-1] top-0">
+    <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 w-full min-h-screen fixed z-[-1] top-0 bottom-0">
       {Array(6)
         .fill(null)
         .map((_, index) => (
