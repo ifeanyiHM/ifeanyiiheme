@@ -13,7 +13,7 @@ function OtherProjects() {
             lightMode
               ? "border-b-[rgb(68,68,82,0.2)] text-[#444452]"
               : "border-b-[#152342] text-[#fff]"
-          } border-b uppercase`}
+          } md:border-b uppercase`}
         >
           <th className="py-[0.5rem] md:py-[1rem]">Project</th>
           <th className="py-[0.5rem] md:py-[1rem]">Tools</th>
@@ -29,7 +29,7 @@ function OtherProjects() {
             key={idx}
             className={`${
               lightMode ? "border-b-[rgb(68,68,82,0.2)]" : "border-b-[#152342]"
-            } ${otherProjects.length - 1 !== idx ? "border-b" : ""}`}
+            } ${otherProjects.length - 1 !== idx ? "md:border-b" : ""}`}
           >
             <td className="py-[0.8rem] md:py-[1rem] lg:w-[20%] text-[0.95rem] md:text-[1rem] lg:text-[1.1rem]">
               <span className="hidden lg:table-cell py-[0.8rem] md:py-[1rem]">

@@ -14,7 +14,17 @@ function ProjectPage() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollDistance = window.scrollY;
-      const threshold = window.innerWidth >= 768 ? 300 : 400;
+      let threshold;
+
+      if (window.innerWidth >= 1024) {
+        threshold = 500;
+      } else if (window.innerWidth >= 768) {
+        threshold = 700;
+      } else {
+        threshold = 400;
+      }
+
+      console.log(threshold);
 
       animateWorksRef.current.forEach((work) => {
         if (work) {

@@ -10,7 +10,9 @@ export const metadata = {
 function Page() {
   return (
     <>
-      <GridBackground />
+      <div className="hidden md:block">
+        <GridBackground />
+      </div>
       <SideNav />
       <SkillsPage />
     </>

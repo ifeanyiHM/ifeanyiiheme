@@ -1,3 +1,4 @@
+import CrossGridBackground from "../Components/CrossGridBackground";
 import GridBackground from "../Components/GridBackground";
 import SideNav from "../Components/SideNav";
 import ProjectPage from "./ProjectPage";
@@ -9,7 +10,12 @@ export const metadata = {
 function Page() {
   return (
     <div>
-      <GridBackground />
+      <div className="hidden md:block">
+        <GridBackground />
+      </div>
+      <div className="md:hidden">
+        <CrossGridBackground />
+      </div>
       <SideNav />
       <ProjectPage />
     </div>
