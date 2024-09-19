@@ -17,7 +17,7 @@ function ProjectPage() {
       let threshold;
 
       if (window.innerWidth >= 1024) {
-        threshold = 500;
+        threshold = 400;
       } else if (window.innerWidth >= 768) {
         threshold = 700;
       } else {
