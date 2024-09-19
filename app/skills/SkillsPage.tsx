@@ -28,7 +28,7 @@ function SkillsPage() {
               lightMode ? "text-[#444452]" : "text-[#fff]"
             } hidden lg:block pb-[2rem] text-[3rem] uppercase`}
           >
-            Skill
+            Skills
           </h2>
           <div className="grid grid-cols-2 lg:flex lg:justify-between gap-y-[1.5rem] md:gap-y-[2.5rem]">
             {skillCategories.map((category, index) => (
