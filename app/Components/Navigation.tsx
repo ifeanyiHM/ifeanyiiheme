@@ -3,6 +3,7 @@ import { MdOutlineLightMode } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 import usePortfolio from "../_context/usePortfolio";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 function Navigation() {
   const { lightMode, setLightMode, isMenuOpen, setIsMenuOpen } = usePortfolio();
@@ -16,6 +17,9 @@ function Navigation() {
 
   return (
     <nav className="z-[150] fixed flex items-center gap-[0.5rem] py-[0.5rem] top-[1rem] lg:top-[2rem] right-[1.5rem] lg:right-[2rem]">
+      <span className="text-[1.2rem] font-semibold mr-2">
+        <Link href="/blog">Blogs</Link>
+      </span>
       <span
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="relative group flex flex-col gap-[0.2rem] mr-[0.3rem] cursor-pointer transition-all duration-300 ease-in-out"
