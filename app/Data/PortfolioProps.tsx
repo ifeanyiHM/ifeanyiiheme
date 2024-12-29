@@ -308,6 +308,7 @@ export const blogData = [
     id: "impossiblelives001",
     title: "Impossible Lives",
     author: "Alok",
+    authorImage: "",
     readTime: "5 min read",
     date: "September 18, 2021",
     coverImage: [
@@ -368,6 +369,7 @@ export const blogData = [
     id: "fine002",
     title: "Fine body and soul if you love to go in simple words",
     author: "Ifeanyi Iheme",
+    authorImage: "",
     readTime: "5 min read",
     date: "December 23, 2024",
     coverImage: [
@@ -413,6 +415,7 @@ export const blogData = [
     id: "family003",
     title: "My Love letter to Family and Friends",
     author: "Ifeanyi Iheme",
+    authorImage: "",
     readTime: "5 min read",
     date: "August 17, 2021",
     coverImage: [
@@ -504,6 +507,7 @@ export const blogData = [
     id: "join004",
     title: "My coding journey",
     author: "Ifeanyi Iheme",
+    authorImage: "",
     readTime: "5 min read",
     date: "January 3, 2025",
     coverImage: [

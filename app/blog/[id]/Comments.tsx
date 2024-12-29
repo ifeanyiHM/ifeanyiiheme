@@ -1,3 +1,4 @@
+import usePortfolio from "@/app/_context/usePortfolio";
 import { useEffect, useState } from "react";
 
 interface Comment {
@@ -16,6 +17,8 @@ function Comments() {
   const [expandedTexts, setExpandedTexts] = useState<boolean[]>(
     allComments.map(() => false)
   );
+
+  const { lightMode } = usePortfolio();
 
   const addComment = () => {
     if (comment.thought === "") {
@@ -88,7 +91,11 @@ function Comments() {
         </span>
       )}
       <div className="pt-12 pb-10 px-[1.5rem] md:px-14 lg:px-0 lg:max-w-[680px] mx-auto lg:text-[1.1rem]">
-        <div className="border-b border-[#f2f2f2] pb-10">
+        <div
+          className={`${
+            lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
+          } border-b pb-10`}
+        >
           <h2 className="text-xl font-semibold mb-6">
             Comments {allComments.length > 0 && `(${allComments.length})`}
           </h2>
@@ -155,7 +162,12 @@ function Comments() {
         </div>
         <div className="mt-6">
           {allComments.map((comment, index) => (
-            <div key={index} className="border-b border-[#f2f2f2] py-4">
+            <div
+              key={index}
+              className={`${
+                lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
+              } border-b py-4`}
+            >
               <div className="flex items-center gap-2">
                 <span
                   className="uppercase flex justify-center items-center text-xl w-8 h-8 text-white rounded-full"

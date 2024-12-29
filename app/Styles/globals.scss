@@ -361,7 +361,7 @@ body:hover {
   .lightMode {
     background: radial-gradient(
         circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-        rgb(0, 0, 0, 0.04),
+        rgb(0, 0, 0, 0),
         transparent 300px
       ),
       #fff;

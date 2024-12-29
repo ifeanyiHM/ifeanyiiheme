@@ -6,12 +6,15 @@ import { FaRegHeart } from "react-icons/fa";
 import usePortfolio from "../_context/usePortfolio";
 import Link from "next/link";
 import { blogData } from "../Data/PortfolioProps";
+import { lora } from "../fonts/fonts";
 
 function BlogPage() {
   const { lightMode } = usePortfolio();
 
   return (
-    <div className="flex flex-col gap-6 md:gap-10 mt-20 md:mt-24 px-[1.5rem] lg:pr-8 lg:pl-20 xl:pl-28">
+    <div
+      className={`flex flex-col gap-6 md:gap-10 mt-20 md:mt-24 px-[1.5rem] lg:pr-8 lg:pl-20 xl:pl-28`}
+    >
       {blogData
         .slice()
         .reverse()
@@ -38,11 +41,13 @@ function BlogPage() {
                   <h2
                     className={`${
                       lightMode ? "" : "text-[#e2e8f0]"
-                    } uppercase font-semibold lg:text-[1.1rem]`}
+                    } uppercase font-semibold lg:text-[1.1rem] leading-tight`}
                   >
                     {preview.title}
                   </h2>
-                  <span className="text-[0.8rem] lg:text-[1rem]">
+                  <span
+                    className={`${lora.className} text-[0.8rem] lg:text-[1rem]`}
+                  >
                     Published . {preview.date}
                   </span>
                   <div className="flex gap-2 md:hidden">

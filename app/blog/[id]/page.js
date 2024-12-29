@@ -2,7 +2,7 @@
 
 import usePortfolio from "@/app/_context/usePortfolio";
 import { blogData } from "@/app/Data/PortfolioProps";
-import { inter } from "@/app/fonts/fonts";
+import { lora } from "@/app/fonts/fonts";
 import Image from "next/image";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
@@ -17,9 +17,6 @@ const Page = ({ params }) => {
 
   const [isZoomedCover, setIsZoomedCover] = useState(null);
   const [zoomedState, setZoomedState] = useState({});
-
-  // const [expandedTexts, setExpandedTexts] =
-  //   useState < [] > recentProjects.map(() => false);
 
   const blogPost = blogData.find((post) => params.id === post.id);
 
@@ -47,10 +44,10 @@ const Page = ({ params }) => {
   };
 
   return (
-    <>
+    <div className={lora.className}>
       <div
-        className={`${inter.className} ${
-          lightMode ? "text-[#242424]" : "text-[#94a3b8]"
+        className={`${
+          lightMode ? "text-[#000]" : "text-[#94a3b8]"
         } mt-20 md:my-2t px-[1.5rem] md:px-14 lg:px-0 lg:max-w-[680px] mx-auto lg:text-[1.1rem]`}
       >
         {/* Header Section */}
@@ -118,7 +115,7 @@ const Page = ({ params }) => {
 
         {/* Paragraph Sections */}
         <div className="flex flex-col gap-2">
-          <p className={`font-[300]`}>{blogPost.headParagraph}</p>
+          <p className={``}>{blogPost.headParagraph}</p>
           {blogPost.sections.map((section, sectionIndex) => (
             <div key={sectionIndex} className="flex flex-col gap-4">
               <div
@@ -176,7 +173,7 @@ const Page = ({ params }) => {
                 >
                   {section.subtitle && section.subtitle}
                 </h2>
-                <p className="font-[300]">{section.text}</p>
+                <p className="">{section.text}</p>
               </div>
             </div>
           ))}
@@ -199,8 +196,8 @@ const Page = ({ params }) => {
         {/* Reactions */}
         <div
           className={`${
-            lightMode ? "" : "text-[#e2e8f0]"
-          } flex justify-between items-center pb-6 border-b border-[#f2f2f2]`}
+            lightMode ? "border-[#f7f6f6]" : "text-[#e2e8f0] border-[#253a69]"
+          } flex justify-between items-center pb-6 border-b`}
         >
           <div className="flex gap-4 items-center">
             <div className="flex gap-2 items-center">
@@ -217,21 +214,23 @@ const Page = ({ params }) => {
           </span>
         </div>
       </div>
+
       {/* Author*/}
-      <div className="border-b pt-8 pb-12 border-[#f2f2f2] px-[1.5rem] md:px-14 lg:px-0 lg:max-w-[680px] mx-auto lg:text-[1.1rem]">
-        <div className="w-65 h-65 rounded-full">
-          {blogPost.authorImage ? (
-            <Image
-              src={blogPost.authorImage}
-              alt="author identity"
-              width={100}
-              height={100}
-            />
-          ) : (
-            <FaRegCircleUser size={65} />
-          )}
+      <div
+        className={`${
+          lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
+        }  border-b pt-8 pb-12 px-[1.5rem] md:px-14 lg:px-0 lg:max-w-[680px] mx-auto lg:text-[1.1rem]`}
+      >
+        <div className="w-16 h-16 rounded-full">
+          <Image
+            src={blogPost.authorImage || "/default-avatar-icon.jpg"}
+            alt="author identity"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
         </div>
-        <h2 className="my-2 text-3xl font-semibold">
+        <h2 className="my-3 text-[1.55rem] font-semibold">
           Written by {blogPost.author}
         </h2>
         <p className="">
@@ -243,8 +242,8 @@ const Page = ({ params }) => {
       {/* Comments */}
       <Comments />
       {/* More Articles */}
-      <MoreArticles />
-    </>
+      <MoreArticles params={params} />
+    </div>
   );
 };
 

@@ -1,17 +1,12 @@
-import {
-  Inter,
-  Merriweather,
-  Source_Sans_3,
-  Source_Serif_4,
-} from "next/font/google";
+import { Lora, Merriweather, Source_Sans_3, Ubuntu } from "next/font/google";
 
 export const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
-export const inter = Inter({
+export const lora = Lora({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 export const merriweather = Merriweather({
   subsets: ["latin"],
