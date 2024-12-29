@@ -28,7 +28,7 @@ function BlogPage() {
                 <div className="w-16 h-16 flex-shrink-0">
                   <Image
                     className="w-full h-full object-cover rounded-md"
-                    src={preview.coverImage[0]}
+                    src={preview.coverImage[0].image}
                     width={100}
                     height={100}
                     alt={preview.alt}

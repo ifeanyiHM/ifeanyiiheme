@@ -275,6 +275,34 @@ export const otherProjects = [
   },
 ];
 
+export interface BlogPostProps {
+  id: string;
+  title: string;
+  author: string;
+  readTime: string;
+  date: string;
+  coverImage: {
+    image: string;
+    zoomedImage: string;
+  }[];
+  alt: string;
+  headParagraph: string;
+  sections: {
+    imgSubtitle?: string;
+    image: {
+      image: string;
+      zoomedImage: string;
+    }[];
+    alt: string;
+    text: string;
+  }[];
+  tags: string[];
+  reactions: {
+    claps: number;
+    hearts: number;
+  };
+}
+
 export const blogData = [
   {
     id: "impossiblelives001",
@@ -282,7 +310,12 @@ export const blogData = [
     author: "Alok",
     readTime: "5 min read",
     date: "September 18, 2021",
-    coverImage: ["/blogs/impossible.jpg"],
+    coverImage: [
+      {
+        image: "/blogs/impossible.jpg",
+        zoomedImage: "/blogs/impossible.jpg",
+      },
+    ],
     alt: "text image",
     headParagraph:
       "we live impossible lives. Miracles are not exceptional; they are everywhere.  In order for me to be here writing this to you now, for you to be there reading it, a billion things had to go right and a billion things wrong. This was not supposed to happen. and it is. We are not supposed to happen. and we do. if that's not a testament to the gruesome charm of being alive and meaning it, i'm not sure what is.",
@@ -337,7 +370,12 @@ export const blogData = [
     author: "Ifeanyi Iheme",
     readTime: "5 min read",
     date: "December 23, 2024",
-    coverImage: ["/blogs/love.jpg"],
+    coverImage: [
+      {
+        image: "/blogs/love.jpg",
+        zoomedImage: "/blogs/love.jpg",
+      },
+    ],
     alt: "love",
     headParagraph:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
@@ -468,7 +506,12 @@ export const blogData = [
     author: "Ifeanyi Iheme",
     readTime: "5 min read",
     date: "January 3, 2025",
-    coverImage: ["/blogs/for-you.png"],
+    coverImage: [
+      {
+        image: "/blogs/for-you.png",
+        zoomedImage: "/blogs/for-you.png",
+      },
+    ],
     alt: "love",
     headParagraph:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",

@@ -6,14 +6,20 @@ import { inter } from "@/app/fonts/fonts";
 import Image from "next/image";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { FaRegCircleUser } from "react-icons/fa6";
 import { IoMdShare } from "react-icons/io";
 import { PiHandsClappingThin } from "react-icons/pi";
+import Comments from "./Comments";
+import MoreArticles from "./MoreArticles";
 
 const Page = ({ params }) => {
   const { lightMode } = usePortfolio();
 
   const [isZoomedCover, setIsZoomedCover] = useState(null);
   const [zoomedState, setZoomedState] = useState({});
+
+  // const [expandedTexts, setExpandedTexts] =
+  //   useState < [] > recentProjects.map(() => false);
 
   const blogPost = blogData.find((post) => params.id === post.id);
 
@@ -29,6 +35,14 @@ const Page = ({ params }) => {
       return prevState[key]
         ? { ...prevState, [key]: false }
         : { ...prevState, [key]: true };
+    });
+  };
+
+  const toggleExpand = (index) => {
+    setExpandedTexts((prev) => {
+      const newText = [...prev];
+      newText[index] = !newText[index];
+      return newText;
     });
   };
 
@@ -186,7 +200,7 @@ const Page = ({ params }) => {
         <div
           className={`${
             lightMode ? "" : "text-[#e2e8f0]"
-          } flex justify-between items-center pb-6 mb-10 border-b border-[#f2f2f2]`}
+          } flex justify-between items-center pb-6 border-b border-[#f2f2f2]`}
         >
           <div className="flex gap-4 items-center">
             <div className="flex gap-2 items-center">
@@ -203,7 +217,33 @@ const Page = ({ params }) => {
           </span>
         </div>
       </div>
-      <div></div>
+      {/* Author*/}
+      <div className="border-b pt-8 pb-12 border-[#f2f2f2] px-[1.5rem] md:px-14 lg:px-0 lg:max-w-[680px] mx-auto lg:text-[1.1rem]">
+        <div className="w-65 h-65 rounded-full">
+          {blogPost.authorImage ? (
+            <Image
+              src={blogPost.authorImage}
+              alt="author identity"
+              width={100}
+              height={100}
+            />
+          ) : (
+            <FaRegCircleUser size={65} />
+          )}
+        </div>
+        <h2 className="my-2 text-3xl font-semibold">
+          Written by {blogPost.author}
+        </h2>
+        <p className="">
+          {blogPost.bio} This is a sample text designed to fill space where
+          content is not yet available. It provides a visual representation of
+          text on a page, helping to plan layouts or designs.
+        </p>
+      </div>
+      {/* Comments */}
+      <Comments />
+      {/* More Articles */}
+      <MoreArticles />
     </>
   );
 };
