@@ -425,8 +425,8 @@ export const blogData = [
         zoomedImage: "/blogs/family-love-letter/somto-full.jpg",
       },
       {
-        image: "/blogs/family-love-letter/mummy.jpg",
-        zoomedImage: "/blogs/family-love-letter/mummy-full.jpg",
+        image: "/blogs/family-love-letter/mother.JPG",
+        zoomedImage: "/blogs/family-love-letter/mother-full.JPG",
       },
       {
         image: "/blogs/family-love-letter/somto3.jpg",
