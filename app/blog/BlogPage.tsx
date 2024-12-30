@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import { IoMdShare } from "react-icons/io";
-import { GoComment } from "react-icons/go";
-import { FaRegHeart } from "react-icons/fa";
+import { IoIosHeart, IoMdShare } from "react-icons/io";
 import usePortfolio from "../_context/usePortfolio";
 import Link from "next/link";
 import { blogData } from "../Data/PortfolioProps";
 import { lora } from "../fonts/fonts";
+import { IoStatsChartSharp } from "react-icons/io5";
+import { FaComment, FaCommentAlt } from "react-icons/fa";
 
 function BlogPage() {
   const { lightMode } = usePortfolio();
@@ -24,7 +24,7 @@ function BlogPage() {
               className={`${
                 lightMode
                   ? "border border-[#dbd6d6] rounded-md shadow-md hover:shadow-[0_0_5px_rgb(68,68,82,0.3)]"
-                  : "shadow-[0_0_8px_rgb(0,123,255,0.3)]"
+                  : "shadow-[0_0_8px_rgb(0,123,255,0.3)] hover:shadow-[0_0_15px_rgb(0,123,255,0.3)]"
               } flex justify-between items-center p-2`}
             >
               <div className="flex items-center gap-2">
@@ -50,23 +50,49 @@ function BlogPage() {
                   >
                     Published . {preview.date}
                   </span>
-                  <div className="flex gap-2 md:hidden">
+                  <div className="flex gap-2 md:hidden items-center">
+                    {preview.reaction.hearts > 0 && (
+                      <span className="text-[#da2929] flex gap-1 items-center">
+                        <IoIosHeart /> {preview.reaction.hearts}
+                      </span>
+                    )}
+                    {preview.comments.length > 0 && (
+                      <span className="text-[#007bff] flex gap-1 items-center">
+                        <FaComment /> {preview.comments.length}
+                      </span>
+                    )}
+                    {preview.reaction.views > 0 && (
+                      <span className="flex gap-1 items-center">
+                        <IoStatsChartSharp /> {preview.reaction.views}
+                      </span>
+                    )}
                     <IoMdShare />
-                    <GoComment />
-                    <FaRegHeart />
                   </div>
                 </div>
               </div>
               <div
-                className={`${
-                  lightMode ? "" : "text-[#e2e8f0]"
-                } hidden md:flex flex-col gap-2 lg:text-[1.1rem] xl:mr-2`}
+                className={` hidden md:flex flex-col gap-2 lg:text-[1.1rem] xl:mr-2 text-end`}
               >
-                <span className="">{preview.author}</span>
-                <div className="flex gap-2 lg:gap-3 justify-end">
+                <span className={lightMode ? "" : "text-[#e2e8f0]"}>
+                  {preview.author}
+                </span>
+                <div className="flex gap-2 lg:gap-3 justify-end items-center">
+                  {preview.reaction.hearts > 0 && (
+                    <span className="text-[#da2929] flex gap-1 items-center">
+                      <IoIosHeart /> {preview.reaction.hearts}
+                    </span>
+                  )}
+                  {preview.comments.length > 0 && (
+                    <span className="text-[#007bff] flex gap-1 items-center">
+                      <FaComment /> {preview.comments.length}
+                    </span>
+                  )}
+                  {preview.reaction.views > 0 && (
+                    <span className="flex gap-1 items-center">
+                      <IoStatsChartSharp /> {preview.reaction.views}
+                    </span>
+                  )}
                   <IoMdShare />
-                  <GoComment />
-                  <FaRegHeart />
                 </div>
               </div>
             </div>

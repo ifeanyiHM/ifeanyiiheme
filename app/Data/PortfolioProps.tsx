@@ -297,8 +297,8 @@ export interface BlogPostProps {
     text: string;
   }[];
   tags: string[];
-  reactions: {
-    claps: number;
+  reaction: {
+    views: number;
     hearts: number;
   };
 }
@@ -360,57 +360,58 @@ export const blogData = [
       "miracles",
       "gratefulness",
     ],
-    reactions: {
-      claps: 50,
-      hearts: 20,
+    reaction: {
+      views: 50,
+      hearts: 8,
     },
+    comments: [],
   },
-  {
-    id: "fine002",
-    title: "Fine body and soul if you love to go in simple words",
-    author: "Ifeanyi Iheme",
-    authorImage: "",
-    readTime: "5 min read",
-    date: "December 23, 2024",
-    coverImage: [
-      {
-        image: "/blogs/love.jpg",
-        zoomedImage: "/blogs/love.jpg",
-      },
-    ],
-    alt: "love",
-    headParagraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
-    sections: [
-      {
-        subtitle: "Image Sub Title",
-        image: [
-          {
-            image: "/blogs/for-you.png",
-            zoomedImage: "/blogs/for-you.png",
-          },
-        ],
-        alt: "love",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
-      },
-      {
-        subtitle: "Image Sub Title",
-        image: [
-          {
-            image: "/blogs/tic-tac-toe.jpg",
-            zoomedImage: "/blogs/tic-tac-toe.jpg",
-          },
-        ],
-        alt: "love",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
-      },
-    ],
-    tags: ["self Improvement", "life", "Technology", "experience", "style"],
-    reactions: {
-      claps: 50,
-      hearts: 20,
-    },
-  },
+  // {
+  //   id: "fine002",
+  //   title: "Fine body and soul if you love to go in simple words",
+  //   author: "Ifeanyi Iheme",
+  //   authorImage: "",
+  //   readTime: "5 min read",
+  //   date: "December 23, 2024",
+  //   coverImage: [
+  //     {
+  //       image: "/blogs/love.jpg",
+  //       zoomedImage: "/blogs/love.jpg",
+  //     },
+  //   ],
+  //   alt: "love",
+  //   headParagraph:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+  //   sections: [
+  //     {
+  //       subtitle: "Image Sub Title",
+  //       image: [
+  //         {
+  //           image: "/blogs/for-you.png",
+  //           zoomedImage: "/blogs/for-you.png",
+  //         },
+  //       ],
+  //       alt: "love",
+  //       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+  //     },
+  //     {
+  //       subtitle: "Image Sub Title",
+  //       image: [
+  //         {
+  //           image: "/blogs/tic-tac-toe.jpg",
+  //           zoomedImage: "/blogs/tic-tac-toe.jpg",
+  //         },
+  //       ],
+  //       alt: "love",
+  //       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+  //     },
+  //   ],
+  //   tags: ["self Improvement", "life", "Technology", "experience", "style"],
+  //   reaction: {
+  //     views: 50,
+  //     hearts: 20,
+  //   },
+  // },
   {
     id: "family003",
     title: "My Love letter to Family and Friends",
@@ -498,10 +499,11 @@ export const blogData = [
       "love",
       "Appreciation",
     ],
-    reactions: {
-      claps: 50,
-      hearts: 20,
+    reaction: {
+      views: 10,
+      hearts: 10,
     },
+    comments: [],
   },
   {
     id: "join004",
@@ -544,10 +546,11 @@ export const blogData = [
       },
     ],
     tags: ["self Improvement", "life", "Technology", "experience", "style"],
-    reactions: {
-      claps: 50,
-      hearts: 20,
+    reaction: {
+      views: 50,
+      hearts: 5,
     },
+    comments: [],
   },
 ];
 

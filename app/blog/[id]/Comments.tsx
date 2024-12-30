@@ -94,7 +94,7 @@ function Comments() {
         <div
           className={`${
             lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
-          } border-b pb-10`}
+          } border-b pb-10 lg:pb-14`}
         >
           <h2 className="text-xl font-semibold mb-6">
             Comments {allComments.length > 0 && `(${allComments.length})`}
@@ -105,12 +105,17 @@ function Comments() {
               isClicked
                 ? "h-[193px] max-h-[300px] py-3"
                 : "max-h-[50px] h-[50px] overflow-hidden"
-            } flex flex-col gap-2 w-full px-2 shadow-[0_0_7px_rgb(68,68,82,0.2)] rounded-sm transition-all duration-500 ease-in-out`}
+            } ${
+              lightMode
+                ? "shadow-[0_0_7px_rgb(68,68,82,0.2)]"
+                : "shadow-[0_0_8px_rgb(0,123,255,0.3)]"
+            } flex flex-col gap-2 w-full px-2 rounded-sm transition-all duration-500 ease-in-out`}
           >
             <input
-              className={`${
-                isClicked ? "py-2 px-2 border-b border-[#f2f2f2]" : "py-3"
-              } w-full outline-none rounded-sm`}
+              className={`${isClicked ? "py-2 px-2 border-b" : "py-3"} 
+              ${
+                lightMode && isClicked ? "border-[#f2f2f2]" : "border-[#253a69]"
+              } w-full bg-transparent outline-none rounded-sm`}
               type="text"
               placeholder={
                 isClicked ? "Please enter your name" : "Leave a comment"
@@ -121,7 +126,7 @@ function Comments() {
             <textarea
               className={`${
                 isClicked ? "delay-300 scale-y-100" : "scale-y-0"
-              } w-full h-20 px-2 outline-none`}
+              } w-full bg-transparent h-20 px-2 outline-none`}
               placeholder="what are you thoughts?"
               value={comment.thought}
               onChange={(e) =>
@@ -144,9 +149,15 @@ function Comments() {
               </button>
               <button
                 onClick={addComment}
-                className={`${
-                  !comment.thought ? "bg-[#007bff]/40" : "bg-[#007bff]"
-                } text-white px-3 py-1 rounded-3xl`}
+                className={`${lightMode ? "text-white" : "text-teal-300"} ${
+                  lightMode && comment.thought
+                    ? "bg-[#007bff]"
+                    : lightMode && !comment.thought
+                    ? "bg-[#007bff]/40"
+                    : !lightMode && comment.thought
+                    ? "bg-teal-400/50"
+                    : "bg-teal-400/10"
+                }  px-3 py-1 rounded-3xl`}
               >
                 Comment
               </button>
@@ -166,7 +177,7 @@ function Comments() {
               key={index}
               className={`${
                 lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
-              } border-b py-4`}
+              } border-b py-4 lg:py-8`}
             >
               <div className="flex items-center gap-2">
                 <span
@@ -180,7 +191,7 @@ function Comments() {
                   <span className="text-sm">{formatDate(comment.date)}</span>
                 </p>
               </div>
-              <div className="mt-4 flex flex-col gap-1.5">
+              <div className="mt-4 flex flex-col gap-1.5 lg:gap-3">
                 {expandedTexts[index]
                   ? comment.thought
                       .split("\n")

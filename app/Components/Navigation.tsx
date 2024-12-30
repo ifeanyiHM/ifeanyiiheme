@@ -17,7 +17,11 @@ function Navigation() {
 
   return (
     <nav className="z-[150] fixed flex items-center gap-[0.5rem] py-[0.5rem] top-[1rem] lg:top-[2rem] right-[1.5rem] lg:right-[2rem]">
-      <span className="text-[1.2rem] font-semibold mr-2">
+      <span
+        className={`${
+          lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
+        } text-[1.2rem] mr-2`}
+      >
         <Link href="/blog">Blogs</Link>
       </span>
       <span

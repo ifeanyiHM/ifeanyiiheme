@@ -6,11 +6,11 @@ import { lora } from "@/app/fonts/fonts";
 import Image from "next/image";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
-import { FaRegCircleUser } from "react-icons/fa6";
 import { IoMdShare } from "react-icons/io";
 import { PiHandsClappingThin } from "react-icons/pi";
 import Comments from "./Comments";
 import MoreArticles from "./MoreArticles";
+import { IoStatsChartSharp } from "react-icons/io5";
 
 const Page = ({ params }) => {
   const { lightMode } = usePortfolio();
@@ -201,12 +201,12 @@ const Page = ({ params }) => {
         >
           <div className="flex gap-4 items-center">
             <div className="flex gap-2 items-center">
-              <PiHandsClappingThin className="md:text-[1.5rem]" />
-              <span>{blogPost.reactions.claps}</span>
+              <IoStatsChartSharp className="md:text-[1.5rem]" />
+              <span>{blogPost.reaction.views}</span>
             </div>
             <div className="flex gap-2 items-center">
               <FaRegHeart className="md:text-[1.5rem]" />
-              <span>{blogPost.reactions.hearts}</span>
+              <span>{blogPost.reaction.hearts}</span>
             </div>
           </div>
           <span>
