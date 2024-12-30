@@ -29,5 +29,5 @@
     "../../Downloads/animation+on+scroll+using+javascript+1/animation on scroll using javascript 1/RecentProjects.tsx",
     "../../Downloads/animation+on+scroll+using+javascript+1/animation on scroll using javascript 1/OtherProjects.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "../../Downloads/**"]
 }
