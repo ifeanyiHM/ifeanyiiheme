@@ -12,6 +12,11 @@ interface MoreArticlesProps {
 function MoreArticles({ params }: MoreArticlesProps) {
   const { lightMode } = usePortfolio();
 
+  // Ensure params and params.id are defined
+  if (!params || !params.id) {
+    return <div>Error: No article ID provided</div>;
+  }
+
   const blogList = blogData.filter((data) => data.id !== params.id);
 
   return (
