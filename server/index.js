@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 require("dotenv").config();
 
-const AppError = require("../../Downloads/animation+on+scroll+using+javascript+1/config/appError");
-const globalErrorHandler = require("../../Downloads/animation+on+scroll+using+javascript+1/config/errorController");
-const blogsRouter = require("../../Downloads/animation+on+scroll+using+javascript+1/config/blogRoute");
+const AppError = require("./config/appError");
+const globalErrorHandler = require("./config/errorController");
+const blogsRouter = require("./config/blogRoute");
 
 process.on("uncaughtException", (err) => {
   console.log("UNCAUGHT EXCEPTION! Shutting down.");
@@ -22,6 +23,9 @@ mongoose.connect(DB).then((con) => {
 });
 
 const app = express();
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 app.use(express.json());
 
 app.use("/api/v1/blogs", blogsRouter);
