@@ -306,6 +306,7 @@ export interface BlogPostProps {
 
 export const blogData = [
   {
+    id: "impossiblelives001",
     title: "Impossible Lives",
     author: "Alok",
     authorImage: "",
@@ -317,20 +318,14 @@ export const blogData = [
         zoomedImage: "/blogs/impossible.jpg",
       },
     ],
-    alt: "impossible lives",
+    alt: "text image",
     headParagraph:
       "we live impossible lives. Miracles are not exceptional; they are everywhere.  In order for me to be here writing this to you now, for you to be there reading it, a billion things had to go right and a billion things wrong. This was not supposed to happen. and it is. We are not supposed to happen. and we do. if that's not a testament to the gruesome charm of being alive and meaning it, i'm not sure what is.",
     sections: [
       {
-        imgSubtitle: "",
-        subtitle: "",
-        image: [],
-        alt: "",
         text: "Impossible is enlisted as a foot soldier for the status quo. Its purpose is to re-inscribe the political coordinates of existence, stifle any attempt to stray anywhere else. when they say: &quot;that's impossible!&quot; they mean: &quot;don't imagine otherwise!&quot; and when you do just that, they will dismiss you as naïve and idealistic. So what?",
       },
       {
-        imgSubtitle: "",
-        subtitle: "",
         image: [
           {
             image: "/blogs/tic-tac-toe.jpg",
@@ -341,22 +336,12 @@ export const blogData = [
         text: "Reality is a construction project with no completion date in sight. Of course a camera cannot capture itself. Of course a telescope cannot see what it doesn't. Of course they will delegitimize any viable alternative. But are we trying to be legitimate? Or are we trying to live? Have bad manners: daydream anyways.",
       },
       {
-        imgSubtitle: "",
-        subtitle: "",
-        image: [],
-        alt: "",
         text: "Lurking beneath every crisis is another: parched imagination. Poet Amanda Gorman calls the country simply unfinished, not broken. What if this world was just one draft? What if everything could be rewritten? The job of an artist is to replenish imagination. Which is to say: there are ideas we haven't considered yet. Feelings we haven't encountered yet. Love we haven't surrendered to yet. &quot;Yet&quot; is the most wondrous word ever built. Let's live there together. Redesign existence.",
       },
       {
-        imgSubtitle: "",
-        subtitle: "",
-        image: [],
-        alt: "",
         text: "As a child it wasn't safe for me to express myself outside. So I stayed inside. I went treasure hunting in the library. Novels became my instruction manuals. History, my family. Sometimes I'd stay up all night watching nova documentaries about space. What a delight to discover that I was insignificant. What a relief to discover so early that beauty comes from the things we will never know, not the things we do.",
       },
       {
-        imgSubtitle: "",
-        subtitle: "",
         image: [
           {
             image: "/blogs/miracle.jpg",
@@ -382,7 +367,54 @@ export const blogData = [
     },
     comments: [],
   },
+  // {
+  //   id: "fine002",
+  //   title: "Fine body and soul if you love to go in simple words",
+  //   author: "Ifeanyi Iheme",
+  //   authorImage: "",
+  //   readTime: "5 min read",
+  //   date: "December 23, 2024",
+  //   coverImage: [
+  //     {
+  //       image: "/blogs/love.jpg",
+  //       zoomedImage: "/blogs/love.jpg",
+  //     },
+  //   ],
+  //   alt: "love",
+  //   headParagraph:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+  //   sections: [
+  //     {
+  //       subtitle: "Image Sub Title",
+  //       image: [
+  //         {
+  //           image: "/blogs/for-you.png",
+  //           zoomedImage: "/blogs/for-you.png",
+  //         },
+  //       ],
+  //       alt: "love",
+  //       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+  //     },
+  //     {
+  //       subtitle: "Image Sub Title",
+  //       image: [
+  //         {
+  //           image: "/blogs/tic-tac-toe.jpg",
+  //           zoomedImage: "/blogs/tic-tac-toe.jpg",
+  //         },
+  //       ],
+  //       alt: "love",
+  //       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+  //     },
+  //   ],
+  //   tags: ["self Improvement", "life", "Technology", "experience", "style"],
+  //   reaction: {
+  //     views: 50,
+  //     hearts: 20,
+  //   },
+  // },
   {
+    id: "family003",
     title: "My Love letter to Family and Friends",
     author: "Ifeanyi Iheme",
     authorImage: "",
