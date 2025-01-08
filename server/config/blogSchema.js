@@ -3,13 +3,13 @@ const slugify = require("slugify");
 
 const blogSchema = new mongoose.Schema({
   numId: { type: String },
-  uniqueId: { type: String, unique: true },
+  // uniqueId: { type: String, unique: true },
   title: { type: String, required: [true, "A blog must have a title"] },
   author: { type: String },
   authorImage: { type: String, default: "" },
   readTime: { type: String },
   date: { type: Date, default: () => new Date().toISOString() },
-  slug: String,
+  slug: { type: String, unique: true },
   coverImage: [
     {
       image: { type: String },
