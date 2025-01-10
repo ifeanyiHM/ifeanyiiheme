@@ -30,7 +30,7 @@ const Page = ({ params }: PageProps) => {
   const blogPost = blogs.find((post) => (params?.id as string) === post.slug);
 
   if (!blogPost) {
-    notFound();
+    return <div>Loading...</div>;
   }
 
   const handleZoomCover = (index: number) => {

@@ -25,6 +25,8 @@ const protectWithPassword = (req, res, next) => {
 const getAllBlogs = catchAsync(async (req, res, next) => {
   const blogs = await Blog.find();
 
+  res.set("Cache-Control", "no-store");
+
   res.status(200).json({
     staus: "success",
     results: blogs.length,
@@ -45,6 +47,8 @@ const getBlog = catchAsync(async (req, res, next) => {
     );
   }
 
+  res.set("Cache-Control", "no-store");
+
   res.status(200).json({
     staus: "success",
     data: { blog },
@@ -58,6 +62,8 @@ const createBlog = catchAsync(async (req, res, next) => {
   // const newBlogData = Object.assign({ numId: newNumId }, req.body);
   const newBlogData = { ...req.body, numId: newNumId };
   const newBlog = await Blog.create(newBlogData);
+
+  res.set("Cache-Control", "no-store");
 
   res.status(201).json({
     status: "success",
@@ -120,6 +126,8 @@ const addCommentToBlog = catchAsync(async (req, res, next) => {
       message: "No blog found with the given ID",
     });
   }
+
+  res.set("Cache-Control", "no-store");
 
   res.status(200).json({
     status: "success",
