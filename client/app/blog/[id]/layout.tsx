@@ -1,6 +1,11 @@
 import SideNav from "@/app/Components/SideNav";
+import { ReactNode } from "react";
 
-function layout({ children }) {
+interface layoutProps {
+  children: ReactNode;
+}
+
+function layout({ children }: layoutProps) {
   return (
     <>
       <SideNav />

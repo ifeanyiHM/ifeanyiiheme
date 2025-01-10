@@ -1,5 +1,5 @@
+import useBlog from "@/app/_context/useBlog";
 import usePortfolio from "@/app/_context/usePortfolio";
-import { blogData } from "@/app/Data/PortfolioProps";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,13 +11,14 @@ interface MoreArticlesProps {
 
 function MoreArticles({ params }: MoreArticlesProps) {
   const { lightMode } = usePortfolio();
+  const { blogs } = useBlog();
 
   // Ensure params and params.id are defined
   if (!params || !params.id) {
     return <div>Error: No article ID provided</div>;
   }
 
-  const blogList = blogData.filter((data) => data.id !== params.id);
+  const blogList = blogs.filter((data) => data.slug !== params.id);
 
   return (
     <div className={lightMode ? "bg-[#f9f9f9]" : " bg-black/30"}>
@@ -27,7 +28,7 @@ function MoreArticles({ params }: MoreArticlesProps) {
         <h2 className="text-2xl font-semibold">Read more articles</h2>
         <div className="grid md:grid-cols-2 gap-x-5 gap-y-10">
           {blogList.map((data, index) => (
-            <Link key={index} href={`/blog/${data.id}`}>
+            <Link key={data._id} href={`/blog/${data.slug}`}>
               <div
                 className={`${
                   lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"

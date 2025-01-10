@@ -3,23 +3,35 @@ import Image from "next/image";
 import { IoIosHeart, IoMdShare } from "react-icons/io";
 import usePortfolio from "../_context/usePortfolio";
 import Link from "next/link";
-import { blogData } from "../Data/PortfolioProps";
+// import { blogData } from "../Data/BlogsProps";
 import { lora } from "../fonts/fonts";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { FaComment, FaCommentAlt } from "react-icons/fa";
+import useBlog from "../_context/useBlog";
 
 function BlogPage() {
   const { lightMode } = usePortfolio();
+  const { blogs } = useBlog();
+
+  const formatDate = (date: string) => {
+    const dateString = new Date(date);
+    const formattedDate = dateString.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return formattedDate;
+  };
 
   return (
     <div
       className={`flex flex-col gap-6 md:gap-10 mt-20 md:mt-24 px-[1.5rem] lg:pr-8 lg:pl-20 xl:pl-28`}
     >
-      {blogData
+      {blogs
         .slice()
         .reverse()
         .map((preview) => (
-          <Link key={preview.id} href={`/blog/${preview.id}`}>
+          <Link key={preview._id} href={`/blog/${preview.slug}`}>
             <div
               className={`${
                 lightMode
@@ -48,7 +60,7 @@ function BlogPage() {
                   <span
                     className={`${lora.className} text-[0.8rem] lg:text-[1rem]`}
                   >
-                    Published . {preview.date}
+                    Published . {formatDate(preview.date)}
                   </span>
                   <div className="flex gap-2 md:hidden items-center">
                     {preview.reaction.hearts > 0 && (

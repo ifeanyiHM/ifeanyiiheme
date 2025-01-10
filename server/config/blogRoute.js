@@ -67,21 +67,65 @@ const createBlog = catchAsync(async (req, res, next) => {
   });
 });
 
-const updateBlog = catchAsync(async (req, res, next) => {
-  const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+// const updateBlog = catchAsync(async (req, res, next) => {
+//   const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//     runValidators: true,
+//   });
 
-  if (!blog) {
-    return next(
-      new AppError(`No blog found with the ID: ${req.params.id}`, 404)
-    );
+//   if (!blog) {
+//     return next(
+//       new AppError(`No blog found with the ID: ${req.params.id}`, 404)
+//     );
+//   }
+
+//   res.status(200).json({
+//     staus: "success",
+//     data: { blog },
+//   });
+// });
+
+const addCommentToBlog = catchAsync(async (req, res, next) => {
+  const { id } = req.params; // Blog ID
+  const { name, thought, date, background } = req.body; // Comment data
+
+  console.log("Request Body:", req.body);
+  console.log("Blog ID:", id);
+
+  if (!name || !thought) {
+    return res.status(400).json({
+      status: "fail",
+      message: "Name and thought are required to add a comment",
+    });
+  }
+
+  // Create the comment object
+  const newComment = {
+    name,
+    thought,
+    date: date || new Date().toISOString(),
+    background,
+  };
+
+  // Add the comment to the blog
+  const updatedBlog = await Blog.findByIdAndUpdate(
+    id,
+    { $push: { comments: newComment } },
+    { new: true, runValidators: true }
+  );
+
+  if (!updatedBlog) {
+    return res.status(404).json({
+      status: "fail",
+      message: "No blog found with the given ID",
+    });
   }
 
   res.status(200).json({
-    staus: "success",
-    data: { blog },
+    status: "success",
+    data: {
+      blog: updatedBlog,
+    },
   });
 });
 
@@ -89,7 +133,8 @@ const router = express.Router();
 // router.use(protectWithPassword);
 
 router.route("/").get(getAllBlogs).post(protectWithPassword, createBlog);
-router.route("/:id").get(getBlog).patch(protectWithPassword, updateBlog);
+router.route("/:id").get(getBlog).patch(protectWithPassword, addCommentToBlog);
+// .patch(protectWithPassword, updateBlog)
 
 module.exports = router;
 

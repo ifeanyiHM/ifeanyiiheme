@@ -22,7 +22,7 @@ function Navigation() {
           lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
         } text-[1.2rem] mr-2`}
       >
-        <Link href="/blog">Blogs</Link>
+        <Link href="/blog">Blog</Link>
       </span>
       <span
         onClick={() => setIsMenuOpen(!isMenuOpen)}

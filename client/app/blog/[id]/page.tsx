@@ -1,36 +1,44 @@
 "use client";
 
 import usePortfolio from "@/app/_context/usePortfolio";
-import { blogData } from "@/app/Data/PortfolioProps";
 import { lora } from "@/app/fonts/fonts";
 import Image from "next/image";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
-import { PiHandsClappingThin } from "react-icons/pi";
 import Comments from "./Comments";
 import MoreArticles from "./MoreArticles";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { notFound } from "next/navigation";
+import useBlog from "@/app/_context/useBlog";
 
-const Page = ({ params }) => {
+interface Params {
+  id: string;
+}
+
+interface PageProps {
+  params: Params;
+}
+
+const Page = ({ params }: PageProps) => {
   const { lightMode } = usePortfolio();
+  const { blogs } = useBlog();
 
-  const [isZoomedCover, setIsZoomedCover] = useState(null);
-  const [zoomedState, setZoomedState] = useState({});
+  const [isZoomedCover, setIsZoomedCover] = useState<number | null>(null);
+  const [zoomedState, setZoomedState] = useState<Record<string, boolean>>({});
 
-  const blogPost = blogData.find((post) => params.id === post.id);
+  const blogPost = blogs.find((post) => (params?.id as string) === post.slug);
 
   if (!blogPost) {
     notFound();
   }
 
-  const handleZoomCover = (index) => {
+  const handleZoomCover = (index: number) => {
     setIsZoomedCover((prevIndex) => (prevIndex === index ? null : index));
   };
 
   // Handle zoom toggle based on section index and image id
-  const handleZoom = (sectionIndex, imageId) => {
+  const handleZoom = (sectionIndex: number, imageId: number) => {
     setZoomedState((prevState) => {
       const key = `${sectionIndex}-${imageId}`;
       // Toggle zoom for the clicked image in the clicked section
@@ -40,12 +48,22 @@ const Page = ({ params }) => {
     });
   };
 
-  const toggleExpand = (index) => {
-    setExpandedTexts((prev) => {
-      const newText = [...prev];
-      newText[index] = !newText[index];
-      return newText;
+  // const toggleExpand = (index: number) => {
+  //   setExpandedTexts((prev) => {
+  //     const newText = [...prev];
+  //     newText[index] = !newText[index];
+  //     return newText;
+  //   });
+  // };
+
+  const formatDate = (date: string) => {
+    const dateString = new Date(date);
+    const formattedDate = dateString.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
+    return formattedDate;
   };
 
   return (
@@ -66,7 +84,7 @@ const Page = ({ params }) => {
           </h1>
           <div className="flex justify-between items-center">
             <span className="text-[0.875rem]">
-              {blogPost.readTime} . {blogPost.date}
+              {blogPost.readTime} . {formatDate(blogPost.date)}
             </span>
             <IoMdShare className="md:text-[1.8rem]" />
           </div>
@@ -239,13 +257,13 @@ const Page = ({ params }) => {
           Written by {blogPost.author}
         </h2>
         <p className="">
-          {blogPost.bio} This is a sample text designed to fill space where
-          content is not yet available. It provides a visual representation of
-          text on a page, helping to plan layouts or designs.
+          {blogPost.authorBio} This is a sample text designed to fill space
+          where content is not yet available. It provides a visual
+          representation of text on a page, helping to plan layouts or designs.
         </p>
       </div>
       {/* Comments */}
-      <Comments />
+      <Comments comments={blogPost.comments} blogID={blogPost._id} />
       {/* More Articles */}
       <MoreArticles params={params} />
     </div>

@@ -1,16 +1,21 @@
 import usePortfolio from "@/app/_context/usePortfolio";
 import { useEffect, useState } from "react";
 
-interface Comment {
+interface CommentProps {
   name: string;
   thought: string;
   date: string;
   background: string;
 }
 
-function Comments() {
+interface CommentsProps {
+  comments: CommentProps[];
+  blogID: string;
+}
+
+function Comments({ comments, blogID }: CommentsProps) {
   const [isClicked, setIsClicked] = useState(false);
-  const [allComments, setAllComments] = useState<Comment[]>([]);
+  const [allComments, setAllComments] = useState<CommentProps[]>(comments);
   const [comment, setComment] = useState({ name: "", thought: "" });
   const [toast, setToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
@@ -20,25 +25,45 @@ function Comments() {
 
   const { lightMode } = usePortfolio();
 
-  const addComment = () => {
+  const addComment = async () => {
     if (comment.thought === "") {
       setToast(true);
       setToastMessage("Please enter a comment before adding");
     } else {
       const currentDate = new Date().toISOString();
       const randomColor = generateRandomColor();
-      setAllComments([
-        ...allComments,
-        {
-          name: comment.name,
-          thought: comment.thought,
-          date: currentDate,
-          background: randomColor,
-        },
-      ]);
-      setComment({ name: "", thought: "" });
-      setToast(false);
-      setToastMessage("Comment added");
+
+      const data = {
+        name: comment.name,
+        thought: comment.thought,
+        date: currentDate,
+        background: randomColor,
+      };
+
+      try {
+        // Send new comment to the server
+        const res = await fetch("/api/EditBlog", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ blogID, data }),
+        });
+
+        console.log("Blog ID:", blogID);
+
+        if (res.ok) {
+          setAllComments((prev) => [...prev, data]);
+          // setExpandedTexts((prev) => [...prev, false]);
+          setComment({ name: "", thought: "" });
+          setToast(false);
+          setToastMessage("Comment added");
+        } else {
+          throw new Error("Failed to add comment");
+        }
+      } catch (error) {
+        console.error("Error adding comment:", error);
+        setToast(true);
+        setToastMessage("Failed to add comment");
+      }
     }
   };
 

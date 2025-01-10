@@ -4,6 +4,7 @@ import { PortfolioProvider } from "./_context/PortfolioContext";
 import Navigation from "./Components/Navigation";
 import MenuPage from "./Components/MenuPage";
 import { sourceSans } from "./fonts/fonts";
+import { BlogProvider } from "./_context/BlogContext";
 
 export const metadata: Metadata = {
   title: {
@@ -53,11 +54,11 @@ export default function RootLayout({
 
       <body className={`${sourceSans.className} bg-[#0f172a] text-[#94a3b8] `}>
         <PortfolioProvider>
-          <>
+          <BlogProvider>
             <Navigation />
             <MenuPage />
             {children}
-          </>
+          </BlogProvider>
         </PortfolioProvider>
       </body>
     </html>

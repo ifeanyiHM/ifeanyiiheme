@@ -7,6 +7,7 @@ const blogSchema = new mongoose.Schema({
   title: { type: String, required: [true, "A blog must have a title"] },
   author: { type: String },
   authorImage: { type: String, default: "" },
+  authorBio: { type: String, default: "" },
   readTime: { type: String },
   date: { type: Date, default: () => new Date().toISOString() },
   slug: String,
@@ -37,7 +38,14 @@ const blogSchema = new mongoose.Schema({
     views: { type: Number, default: 0 },
     hearts: { type: Number, default: 0 },
   },
-  comments: [{ type: String, trim: true }],
+  comments: [
+    {
+      name: { type: String },
+      thought: { type: String },
+      date: { type: String },
+      background: { type: String },
+    },
+  ],
 });
 
 blogSchema.pre("save", function (next) {
