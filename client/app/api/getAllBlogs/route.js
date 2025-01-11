@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   // `http://127.0.0.1:8000/api/v1/blogs?timestamp=${Date.now()}`
 
-  const URL = `https://blogiify.vercel.app/api/v1/blogs`;
+  const URL = `https://blogiify.vercel.app/api/v1/blogs?timestamp=${Date.now()}`;
 
   try {
     const res = await fetch(URL, {
@@ -19,8 +19,6 @@ export const GET = async (req) => {
         { status: res.status }
       );
     }
-    // console.log(res);
-    console.log("URL:", URL);
 
     const result = await res.json();
     return NextResponse.json({ data: result }, { status: 200 });
