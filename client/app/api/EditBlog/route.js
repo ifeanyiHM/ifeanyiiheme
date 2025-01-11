@@ -18,6 +18,7 @@ export const PATCH = async (req) => {
         headers: {
           "Content-Type": "application/json",
           "x-api-key": password,
+          "Cache-Control": "no-cache",
         },
         body: JSON.stringify(data),
       }

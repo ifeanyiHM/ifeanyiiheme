@@ -41,6 +41,16 @@ app.use(
 
 app.options("*", cors());
 
+app.use((req, res, next) => {
+  res.set(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+  res.set("Pragma", "no-cache");
+  res.set("Expires", "0");
+  next();
+});
+
 app.use("/api/v1/blogs", blogsRouter);
 
 app.all("*", (req, res, next) => {
