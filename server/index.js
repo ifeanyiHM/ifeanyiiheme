@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config({ path: "./.env" });
 
+// require("dotenv").config();
 const AppError = require("./config/appError");
 const globalErrorHandler = require("./config/errorController");
 const blogsRouter = require("./config/blogRoute");
