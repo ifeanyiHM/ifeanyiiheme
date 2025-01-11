@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   try {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/v1/blogs?timestamp=${Date.now()}`
-      // `https://blogiify.vercel.app/api/v1/blogs?timestamp=${Date.now()}`
+      // `http://127.0.0.1:8000/api/v1/blogs?timestamp=${Date.now()}`
+      `https://blogiify.vercel.app/api/v1/blogs`
     );
 
     if (!res.ok) {
