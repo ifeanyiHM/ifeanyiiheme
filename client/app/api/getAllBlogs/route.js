@@ -4,7 +4,7 @@ export const GET = async (req) => {
   try {
     const res = await fetch(
       // `http://127.0.0.1:8000/api/v1/blogs?timestamp=${Date.now()}`
-      `https://blogiify.vercel.app/api/v1/blogs`
+      `https://blogiify.vercel.app/api/v1/blogs?timestamp=${Date.now()}`
     );
 
     if (!res.ok) {
