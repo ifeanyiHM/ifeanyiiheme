@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 const password = process.env.API_PASSWORD;
 
 export const PATCH = async (req) => {
+  // `http://127.0.0.1:8000/api/v1/blogs/${blogID}`,
   try {
     const body = await req.json();
 
@@ -11,7 +12,6 @@ export const PATCH = async (req) => {
     const { blogID, data } = body;
 
     const res = await fetch(
-      // `http://127.0.0.1:8000/api/v1/blogs/${blogID}`,
       `https://blogiify.vercel.app/api/v1/blogs/${blogID}`,
       {
         method: "PATCH",
