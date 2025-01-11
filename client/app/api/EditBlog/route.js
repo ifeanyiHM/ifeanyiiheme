@@ -12,7 +12,7 @@ export const PATCH = async (req) => {
 
     const res = await fetch(
       // `http://127.0.0.1:8000/api/v1/blogs/${blogID}`,
-      `https://blogiify.vercel.app/api/v1/blogs/${blogID}`,
+      `https://blogiify.vercel.app/api/v1/blogs/${blogID}?timestamp=${Date.now()}`,
       {
         method: "PATCH",
         headers: {
