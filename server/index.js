@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 
@@ -29,6 +30,16 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: ["https://ifeanyiiheme.vercel.app/", "http://localhost:3000/"],
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+app.options("*", cors());
 
 app.use("/api/v1/blogs", blogsRouter);
 

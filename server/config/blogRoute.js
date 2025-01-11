@@ -47,7 +47,7 @@ const getBlog = catchAsync(async (req, res, next) => {
     );
   }
 
-  // res.set("Cache-Control", "no-store");
+  res.set("Cache-Control", "no-store");
 
   res.status(200).json({
     staus: "success",
@@ -63,7 +63,7 @@ const createBlog = catchAsync(async (req, res, next) => {
   const newBlogData = { ...req.body, numId: newNumId };
   const newBlog = await Blog.create(newBlogData);
 
-  // res.set("Cache-Control", "no-store");
+  res.set("Cache-Control", "no-store");
 
   res.status(201).json({
     status: "success",
@@ -127,7 +127,7 @@ const addCommentToBlog = catchAsync(async (req, res, next) => {
     });
   }
 
-  // res.set("Cache-Control", "no-store");
+  res.set("Cache-Control", "no-store");
 
   res.status(200).json({
     status: "success",
