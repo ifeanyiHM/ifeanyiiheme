@@ -1,3 +1,4 @@
+import useBlog from "@/app/_context/useBlog";
 import usePortfolio from "@/app/_context/usePortfolio";
 import { useEffect, useState } from "react";
 
@@ -24,6 +25,7 @@ function Comments({ comments, blogID }: CommentsProps) {
   );
 
   const { lightMode } = usePortfolio();
+  const { fetchBlogs } = useBlog();
 
   const addComment = async () => {
     if (comment.thought === "") {
@@ -42,7 +44,7 @@ function Comments({ comments, blogID }: CommentsProps) {
 
       try {
         // Send new comment to the server
-        const res = await fetch("/api/EditBlog", {
+        const res = await fetch("/api/addComment", {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ blogID, data }),
@@ -66,6 +68,10 @@ function Comments({ comments, blogID }: CommentsProps) {
       }
     }
   };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, [comment]);
 
   const generateRandomColor = (): string => {
     const hue = Math.floor(Math.random() * 360);

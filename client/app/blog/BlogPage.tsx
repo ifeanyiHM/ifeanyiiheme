@@ -1,27 +1,17 @@
 "use client";
 import Image from "next/image";
-import { IoIosHeart, IoMdShare } from "react-icons/io";
+import { IoIosHeart, IoIosShareAlt } from "react-icons/io";
 import usePortfolio from "../_context/usePortfolio";
 import Link from "next/link";
-// import { blogData } from "../Data/BlogsProps";
 import { lora } from "../fonts/fonts";
-import { IoStatsChartSharp } from "react-icons/io5";
-import { FaComment, FaCommentAlt } from "react-icons/fa";
+import { FaComment } from "react-icons/fa";
 import useBlog from "../_context/useBlog";
+import { MdRemoveRedEye } from "react-icons/md";
+import { formatDate } from "../Utils/formatString";
 
 function BlogPage() {
   const { lightMode } = usePortfolio();
   const { blogs } = useBlog();
-
-  const formatDate = (date: string) => {
-    const dateString = new Date(date);
-    const formattedDate = dateString.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-    return formattedDate;
-  };
 
   return (
     <div
@@ -64,7 +54,7 @@ function BlogPage() {
                   </span>
                   <div className="flex gap-2 md:hidden items-center">
                     {preview.reaction.hearts > 0 && (
-                      <span className="text-[#da2929] flex gap-1 items-center">
+                      <span className="text-[#cb3532] flex gap-1 items-center">
                         <IoIosHeart /> {preview.reaction.hearts}
                       </span>
                     )}
@@ -75,10 +65,10 @@ function BlogPage() {
                     )}
                     {preview.reaction.views > 0 && (
                       <span className="flex gap-1 items-center">
-                        <IoStatsChartSharp /> {preview.reaction.views}
+                        <MdRemoveRedEye /> {preview.reaction.views}
                       </span>
                     )}
-                    <IoMdShare />
+                    <IoIosShareAlt />
                   </div>
                 </div>
               </div>
@@ -90,7 +80,7 @@ function BlogPage() {
                 </span>
                 <div className="flex gap-2 lg:gap-3 justify-end items-center">
                   {preview.reaction.hearts > 0 && (
-                    <span className="text-[#da2929] flex gap-1 items-center">
+                    <span className="text-[#cb3532] flex gap-1 items-center">
                       <IoIosHeart /> {preview.reaction.hearts}
                     </span>
                   )}
@@ -101,10 +91,10 @@ function BlogPage() {
                   )}
                   {preview.reaction.views > 0 && (
                     <span className="flex gap-1 items-center">
-                      <IoStatsChartSharp /> {preview.reaction.views}
+                      <MdRemoveRedEye /> {preview.reaction.views}
                     </span>
                   )}
-                  <IoMdShare />
+                  <IoIosShareAlt />
                 </div>
               </div>
             </div>

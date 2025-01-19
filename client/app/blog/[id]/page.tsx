@@ -4,13 +4,14 @@ import usePortfolio from "@/app/_context/usePortfolio";
 import { lora } from "@/app/fonts/fonts";
 import Image from "next/image";
 import { useState } from "react";
-import { FaRegHeart } from "react-icons/fa";
-import { IoMdShare } from "react-icons/io";
+import { IoIosShareAlt } from "react-icons/io";
 import Comments from "./Comments";
 import MoreArticles from "./MoreArticles";
-import { IoStatsChartSharp } from "react-icons/io5";
-import { notFound } from "next/navigation";
 import useBlog from "@/app/_context/useBlog";
+import LikesandViews from "./LikesandViews";
+import { formatDate } from "@/app/Utils/formatString";
+import HomeSkeleton from "@/app/Components/skeleton/HomeSkeleton";
+import ShareIcons from "@/app/Components/ShareIcons";
 
 interface Params {
   id: string;
@@ -22,7 +23,7 @@ interface PageProps {
 
 const Page = ({ params }: PageProps) => {
   const { lightMode } = usePortfolio();
-  const { blogs } = useBlog();
+  const { blogs, displayShareIcon, setDisplayShareIcon } = useBlog();
 
   const [isZoomedCover, setIsZoomedCover] = useState<number | null>(null);
   const [zoomedState, setZoomedState] = useState<Record<string, boolean>>({});
@@ -30,7 +31,7 @@ const Page = ({ params }: PageProps) => {
   const blogPost = blogs.find((post) => (params?.id as string) === post.slug);
 
   if (!blogPost) {
-    return <div>Loading...</div>;
+    return <HomeSkeleton />;
   }
 
   const handleZoomCover = (index: number) => {
@@ -56,16 +57,6 @@ const Page = ({ params }: PageProps) => {
   //   });
   // };
 
-  const formatDate = (date: string) => {
-    const dateString = new Date(date);
-    const formattedDate = dateString.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-    return formattedDate;
-  };
-
   return (
     <div className={lora.className}>
       <div
@@ -86,7 +77,15 @@ const Page = ({ params }: PageProps) => {
             <span className="text-[0.875rem]">
               {blogPost.readTime} . {formatDate(blogPost.date)}
             </span>
-            <IoMdShare className="md:text-[1.8rem]" />
+            <div className="relative">
+              {!displayShareIcon && (
+                <IoIosShareAlt
+                  onClick={() => setDisplayShareIcon(true)}
+                  className="md:text-[1.8rem] cursor-pointer"
+                />
+              )}
+              {displayShareIcon && <ShareIcons url={blogPost.slug} />}
+            </div>
           </div>
         </div>
 
@@ -130,9 +129,9 @@ const Page = ({ params }: PageProps) => {
           </h1>
           <div className="flex justify-between items-center">
             <span className="text-[0.875rem]">
-              {blogPost.readTime} . {blogPost.date}
+              {blogPost.readTime} . {formatDate(blogPost.date)}
             </span>
-            <IoMdShare className="md:text-[1.5rem]" />
+            <IoIosShareAlt className="md:text-[1.5rem]" />
           </div>
         </div>
 
@@ -217,25 +216,7 @@ const Page = ({ params }: PageProps) => {
         </div>
 
         {/* Reactions */}
-        <div
-          className={`${
-            lightMode ? "border-[#f7f6f6]" : "text-[#e2e8f0] border-[#253a69]"
-          } flex justify-between items-center pb-6 border-b`}
-        >
-          <div className="flex gap-4 items-center">
-            <div className="flex gap-2 items-center">
-              <IoStatsChartSharp className="md:text-[1.5rem]" />
-              <span>{blogPost.reaction.views}</span>
-            </div>
-            <div className="flex gap-2 items-center">
-              <FaRegHeart className="md:text-[1.5rem]" />
-              <span>{blogPost.reaction.hearts}</span>
-            </div>
-          </div>
-          <span>
-            <IoMdShare className="md:text-[1.5rem]" />
-          </span>
-        </div>
+        <LikesandViews blogPost={blogPost} params={params} />
       </div>
 
       {/* Author*/}
