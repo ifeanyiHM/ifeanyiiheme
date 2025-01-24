@@ -53,47 +53,6 @@ blogSchema.pre("save", function (next) {
   next();
 });
 
-// blogSchema.post('save', function(doc, next){
-//   console.log(doc)
-//   next()
-// })
-
 const Blog = mongoose.model("Blog", blogSchema);
-
-// const sampleBlog = new Blog({
-//   numId: "0",
-//   uniqueId: "ukjnilqwue-1",
-//   title: "Sample Blog",
-//   author: "John Doe",
-//   date: "2024-12-30",
-//   coverImage: [
-//     {
-//       image: "sample-image.jpg",
-//       zoomedImage: "sample-zoomed.jpg",
-//     },
-//   ],
-//   headParagraph: "This is a sample blog head paragraph.",
-//   sections: [
-//     {
-//       imgSubtitle: "Sample Subtitle",
-//       subtitle: "Introduction",
-//       text: "This is the first section of the sample blog.",
-//     },
-//   ],
-//   tags: ["sample", "blog"],
-//   reaction: {
-//     views: 0,
-//     hearts: 0,
-//   },
-// });
-
-// sampleBlog
-//   .save()
-//   .then((doc) => {
-//     console.log(doc);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 
 module.exports = Blog;

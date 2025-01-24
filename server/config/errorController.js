@@ -23,27 +23,3 @@ module.exports = (err, req, res, next) => {
     stack: err.isOperational && err.stack,
   });
 };
-
-// const AppError = require("./appError");
-
-// const handleCastErrorDB = (err) => {
-//   const message = `Invalid ${err.path}: ${err.value}`;
-//   return new AppError(message, 400);
-// };
-
-// module.exports = (err, req, res, next) => {
-//   err.statusCode = err.isOperational ? err.statusCode : 500;
-//   err.status = err.isOperational ? err.status : "error";
-//   err.message = err.message;
-
-//   let error = { ...err };
-//   error.message = err.message;
-//   if (error.name === "CastError") error = handleCastErrorDB(error);
-
-//   res.status(error.statusCode).json({
-//     status: error.status,
-//     error: error.isOperational && error,
-//     message: error.message,
-//     stack: error.isOperational && error.stack,
-//   });
-// };

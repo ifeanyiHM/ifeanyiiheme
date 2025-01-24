@@ -35,11 +35,7 @@ const getAllBlogs = catchAsync(async (req, res, next) => {
 });
 
 const getBlog = catchAsync(async (req, res, next) => {
-  // const numId = req.params.id * 1;
-  // const blog = Blog.find((el) => +el.numId === numId);
-
   const blog = await Blog.findById(req.params.id);
-  // const blog = await Blog.findOne({ numId: req.params.id });
 
   if (!blog) {
     return next(
@@ -59,7 +55,6 @@ const createBlog = catchAsync(async (req, res, next) => {
   const blogs = await Blog.find();
   const newNumId = blogs.length > 0 ? +blogs[blogs.length - 1].numId + 1 : 0;
 
-  // const newBlogData = Object.assign({ numId: newNumId }, req.body);
   const newBlogData = { ...req.body, numId: newNumId };
   const newBlog = await Blog.create(newBlogData);
 
@@ -138,83 +133,9 @@ const addCommentToBlog = catchAsync(async (req, res, next) => {
 });
 
 const router = express.Router();
-// router.use(protectWithPassword);
 
 router.route("/").get(getAllBlogs).post(protectWithPassword, createBlog);
 router.route("/:id").get(getBlog).patch(protectWithPassword, updateBlog);
 router.route("/:id/comments").patch(protectWithPassword, addCommentToBlog);
 
 module.exports = router;
-
-///////////////////////////////////////////////////////////////
-
-// const fs = require("fs");
-// const express = require("express");
-
-// const checkID = (req, res, next, val) => {
-//   const id = req.params.id * 1;
-
-//   if (id > blogs.length) {
-//     return res.status(404).json({
-//       status: "fail",
-//       message: "invalid ID",
-//     });
-//   }
-//   next();
-// };
-
-// const blogs = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../data/blogData.json`, "utf-8")
-// );
-
-// const getAllBlogs = (req, res) => {
-//   res.status(200).json({
-//     staus: "success",
-//     results: blogs.length,
-//     data: blogs,
-//   });
-// };
-
-// const getBlog = (req, res) => {
-//   // const blog = blogs.find((el) => el.uniqueId === req.params.id);
-//   const numId = req.params.id * 1;
-//   const blog = blogs.find((el) => +el.numId === numId);
-
-//   res.status(200).json({
-//     staus: "success",
-//     data: { blog },
-//   });
-// };
-
-// const createBlog = (req, res) => {
-//   const newNumId = +blogs[blogs.length - 1].numId + 1;
-//   const newBlog = Object.assign({ numId: newNumId }, req.body);
-
-//   blogs.push(newBlog);
-
-//   fs.writeFile(
-//     `${__dirname}/app/data/blogData.json`,
-//     JSON.stringify(blogs),
-//     (err) => {
-//       res.status(201).json({
-//         staus: "success",
-//         data: { blog: newBlog },
-//       });
-//     }
-//   );
-// };
-
-// const updateBlog = (req, res) => {
-//   res.status(200).json({
-//     staus: "success",
-//     data: "<Updated blog here>",
-//   });
-// };
-
-// const router = express.Router();
-
-// router.param("id", checkID);
-// router.route("/").get(getAllBlogs).post(createBlog);
-// router.route("/:id").get(getBlog).patch(updateBlog);
-
-// module.exports = router;
