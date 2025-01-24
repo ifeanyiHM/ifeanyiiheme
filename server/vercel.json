@@ -6,10 +6,9 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    { "src": "/api/v1/blogs", "dest": "/index.js" },
-
-    { "src": "/(.*)", "dest": "/index.js" }
+  "rewrites": [
+    { "source": "/api/v1/blogs", "destination": "/index.js" },
+    { "source": "/(.*)", "destination": "/index.js" }
   ],
   "headers": [
     {
