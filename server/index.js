@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://blogiify.vercel.app",
+      "https://blogiify.vercel.app/",
       "https://ifeanyiiheme.vercel.app/",
       "http://localhost:3000/",
     ],
