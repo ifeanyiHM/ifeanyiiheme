@@ -1,15 +1,15 @@
 export interface BlogContextProps {
   blogs: BlogPostProps[];
   fetchBlogs: () => Promise<void>;
-  displayShareIcon: boolean;
-  setDisplayShareIcon: (type: boolean) => void;
+  // displayShareIcon: boolean;
+  // setDisplayShareIcon: (type: boolean) => void;
 }
 
 export const defaultBlogProps: BlogContextProps = {
   blogs: [],
   fetchBlogs: async () => {},
-  displayShareIcon: false,
-  setDisplayShareIcon: (type: boolean) => {},
+  // displayShareIcon: false,
+  // setDisplayShareIcon: (type: boolean) => {},
 };
 
 export interface BlogPostProps {

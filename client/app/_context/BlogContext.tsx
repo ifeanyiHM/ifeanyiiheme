@@ -15,7 +15,6 @@ const BlogContext = createContext<BlogContextProps>(defaultBlogProps);
 
 function BlogProvider({ children }: BlogProviderProps) {
   const [blogs, setBlogs] = useState<BlogPostProps[]>([]);
-  const [displayShareIcon, setDisplayShareIcon] = useState(false);
 
   const fetchBlogs = async () => {
     try {
@@ -42,9 +41,7 @@ function BlogProvider({ children }: BlogProviderProps) {
   }, []);
 
   return (
-    <BlogContext.Provider
-      value={{ blogs, fetchBlogs, displayShareIcon, setDisplayShareIcon }}
-    >
+    <BlogContext.Provider value={{ blogs, fetchBlogs }}>
       {children}
     </BlogContext.Provider>
   );

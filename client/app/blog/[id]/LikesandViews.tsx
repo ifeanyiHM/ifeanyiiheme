@@ -16,12 +16,13 @@ interface LikesandViewsProps {
 
 function LikesandViews({ blogPost, params }: LikesandViewsProps) {
   const { lightMode } = usePortfolio();
-  const { fetchBlogs, displayShareIcon, setDisplayShareIcon } = useBlog();
+  const { fetchBlogs } = useBlog();
 
   const [likes, setLikes] = useState(blogPost.reaction.hearts);
   const [views, setViews] = useState(blogPost.reaction.views);
   const [isLiked, setIsLiked] = useState(false);
   const [hasIncrementedViews, setHasIncrementedViews] = useState(false);
+  const [displayShareIcon, setDisplayShareIcon] = useState(false);
 
   console.log(views);
 

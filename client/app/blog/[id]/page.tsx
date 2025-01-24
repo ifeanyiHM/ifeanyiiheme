@@ -23,10 +23,11 @@ interface PageProps {
 
 const Page = ({ params }: PageProps) => {
   const { lightMode } = usePortfolio();
-  const { blogs, displayShareIcon, setDisplayShareIcon } = useBlog();
+  const { blogs } = useBlog();
 
   const [isZoomedCover, setIsZoomedCover] = useState<number | null>(null);
   const [zoomedState, setZoomedState] = useState<Record<string, boolean>>({});
+  const [displayShareIcon, setDisplayShareIcon] = useState(false);
 
   const blogPost = blogs.find((post) => (params?.id as string) === post.slug);
 
@@ -100,7 +101,7 @@ const Page = ({ params }: PageProps) => {
               key={index}
               className={
                 isZoomedCover === index
-                  ? "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60"
+                  ? "fixed inset-0 z-[999999] flex items-center justify-center bg-black bg-opacity-60"
                   : ""
               }
               onClick={() => handleZoomCover(index)}

@@ -20,6 +20,7 @@ function Comments({ comments, blogID }: CommentsProps) {
   const [comment, setComment] = useState({ name: "", thought: "" });
   const [toast, setToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [visibleComments, setVisibleComments] = useState(5);
   const [expandedTexts, setExpandedTexts] = useState<boolean[]>(
     allComments.map(() => false)
   );
@@ -114,6 +115,8 @@ function Comments({ comments, blogID }: CommentsProps) {
     }
   }, [toast]);
 
+  const isAllCommentsVisible = visibleComments >= allComments.length;
+
   return (
     <>
       {toast && (
@@ -145,7 +148,7 @@ function Comments({ comments, blogID }: CommentsProps) {
             <input
               className={`${isClicked ? "py-2 px-2 border-b" : "py-3"} 
               ${
-                lightMode && isClicked ? "border-[#f2f2f2]" : "border-[#253a69]"
+                lightMode && isClicked ? "border-[#eeeded]" : "border-[#253a69]"
               } w-full bg-transparent outline-none rounded-sm`}
               type="text"
               placeholder={
@@ -203,11 +206,11 @@ function Comments({ comments, blogID }: CommentsProps) {
           </div>
         </div>
         <div className="mt-6">
-          {allComments.map((comment, index) => (
+          {allComments.slice(0, visibleComments).map((comment, index) => (
             <div
               key={index}
               className={`${
-                lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
+                lightMode ? "border-[#eeeded]" : " border-[#253a69]"
               } border-b py-4 lg:py-8`}
             >
               <div className="flex items-center gap-2">
@@ -222,14 +225,18 @@ function Comments({ comments, blogID }: CommentsProps) {
                   <span className="text-sm">{formatDate(comment.date)}</span>
                 </p>
               </div>
-              <div className="mt-4 flex flex-col gap-1.5 lg:gap-3">
+              <div className="mt-4 flex flex-col gap-1.5 lg:gap-3 break-words">
                 {expandedTexts[index]
                   ? comment.thought
                       .split("\n")
                       .map((line, idx) => <p key={idx}>{line}</p>)
                   : `${comment.thought.slice(0, 70)}`
                       .split("\n")
-                      .map((line, idx) => <p key={idx}>{line}</p>)}
+                      .map((line, idx) => (
+                        <p key={idx} className="">
+                          {line}
+                        </p>
+                      ))}
               </div>
               {!expandedTexts[index] && comment.thought.length > 70 && (
                 <span
@@ -241,6 +248,14 @@ function Comments({ comments, blogID }: CommentsProps) {
               )}
             </div>
           ))}
+          {!isAllCommentsVisible && (
+            <button
+              onClick={() => setVisibleComments(allComments.length)}
+              className="text-[#007bff] mt-4 cursor-pointer"
+            >
+              See All Comments
+            </button>
+          )}
         </div>
       </div>
     </>
