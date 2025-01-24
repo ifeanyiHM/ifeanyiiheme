@@ -108,7 +108,12 @@ function LikesandViews({ blogPost, params }: LikesandViewsProps) {
             className="md:text-[1.5rem] cursor-pointer"
           />
         )}
-        {displayShareIcon && <ShareIcons url={blogPost.slug} />}
+        {displayShareIcon && (
+          <ShareIcons
+            url={blogPost.slug}
+            setDisplayShareIcon={setDisplayShareIcon}
+          />
+        )}
       </div>
     </div>
   );

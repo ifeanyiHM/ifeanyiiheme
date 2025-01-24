@@ -16,11 +16,10 @@ import useBlog from "../_context/useBlog";
 
 interface ShareIconsProps {
   url: string;
+  setDisplayShareIcon: (value: boolean) => void;
 }
 
-function ShareIcons({ url }: ShareIconsProps) {
-  const { setDisplayShareIcon } = useBlog();
-
+function ShareIcons({ url, setDisplayShareIcon }: ShareIconsProps) {
   const shareUrl = `https://ifeanyiiheme.vercel.app/blog/${url}`;
 
   return (

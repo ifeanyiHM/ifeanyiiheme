@@ -85,7 +85,12 @@ const Page = ({ params }: PageProps) => {
                   className="md:text-[1.8rem] cursor-pointer"
                 />
               )}
-              {displayShareIcon && <ShareIcons url={blogPost.slug} />}
+              {displayShareIcon && (
+                <ShareIcons
+                  url={blogPost.slug}
+                  setDisplayShareIcon={setDisplayShareIcon}
+                />
+              )}
             </div>
           </div>
         </div>
