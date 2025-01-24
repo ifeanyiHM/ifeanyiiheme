@@ -33,7 +33,11 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["https://ifeanyiiheme.vercel.app/", "http://localhost:3000/"],
+    origin: [
+      "https://blogiify.vercel.app",
+      "https://ifeanyiiheme.vercel.app/",
+      "http://localhost:3000/",
+    ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
   })
