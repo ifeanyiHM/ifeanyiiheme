@@ -2,16 +2,16 @@
 import { usePathname } from "next/navigation";
 
 import usePortfolio from "../_context/usePortfolio";
+import CrossGridBackground from "./CrossGridBackground";
+import AnimatedBackgroundBox from "./AnimatedBackgroundBox";
+import MenuItems from "./MenuItems";
+import { RecentWorks, SocialDesktop, SocialMobile } from "./OtherMenuItems";
 import {
   menuItems,
   recentWorks,
   socialsDesktop,
   socialsMobile,
 } from "../Data/PortfolioProps";
-import CrossGridBackground from "./CrossGridBackground";
-import AnimatedBackgroundBox from "./AnimatedBackgroundBox";
-import MenuItems from "./MenuItems";
-import { RecentWorks, SocialDesktop, SocialMobile } from "./OtherMenuItems";
 
 function MenuPage() {
   const { lightMode, isMenuOpen } = usePortfolio();
@@ -26,7 +26,7 @@ function MenuPage() {
     >
       <CrossGridBackground />
 
-      <div className="relative h-[100svh] flex flex-col gap-[6rem] md:gap-[3rem] md:justify-around pt-[7rem] pb-[1rem] md:py-0">
+      <div className="relative h-[100svh] flex flex-col gap-[6rem] md:gap-[3rem] justify-between md:justify-around pt-[7rem] pb-[1rem] md:py-0">
         <div className="md:flex md:mx-auto lg:m-0 lg:ml-[10%] lg:max-w-[80%] lg:justify-between md:gap-[5rem] lg:gap-[0]">
           <div className="hidden relative lg:w-[40%] md:block text-[#64748b] lg:flex flex-col lg:gap-[5rem] lg:mt-[1rem]">
             <div>
@@ -85,7 +85,7 @@ function MenuPage() {
         </div>
 
         {/* to be displayed on mobile */}
-        <div className="lg:hidden flex items-center justify-between mx-[1rem] md:mx-[7rem]">
+        <div className="lg:hidden flex items-center justify-between mx-[1rem] md:mx-[7rem] mb-[4rem]">
           <ul className="list-none flex gap-[1rem] md:gap-[1.5rem] text-[1.2rem] md:text-[2rem] text-[#64748b]">
             {socialsMobile.map((link, index) => (
               <SocialMobile key={index} link={link} />

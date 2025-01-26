@@ -6,19 +6,9 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
-    { "source": "/api/v1/blogs", "destination": "/index.js" },
-    { "source": "/(.*)", "destination": "/index.js" }
-  ],
-  "headers": [
-    {
-      "source": "/api/v1/blogs",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, no-cache, must-revalidate"
-        }
-      ]
-    }
+  "routes": [
+    { "src": "/api/v1/blogs", "dest": "/index.js" },
+
+    { "src": "/(.*)", "dest": "/index.js" }
   ]
 }

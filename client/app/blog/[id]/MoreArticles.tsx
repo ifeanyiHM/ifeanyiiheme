@@ -34,7 +34,7 @@ function MoreArticles({ params }: MoreArticlesProps) {
                   lightMode ? "border-[#f7f6f6]" : " border-[#253a69]"
                 } flex flex-col gap-4 border-b pb-4`}
               >
-                <div className="relative h-full md:h-[13.696rem]">
+                <div className="relative h-[13.696rem]">
                   <Image
                     className="object-cover"
                     src={data.coverImage[0].image}
