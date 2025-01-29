@@ -123,7 +123,20 @@ function BlogPage({ params }: PageProps) {
             <span className="text-[0.875rem]">
               {blogPost.readTime} . {formatDate(blogPost.date)}
             </span>
-            <IoIosShareAlt className="md:text-[1.5rem]" />
+            <div className="relative">
+              {!displayShareIcon && (
+                <IoIosShareAlt
+                  onClick={() => setDisplayShareIcon(true)}
+                  className="md:text-[1.8rem] cursor-pointer"
+                />
+              )}
+              {displayShareIcon && (
+                <ShareIcons
+                  url={blogPost.slug}
+                  setDisplayShareIcon={setDisplayShareIcon}
+                />
+              )}
+            </div>
           </div>
         </div>
 

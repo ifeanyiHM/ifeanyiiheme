@@ -9,7 +9,7 @@ export interface PageProps {
   params: Params;
 }
 
-const fetchBlogs = async (params: string) => {
+const fetchBlog = async (params: string) => {
   try {
     const url = `https://blogiify.vercel.app/api/v1/blogs/${params}`;
     const res = await fetch(url, {
@@ -32,7 +32,12 @@ const fetchBlogs = async (params: string) => {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const blogPost = await fetchBlogs(params.id);
+  const blogPost = await fetchBlog(params.id);
+
+  const blogImages =
+    blogPost.coverImage.length > 1
+      ? blogPost.coverImage.map((image: { image: string }) => image.image)
+      : blogPost.coverImage[0].image;
 
   return {
     title: `${blogPost.title} - My Blog`,
@@ -43,14 +48,15 @@ export async function generateMetadata({
       type: "article",
       title: blogPost.title,
       description: blogPost.headParagraph,
-      images: blogPost.coverImage[0].image,
+      images: blogImages,
+
       url: `https://ifeanyiiheme.vercel.app/blog/${blogPost.slug}`,
     },
     twitter: {
       card: "summary_large_image",
       title: blogPost.title,
       description: blogPost.headParagraph,
-      images: [blogPost.coverImage[0].image],
+      images: blogImages,
     },
   };
 }
