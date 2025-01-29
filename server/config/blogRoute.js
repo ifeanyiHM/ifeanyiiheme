@@ -35,7 +35,9 @@ const getAllBlogs = catchAsync(async (req, res, next) => {
 });
 
 const getBlog = catchAsync(async (req, res, next) => {
-  const blog = await Blog.findById(req.params.id);
+  const blog = await Blog.findOne({ slug: req.params.id });
+  console.log("reqqq", req);
+  console.log("req.params", req.params);
 
   if (!blog) {
     return next(
