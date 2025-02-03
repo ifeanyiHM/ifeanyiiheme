@@ -14,8 +14,9 @@ export const PATCH = async (req) => {
     const { id, update } = body;
 
     const res = await fetch(
-      `https://blogiify.vercel.app/api/v1/blogs/${id}`,
       // `http://127.0.0.1:8000/api/v1/blogs/${id}`,
+      // `https://blogiify.vercel.app/api/v1/blogs/${id}`,
+      `https://ifeanyiiheme.onrender.com/api/v1/blogs/${id}`,
       {
         method: "PATCH",
         headers: {

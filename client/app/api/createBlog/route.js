@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
   try {
-    const res = await fetch(`https://blogiify.vercel.app/api/v1/blogs`);
+    // const res = await fetch(`https://blogiify.vercel.app/api/v1/blogs`);
+    const res = await fetch(`https://ifeanyiiheme.onrender.com/api/v1/blogs/`);
 
     if (!res.ok) {
       return NextResponse.json(
