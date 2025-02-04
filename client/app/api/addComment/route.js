@@ -13,7 +13,7 @@ export const PATCH = async (req) => {
 
     const res = await fetch(
       // `http://127.0.0.1:8000/api/v1/blogs/${blogID}/comments`,
-      `https://blogiify.vercel.app/api/v1/blogs/${blogID}/comments`,
+      `https://blogiify.vercel.app/api/v1/blogs/${blogID}/comments?timestamp=${Date.now()}`,
       // `https://ifeanyiiheme.onrender.com/api/v1/blogs/${blogID}/comments`,
       {
         method: "PATCH",
