@@ -9,6 +9,7 @@ export const GET = async (req) => {
   try {
     const res = await fetch(URL, {
       method: "GET",
+      cache: "no-store",
       headers: {
         "Cache-Control": "no-cache",
       },

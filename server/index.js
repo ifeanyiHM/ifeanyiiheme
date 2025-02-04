@@ -45,6 +45,8 @@ app.use(
 
 app.options("*", cors());
 
+app.disable("etag");
+
 app.use((req, res, next) => {
   res.set(
     "Cache-Control",

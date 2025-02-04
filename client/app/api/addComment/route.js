@@ -17,6 +17,7 @@ export const PATCH = async (req) => {
       // `https://ifeanyiiheme.onrender.com/api/v1/blogs/${blogID}/comments`,
       {
         method: "PATCH",
+        cache: "no-store",
         headers: {
           "Content-Type": "application/json",
           "x-api-key": password,
