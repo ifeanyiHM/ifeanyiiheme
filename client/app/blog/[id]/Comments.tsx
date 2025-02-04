@@ -45,11 +45,14 @@ function Comments({ comments, blogID }: CommentsProps) {
 
       try {
         // Send new comment to the server
-        const res = await fetch("/api/addComment", {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ blogID, data }),
-        });
+        const res = await fetch(
+          `/api/addComment?cache_buster=${new Date().getTime()}`,
+          {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ blogID, data }),
+          }
+        );
 
         console.log("Blog ID:", blogID);
 

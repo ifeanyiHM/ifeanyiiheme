@@ -28,16 +28,19 @@ function LikesandViews({ blogPost, params }: LikesandViewsProps) {
 
   const updateBlogReaction = async (updateKey: string, value: number) => {
     try {
-      await fetch(`/api/updateLikesandViews/`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: blogPost._id,
-          update: { [updateKey]: value },
-        }),
-      });
+      await fetch(
+        `/api/updateLikesandViews?cache_buster=${new Date().getTime()}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: blogPost._id,
+            update: { [updateKey]: value },
+          }),
+        }
+      );
     } catch (error) {
       console.error(`Error updating ${updateKey}:`, error);
       throw error;
