@@ -25,7 +25,7 @@ const protectWithPassword = (req, res, next) => {
 const getAllBlogs = catchAsync(async (req, res, next) => {
   const blogs = await Blog.find();
 
-  res.set("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(200).json({
     staus: "success",
@@ -45,7 +45,7 @@ const getBlog = catchAsync(async (req, res, next) => {
     );
   }
 
-  res.set("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(200).json({
     staus: "success",
@@ -60,7 +60,7 @@ const createBlog = catchAsync(async (req, res, next) => {
   const newBlogData = { ...req.body, numId: newNumId };
   const newBlog = await Blog.create(newBlogData);
 
-  res.set("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(201).json({
     status: "success",
@@ -81,6 +81,8 @@ const updateBlog = catchAsync(async (req, res, next) => {
       new AppError(`No blog found with the ID: ${req.params.id}`, 404)
     );
   }
+
+  res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(200).json({
     staus: "success",
@@ -124,7 +126,7 @@ const addCommentToBlog = catchAsync(async (req, res, next) => {
     });
   }
 
-  res.set("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(200).json({
     status: "success",
