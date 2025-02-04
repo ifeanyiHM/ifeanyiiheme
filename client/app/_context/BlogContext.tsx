@@ -18,7 +18,7 @@ function BlogProvider({ children }: BlogProviderProps) {
 
   const fetchBlogs = async () => {
     try {
-      const url = `/api/getAllBlogs`;
+      const url = `/api/getAllBlogs?cache_buster=${new Date().getTime()}`;
       const res = await fetch(url, {
         method: "GET",
         headers: {
