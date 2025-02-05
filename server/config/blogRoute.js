@@ -7,6 +7,8 @@ const AppError = require("./appError");
 
 const app = express();
 app.use(helmet());
+// app.use(express.json());
+// app.use(express.json({ limit: "5mb" }));
 
 const protectWithPassword = (req, res, next) => {
   const password = req.headers["x-api-key"];
@@ -28,7 +30,7 @@ const getAllBlogs = catchAsync(async (req, res, next) => {
   res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(200).json({
-    staus: "success",
+    status: "success",
     results: blogs.length,
     data: blogs,
   });
@@ -48,14 +50,16 @@ const getBlog = catchAsync(async (req, res, next) => {
   res.setHeader("Cache-Control", "no-store, max-age=0");
 
   res.status(200).json({
-    staus: "success",
+    status: "success",
     data: { blog },
   });
 });
 
 const createBlog = catchAsync(async (req, res, next) => {
   const blogs = await Blog.find();
-  const newNumId = blogs.length > 0 ? +blogs[blogs.length - 1].numId + 1 : 0;
+  // const newNumId = blogs.length > 0 ? +blogs[blogs.length - 1].numId + 1 : 0;
+  const newNumId =
+    blogs.length > 0 ? Number(blogs[blogs.length - 1].numId) + 1 : 0;
 
   const newBlogData = { ...req.body, numId: newNumId };
   const newBlog = await Blog.create(newBlogData);

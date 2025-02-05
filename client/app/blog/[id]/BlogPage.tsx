@@ -236,7 +236,7 @@ function BlogPage({ params }: PageProps) {
             alt="author identity"
             width={100}
             height={100}
-            className="rounded-full"
+            className="w-full h-full object-cover rounded-full"
           />
         </div>
         <h2 className="my-3 text-[1.55rem] font-semibold">

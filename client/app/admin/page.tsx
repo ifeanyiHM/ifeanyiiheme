@@ -4,7 +4,8 @@ import Cookies from "js-cookie";
 import ImageInput from "./ImageInput";
 
 function page() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const correctPassword = "Imp3r$al";
 
   useEffect(() => {
@@ -19,7 +20,6 @@ function page() {
         setIsAuthenticated(true);
       } else {
         alert("Incorrect password. Please try again.");
-        document.body.style.display = "none";
       }
     }
   }, []);
@@ -56,13 +56,61 @@ function page() {
     ],
     tags: [],
   });
+  console.log(formData);
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("formData");
+    if (savedFormData) {
+      setFormData(JSON.parse(savedFormData));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
+
+  const createBlog = async () => {
+    setSubmitting(true);
+    try {
+      const url = `/api/createBlog`;
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok)
+        throw new Error("Something went wrong while submitting the blog");
+
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error("Error:", err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const handleChange = (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+    sectionIndex?: number
   ) => {
     const { name, value } = e.target;
-    console.log(name, value);
-    setFormData({ ...formData, [name]: value });
+
+    if (sectionIndex !== undefined) {
+      // If there's a sectionIndex, we are dealing with fields within a section
+      setFormData((prev) => ({
+        ...prev,
+        sections: prev.sections.map((section, index) =>
+          index === sectionIndex ? { ...section, [name]: value } : section
+        ),
+      }));
+    } else {
+      // Otherwise, update top-level fields
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleFileChange = (
@@ -78,16 +126,16 @@ function page() {
           if (field === "authorImage") {
             return { ...prev, authorImage: reader.result as string };
           } else if (field === "coverImage") {
-            // Append the new image to the existing coverImage array
             return {
               ...prev,
-              coverImage: [
-                ...prev.coverImage,
-                {
-                  image: reader.result as string,
-                  zoomedImage: reader.result as string,
-                },
-              ],
+              coverImage: prev.coverImage.map((img) =>
+                img.image === ""
+                  ? {
+                      image: reader.result as string,
+                      zoomedImage: reader.result as string,
+                    }
+                  : img
+              ),
             };
           } else if (field === "sections" && sectionIndex !== undefined) {
             return {
@@ -96,13 +144,14 @@ function page() {
                 index === sectionIndex
                   ? {
                       ...section,
-                      image: [
-                        ...section.image,
-                        {
-                          image: reader.result as string,
-                          zoomedImage: reader.result as string,
-                        },
-                      ],
+                      image: section.image.map((img) =>
+                        img.image === ""
+                          ? {
+                              image: reader.result as string,
+                              zoomedImage: reader.result as string,
+                            }
+                          : img
+                      ),
                     }
                   : section
               ),
@@ -117,6 +166,7 @@ function page() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    createBlog();
   };
 
   const addCoverImage = () => {
@@ -197,7 +247,7 @@ function page() {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-gray-800 text-white rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Create Blog Entry</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form className="space-y-4">
         <input
           type="text"
           name="uniqueId"
@@ -235,7 +285,7 @@ function page() {
           />
         </div>
         <textarea
-          name="author-bio"
+          name="authorBio"
           placeholder="Author bio"
           value={formData.authorBio}
           onChange={handleChange}
@@ -271,36 +321,6 @@ function page() {
           onChange={handleChange}
           className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
         />
-        {/* <>
-          <div className="flex flex-col bg-gray-700 border border-gray-600 rounded">
-            {formData.coverImage.map((img, imageIndex) => (
-              <div className="relative">
-                <input
-                  type="file"
-                  name="image"
-                  accept="image/*"
-                  placeholder="Select a cover image"
-                  // onChange={(e) => handleFileChange}
-                  className="p-2 w-full"
-                />
-                <span
-                  onClick={() => removeCoverImage(imageIndex)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-white cursor-pointer"
-                >
-                  clear
-                </span>
-              </div>
-            ))}
-          </div>
-          {formData.coverImage.length < 4 && (
-            <button
-              onClick={addCoverImage}
-              className="px-2 mt-1 text-sm bg-green-600 text-white hover:bg-green-700 rounded ml-auto"
-            >
-              Add cover images
-            </button>
-          )}
-        </> */}
 
         <textarea
           name="headParagraph"
@@ -320,7 +340,7 @@ function page() {
                 name="imgSubtitle"
                 placeholder="Image Subtitle"
                 value={section.imgSubtitle}
-                onChange={(e) => handleChange}
+                onChange={(e) => handleChange(e, sectionIndex)}
                 className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
               />
               <ImageInput
@@ -331,41 +351,13 @@ function page() {
                 buttonText="Add more section images"
                 onChange={(e) => handleFileChange(e, "sections", sectionIndex)}
               />
-              {/* <>
-                <div className="flex flex-col bg-gray-700 border border-gray-600 rounded">
-                  {section.image.map((img, imageIndex) => (
-                    <div className="relative">
-                      <input
-                        type="file"
-                        name="image"
-                        // onChange={(e) => handleFileChange}
-                        className="p-2 w-full"
-                      />
-                      <span
-                        onClick={() => removeImage(sectionIndex, imageIndex)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-white cursor-pointer"
-                      >
-                        clear
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                {section.image.length < 4 && (
-                  <button
-                    onClick={() => addMoreImagesToSection(sectionIndex)}
-                    className="px-2 mt-1 text-sm bg-green-600 text-white hover:bg-green-700 rounded ml-auto"
-                  >
-                    Add more section images
-                  </button>
-                )}
-              </> */}
 
               <input
                 type="text"
                 name="subtitle"
                 placeholder="Subtitle"
                 value={section.subtitle}
-                onChange={(e) => handleChange}
+                onChange={(e) => handleChange(e, sectionIndex)}
                 className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
               />
 
@@ -374,7 +366,7 @@ function page() {
                 name="alt"
                 placeholder="Alt Text"
                 value={section.alt}
-                onChange={(e) => handleChange}
+                onChange={(e) => handleChange(e, sectionIndex)}
                 className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
               />
 
@@ -382,7 +374,7 @@ function page() {
                 name="text"
                 placeholder="Text"
                 value={section.text}
-                onChange={(e) => handleChange}
+                onChange={(e) => handleChange(e, sectionIndex)}
                 className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
                 rows={4}
               />
@@ -412,10 +404,12 @@ function page() {
           className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
         />
         <button
+          onClick={handleSubmit}
           type="submit"
           className="w-full p-3 bg-blue-600 hover:bg-blue-700 rounded"
+          disabled={submitting}
         >
-          Submit
+          {submitting ? "Submitting..." : "Submit"}
         </button>
       </form>
     </div>

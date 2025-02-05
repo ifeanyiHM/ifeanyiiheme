@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const password = process.env.API_PASSWORD;
 
 export const PATCH = async (req) => {
-  // `http://127.0.0.1:8000/api/v1/blogs/${blogID}`,
+  // `http://127.0.0.1:8000/api/v1/blogs/${id}`,
   try {
     const body = await req.json();
     console.log("ressponse body:", body);
@@ -14,9 +14,7 @@ export const PATCH = async (req) => {
     const { id, update } = body;
 
     const res = await fetch(
-      // `http://127.0.0.1:8000/api/v1/blogs/${id}`,
       `https://blogiify.vercel.app/api/v1/blogs/${id}?timestamp=${Date.now()}`,
-      // `https://ifeanyiiheme.onrender.com/api/v1/blogs/${id}`,
       {
         method: "PATCH",
         cache: "no-store",
