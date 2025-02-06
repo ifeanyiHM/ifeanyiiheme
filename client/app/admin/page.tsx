@@ -69,8 +69,8 @@ function page() {
   );
   console.log(formData);
 
-  const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
-  // const correctPassword = "12345";
+  // const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+  const correctPassword = "12345";
 
   useEffect(() => {
     const accessGranted = Cookies.get("access") === "granted";
