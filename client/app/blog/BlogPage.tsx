@@ -37,6 +37,9 @@ function BlogPage() {
                     width={100}
                     height={100}
                     alt={preview.alt}
+                    placeholder="blur"
+                    blurDataURL={preview.coverImage[0].image}
+                    title={preview.title}
                   />
                 </div>
                 <div className="flex flex-col gap-0">
@@ -100,90 +103,6 @@ function BlogPage() {
             </div>
           </Link>
         ))}
-      {/* <Link href="/blog/beauty">
-        <div
-          className={`${
-            lightMode
-              ? "border border-[#dbd6d6] rounded-md shadow-md hover:shadow-[0_0_5px_rgb(68,68,82,0.3)]"
-              : "shadow-[0_0_8px_rgb(0,123,255,0.3)]"
-          } flex justify-between items-center p-2`}
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-16 h-16">
-              <Image
-                className="w-full h-full object-cover rounded-md"
-                src="/blogs/tic-tac-toe.jpg"
-                width={100}
-                height={100}
-                alt="blog"
-              />
-            </div>
-            <div className="flex flex-col gap-0">
-              <h2 className="uppercase font-semibold lg:text-[1.1rem]">
-                Beauty in simple words
-              </h2>
-              <span className="text-[0.8rem] lg:text-[1rem]">
-                Published . 13 Apr
-              </span>
-              <div className="flex gap-2 md:hidden">
-                <IoMdShare />
-                <GoComment />
-                <FaRegHeart />
-              </div>
-            </div>
-          </div>
-          <div className="hidden md:flex flex-col gap-2 lg:text-[1.1rem] xl:mr-2">
-            <span className="uppercase">Modish blogs</span>
-            <div className="flex gap-2 lg:gap-3 justify-end">
-              <IoMdShare />
-              <GoComment />
-              <FaRegHeart />
-            </div>
-          </div>
-        </div>
-      </Link>
-      <Link href="/blog/fine">
-        <div
-          className={`${
-            lightMode
-              ? "border border-[#dbd6d6] rounded-md shadow-md hover:shadow-[0_0_5px_rgb(68,68,82,0.3)]"
-              : "shadow-[0_0_8px_rgb(0,123,255,0.3)]"
-          } flex justify-between items-center p-2`}
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-16 h-16">
-              <Image
-                className="w-full h-full object-cover rounded-md"
-                src="/blogs/heart.jpg"
-                width={100}
-                height={100}
-                alt="blog"
-              />
-            </div>
-            <div className="flex flex-col gap-0">
-              <h2 className="uppercase font-semibold lg:text-[1.1rem]">
-                Beauty in simple words
-              </h2>
-              <span className="text-[0.8rem] lg:text-[1rem]">
-                Published . 13 Apr
-              </span>
-              <div className="flex gap-2 md:hidden">
-                <IoMdShare />
-                <GoComment />
-                <FaRegHeart />
-              </div>
-            </div>
-          </div>
-          <div className="hidden md:flex flex-col gap-2 lg:text-[1.1rem] xl:mr-2">
-            <span className="uppercase">Modish blogs</span>
-            <div className="flex gap-2 lg:gap-3 justify-end">
-              <IoMdShare />
-              <GoComment />
-              <FaRegHeart />
-            </div>
-          </div>
-        </div>
-      </Link> */}
     </div>
   );
 }

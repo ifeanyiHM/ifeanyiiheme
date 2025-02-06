@@ -38,8 +38,11 @@ function MoreArticles({ params }: MoreArticlesProps) {
                   <Image
                     className="object-cover"
                     src={data.coverImage[0].image}
-                    alt={data.coverImage[0].image}
+                    alt={data.alt}
                     fill
+                    placeholder="blur"
+                    blurDataURL={data.coverImage[0].image}
+                    title={data.alt}
                   />
                 </div>
 
@@ -51,6 +54,9 @@ function MoreArticles({ params }: MoreArticlesProps) {
                       width={100}
                       height={100}
                       alt={data.coverImage[0].image}
+                      placeholder="blur"
+                      blurDataURL={data.coverImage[0].image}
+                      title={data.alt}
                     />
                   </div>
                   <span>{data.author}</span>

@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 interface BlurProps {
   src: string;
   alt: string;
+  classname?: string;
 }
 
-export default function BlurImage({ src, alt }: BlurProps) {
+export default function BlurImage({ src, alt, classname }: BlurProps) {
   const [blurDataURL, setBlurDataURL] = useState<string | null>(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function BlurImage({ src, alt }: BlurProps) {
 
   return (
     <Image
-      className="object-cover rounded-[7px]"
+      className={`${classname} object-cover`}
       fill
       src={src}
       alt={alt}

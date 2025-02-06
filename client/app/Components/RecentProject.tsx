@@ -58,7 +58,11 @@ function RecentProject({ project, index }: RecentProjectProps) {
                     : ""
                 } ${classes[idx]} absolute bottom-0 rounded-[7px]`}
               >
-                <BlurImage src={image.src} alt={image.alt} />
+                <BlurImage
+                  src={image.src}
+                  alt={image.alt}
+                  classname="rounded-[7px]"
+                />
               </div>
               {lightMode && (
                 <div

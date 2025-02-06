@@ -107,6 +107,9 @@ function BlogPage({ params }: PageProps) {
                 width={1280}
                 height={855}
                 alt={blogPost.alt}
+                placeholder="blur"
+                blurDataURL={image.image}
+                title={blogPost.alt}
               />{" "}
             </div>
           ))}
@@ -183,6 +186,9 @@ function BlogPage({ params }: PageProps) {
                             width={1280}
                             height={855}
                             alt={blogPost.alt}
+                            placeholder="blur"
+                            blurDataURL={image.image}
+                            title={blogPost.alt}
                           />{" "}
                         </div>
                       );
@@ -235,6 +241,9 @@ function BlogPage({ params }: PageProps) {
             width={100}
             height={100}
             className="w-full h-full object-cover rounded-full"
+            placeholder="blur"
+            blurDataURL={blogPost.authorImage}
+            title={blogPost.author}
           />
         </div>
         <h2 className="my-3 text-[1.55rem] font-semibold">

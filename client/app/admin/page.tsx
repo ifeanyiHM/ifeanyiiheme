@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import ImageInput from "./ImageInput";
 import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
 import TextInput from "./TextInput";
+import { toast, ToastContainer } from "react-toastify";
 
 interface FormDataProps {
   uniqueId: string;
@@ -68,8 +69,8 @@ function page() {
   );
   console.log(formData);
 
-  // const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
-  const correctPassword = "12345";
+  const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+  // const correctPassword = "12345";
 
   useEffect(() => {
     const accessGranted = Cookies.get("access") === "granted";
@@ -104,8 +105,25 @@ function page() {
 
       const data = await res.json();
       console.log(data);
+      toast.success("Blog created successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (err) {
       console.error("Error:", err);
+      toast.error(
+        err instanceof Error ? err.message : "An unexpected error occurred",
+        {
+          position: "top-right",
+          autoClose: 5000,
+        }
+      );
     } finally {
       setSubmitting(false);
     }
@@ -278,6 +296,7 @@ function page() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-gray-800 text-white rounded-lg">
+      <ToastContainer />
       <h2 className="text-2xl font-semibold mb-4">Create Blog Entry</h2>
       <form className="space-y-4">
         <TextInput
