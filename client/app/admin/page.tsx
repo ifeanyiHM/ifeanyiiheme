@@ -317,7 +317,7 @@ function page() {
 
         <div>
           <label className="text-xs" htmlFor="author-image">
-            Author Image
+            AUTHOR IMAGE
           </label>
           <input
             type="file"
@@ -328,47 +328,67 @@ function page() {
           />
         </div>
 
-        <textarea
-          name="authorBio"
-          placeholder="Author bio"
-          value={formData.authorBio}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
-        ></textarea>
+        <div>
+          <label htmlFor="author-bio" className="text-xs">
+            AUTHOR BIO
+          </label>
+          <textarea
+            name="authorBio"
+            placeholder="Author bio"
+            value={formData.authorBio}
+            onChange={handleChange}
+            className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          ></textarea>
+        </div>
 
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
-        />
+        <div>
+          <label htmlFor="date" className="text-xs">
+            DATE
+          </label>
+          <input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          />
+        </div>
 
         <TextInput
           name="readTime"
           value={formData.readTime}
           onHandleChange={handleChange}
         />
-        <ImageInput
-          image={formData.coverImage}
-          addMoreImages={addCoverImage}
-          removeImage={removeCoverImage}
-          buttonText="Add more Cover Images"
-          onChange={(e) => handleFileChange(e, "coverImage")}
-        />
+        <div>
+          <label htmlFor="cover-image" className="text-xs">
+            COVER IMAGE(S)
+          </label>
+          <ImageInput
+            image={formData.coverImage}
+            addMoreImages={addCoverImage}
+            removeImage={removeCoverImage}
+            buttonText="Add more Cover Images"
+            onChange={(e) => handleFileChange(e, "coverImage")}
+          />
+        </div>
         <TextInput
           name="alt"
           value={formData.alt}
           onHandleChange={handleChange}
         />
 
-        <textarea
-          name="headParagraph"
-          placeholder="Introduction"
-          value={formData.headParagraph}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
-        ></textarea>
+        <div>
+          <label htmlFor="head-paragraph" className="text-xs">
+            HEAD PARAGRAPH
+          </label>
+          <textarea
+            name="headParagraph"
+            placeholder="Introduction"
+            value={formData.headParagraph}
+            onChange={handleChange}
+            className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          ></textarea>
+        </div>
 
         <div className="flex flex-col gap-3">
           {formData.sections.map((section, sectionIndex) => (
@@ -381,14 +401,21 @@ function page() {
                 value={section.imgSubtitle}
                 onHandleChange={(e) => handleChange(e, sectionIndex)}
               />
-              <ImageInput
-                image={section.image}
-                sectionIndex={sectionIndex}
-                addMoreImages={addMoreImagesToSection}
-                removeImage={removeSectionImage}
-                buttonText="Add more section images"
-                onChange={(e) => handleFileChange(e, "sections", sectionIndex)}
-              />
+              <div>
+                <label htmlFor="section-image" className="text-xs">
+                  SECTION IMAGE(S)
+                </label>
+                <ImageInput
+                  image={section.image}
+                  sectionIndex={sectionIndex}
+                  addMoreImages={addMoreImagesToSection}
+                  removeImage={removeSectionImage}
+                  buttonText="Add more section images"
+                  onChange={(e) =>
+                    handleFileChange(e, "sections", sectionIndex)
+                  }
+                />
+              </div>
               <TextInput
                 name="subtitle"
                 value={section.subtitle}
@@ -399,14 +426,19 @@ function page() {
                 value={section.alt}
                 onHandleChange={(e) => handleChange(e, sectionIndex)}
               />
-              <textarea
-                name="text"
-                placeholder="Text"
-                value={section.text}
-                onChange={(e) => handleChange(e, sectionIndex)}
-                className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
-                rows={4}
-              />
+              <div>
+                <label htmlFor="section-text" className="text-xs">
+                  SECTION TEXT {sectionIndex + 1}
+                </label>
+                <textarea
+                  name="text"
+                  placeholder="Text"
+                  value={section.text}
+                  onChange={(e) => handleChange(e, sectionIndex)}
+                  className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+                  rows={4}
+                />
+              </div>
               <button
                 onClick={() => handleDelete(sectionIndex)}
                 className="px-2 text-sm bg-red-600 text-white hover:bg-red-700 rounded mr-auto"
@@ -425,16 +457,10 @@ function page() {
           </button>
         </div>
 
-        {/* <input
-          type="text"
-          name="tags"
-          placeholder="Tags (comma separated)"
-          value={formData.tags}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
-        /> */}
-
         <>
+          <label htmlFor="section-text" className="text-xs">
+            TAGS
+          </label>
           <div className="flex flex-col bg-gray-700 border border-gray-600 rounded">
             {formData.tags.map((tag, tagIndex) => (
               <div className="relative">

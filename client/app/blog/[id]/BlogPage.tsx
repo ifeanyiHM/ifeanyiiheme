@@ -12,7 +12,6 @@ import LikesandViews from "./LikesandViews";
 import { formatDate } from "@/app/Utils/formatString";
 import HomeSkeleton from "@/app/Components/skeleton/HomeSkeleton";
 import ShareIcons from "@/app/Components/ShareIcons";
-import Head from "next/head";
 import { PageProps } from "./page";
 
 function BlogPage({ params }: PageProps) {
@@ -62,7 +61,7 @@ function BlogPage({ params }: PageProps) {
           </h1>
           <div className="flex justify-between items-center">
             <span className="text-[0.875rem]">
-              {blogPost.readTime} . {formatDate(blogPost.date)}
+              {blogPost.readTime} min read . {formatDate(blogPost.date)}
             </span>
             <div className="relative">
               {!displayShareIcon && (
@@ -249,11 +248,7 @@ function BlogPage({ params }: PageProps) {
         <h2 className="my-3 text-[1.55rem] font-semibold">
           Written by {blogPost.author}
         </h2>
-        <p className="">
-          {blogPost.authorBio} This is a sample text designed to fill space
-          where content is not yet available. It provides a visual
-          representation of text on a page, helping to plan layouts or designs.
-        </p>
+        <p className="">{blogPost.authorBio}</p>
       </div>
       {/* Comments */}
       <Comments comments={blogPost.comments} blogID={blogPost._id} />
