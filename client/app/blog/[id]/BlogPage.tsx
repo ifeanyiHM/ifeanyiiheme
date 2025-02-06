@@ -101,11 +101,9 @@ function BlogPage({ params }: PageProps) {
                 className={`${
                   isZoomedCover === index
                     ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full"
-                    : "cursor-zoom-in w-full h-full"
+                    : "cursor-zoom-in w-full h-full max-h-[510px]"
                 } object-cover`}
                 src={isZoomedCover === index ? image.zoomedImage : image.image}
-                // className="w-full h-full object-cover"
-                // src={image}
                 width={1280}
                 height={855}
                 alt={blogPost.alt}
@@ -179,7 +177,7 @@ function BlogPage({ params }: PageProps) {
                             className={`${
                               zoomed
                                 ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full"
-                                : "cursor-zoom-in w-full h-full"
+                                : "cursor-zoom-in w-full h-full max-h-[510px]"
                             } object-cover`}
                             src={zoomed ? image.zoomedImage : image.image}
                             width={1280}

@@ -16,6 +16,14 @@ function ImageInput({
   buttonText,
   onChange,
 }: SectionProps) {
+  const handleClick = () => {
+    if (sectionIndex !== undefined) {
+      addMoreImages(sectionIndex);
+    } else {
+      addMoreImages(-1);
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col bg-gray-700 border border-gray-600 rounded">
@@ -39,14 +47,8 @@ function ImageInput({
       </div>
       {image.length < 4 && (
         <button
-          //   onClick={() =>
-          //     sectionIndex ? addMoreImages(sectionIndex) : addMoreImages
-          //   }
-          onClick={() =>
-            sectionIndex !== undefined
-              ? addMoreImages(sectionIndex)
-              : addMoreImages(-1)
-          }
+          type="button"
+          onClick={handleClick}
           className="px-2 mt-1 text-sm bg-green-600 text-white hover:bg-green-700 rounded ml-auto"
         >
           {buttonText}

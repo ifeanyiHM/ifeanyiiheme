@@ -2,11 +2,74 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import ImageInput from "./ImageInput";
+import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
+import TextInput from "./TextInput";
+
+interface FormDataProps {
+  uniqueId: string;
+  title: string;
+  author: string;
+  authorImage: string;
+  authorBio: string;
+  readTime: string;
+  date: string;
+  coverImage: { image: string; zoomedImage: string }[];
+  alt: string;
+  headParagraph: string;
+  sections: {
+    imgSubtitle: string;
+    subtitle: string;
+    image: { image: string; zoomedImage: string }[];
+    alt: string;
+    text: string;
+  }[];
+  tags: string[];
+}
+
+const form = {
+  uniqueId: "",
+  title: "",
+  author: "",
+  authorImage: "",
+  authorBio: "",
+  readTime: "",
+  date: "",
+  coverImage: [
+    {
+      image: "",
+      zoomedImage: "",
+    },
+  ],
+  alt: "",
+  headParagraph: "",
+  sections: [
+    {
+      imgSubtitle: "",
+      subtitle: "",
+      image: [
+        {
+          image: "",
+          zoomedImage: "",
+        },
+      ],
+      alt: "",
+      text: "",
+    },
+  ],
+  tags: [""],
+};
 
 function page() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
-  const correctPassword = "Imp3r$al";
+  const [formData, setFormData] = useBrowserStorageState<FormDataProps>(
+    form,
+    "formData"
+  );
+  console.log(formData);
+
+  // const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+  const correctPassword = "12345";
 
   useEffect(() => {
     const accessGranted = Cookies.get("access") === "granted";
@@ -23,51 +86,6 @@ function page() {
       }
     }
   }, []);
-
-  const [formData, setFormData] = useState({
-    uniqueId: "",
-    title: "",
-    author: "",
-    authorImage: "",
-    authorBio: "",
-    readTime: "",
-    date: "",
-    coverImage: [
-      {
-        image: "",
-        zoomedImage: "",
-      },
-    ],
-    alt: "",
-    headParagraph: "",
-    sections: [
-      {
-        imgSubtitle: "",
-        subtitle: "",
-        image: [
-          {
-            image: "",
-            zoomedImage: "",
-          },
-        ],
-        alt: "",
-        text: "",
-      },
-    ],
-    tags: [],
-  });
-  console.log(formData);
-
-  useEffect(() => {
-    const savedFormData = localStorage.getItem("formData");
-    if (savedFormData) {
-      setFormData(JSON.parse(savedFormData));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData]);
 
   const createBlog = async () => {
     setSubmitting(true);
@@ -240,6 +258,20 @@ function page() {
     }));
   };
 
+  const addTag = () => {
+    setFormData((prev) => ({
+      ...prev,
+      tags: [...prev.tags, ""],
+    }));
+  };
+
+  const removeTag = (index: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      tags: prev.tags.filter((_, i) => i !== index),
+    }));
+  };
+
   if (!isAuthenticated) {
     return null;
   }
@@ -248,30 +280,22 @@ function page() {
     <div className="max-w-2xl mx-auto p-6 bg-gray-800 text-white rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Create Blog Entry</h2>
       <form className="space-y-4">
-        <input
-          type="text"
+        <TextInput
           name="uniqueId"
-          placeholder="Unique ID"
           value={formData.uniqueId}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          onHandleChange={handleChange}
         />
-        <input
-          type="text"
+        <TextInput
           name="title"
-          placeholder="Title"
           value={formData.title}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          onHandleChange={handleChange}
         />
-        <input
-          type="text"
+        <TextInput
           name="author"
-          placeholder="Author"
           value={formData.author}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          onHandleChange={handleChange}
         />
+
         <div>
           <label className="text-xs" htmlFor="author-image">
             Author Image
@@ -284,6 +308,7 @@ function page() {
             className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
           />
         </div>
+
         <textarea
           name="authorBio"
           placeholder="Author bio"
@@ -291,6 +316,7 @@ function page() {
           onChange={handleChange}
           className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
         ></textarea>
+
         <input
           type="date"
           name="date"
@@ -298,13 +324,11 @@ function page() {
           onChange={handleChange}
           className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
         />
-        <input
-          type="text"
+
+        <TextInput
           name="readTime"
-          placeholder="Read Time (e.g. '5 min read')"
           value={formData.readTime}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          onHandleChange={handleChange}
         />
         <ImageInput
           image={formData.coverImage}
@@ -313,13 +337,10 @@ function page() {
           buttonText="Add more Cover Images"
           onChange={(e) => handleFileChange(e, "coverImage")}
         />
-        <input
-          type="text"
+        <TextInput
           name="alt"
-          placeholder="Image Alt"
           value={formData.alt}
-          onChange={handleChange}
-          className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+          onHandleChange={handleChange}
         />
 
         <textarea
@@ -329,19 +350,17 @@ function page() {
           onChange={handleChange}
           className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
         ></textarea>
+
         <div className="flex flex-col gap-3">
           {formData.sections.map((section, sectionIndex) => (
             <div
               key={sectionIndex}
               className="details flex flex-col gap-4 p-4 border border-gray-600 rounded-lg"
             >
-              <input
-                type="text"
+              <TextInput
                 name="imgSubtitle"
-                placeholder="Image Subtitle"
                 value={section.imgSubtitle}
-                onChange={(e) => handleChange(e, sectionIndex)}
-                className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+                onHandleChange={(e) => handleChange(e, sectionIndex)}
               />
               <ImageInput
                 image={section.image}
@@ -351,25 +370,16 @@ function page() {
                 buttonText="Add more section images"
                 onChange={(e) => handleFileChange(e, "sections", sectionIndex)}
               />
-
-              <input
-                type="text"
+              <TextInput
                 name="subtitle"
-                placeholder="Subtitle"
                 value={section.subtitle}
-                onChange={(e) => handleChange(e, sectionIndex)}
-                className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+                onHandleChange={(e) => handleChange(e, sectionIndex)}
               />
-
-              <input
-                type="text"
+              <TextInput
                 name="alt"
-                placeholder="Alt Text"
                 value={section.alt}
-                onChange={(e) => handleChange(e, sectionIndex)}
-                className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+                onHandleChange={(e) => handleChange(e, sectionIndex)}
               />
-
               <textarea
                 name="text"
                 placeholder="Text"
@@ -378,7 +388,6 @@ function page() {
                 className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
                 rows={4}
               />
-
               <button
                 onClick={() => handleDelete(sectionIndex)}
                 className="px-2 text-sm bg-red-600 text-white hover:bg-red-700 rounded mr-auto"
@@ -389,20 +398,60 @@ function page() {
           ))}
 
           <button
+            type="button"
             onClick={addMoreSection}
             className="p-3 bg-blue-600 text-white hover:bg-blue-700 rounded ml-auto mt-4"
           >
             Add more
           </button>
         </div>
-        <input
+
+        {/* <input
           type="text"
           name="tags"
           placeholder="Tags (comma separated)"
           value={formData.tags}
           onChange={handleChange}
           className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
-        />
+        /> */}
+
+        <>
+          <div className="flex flex-col bg-gray-700 border border-gray-600 rounded">
+            {formData.tags.map((tag, tagIndex) => (
+              <div className="relative">
+                <input
+                  type="text"
+                  name="tags"
+                  placeholder={`Tags ${tagIndex + 1}`}
+                  value={tag}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      tags: prev.tags.map((tag, i) =>
+                        i === tagIndex ? e.target.value : tag
+                      ),
+                    }))
+                  }
+                  className="p-2 w-full bg-gray-700 border-b border-gray-600"
+                />
+                <span
+                  onClick={() => removeTag(tagIndex)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-white cursor-pointer"
+                >
+                  clear
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={addTag}
+            className="px-2 mt-1 text-sm bg-green-600 text-white hover:bg-green-700 rounded ml-auto"
+          >
+            Add tag
+          </button>
+        </>
         <button
           onClick={handleSubmit}
           type="submit"
