@@ -62,6 +62,7 @@ function RecentProject({ project, index }: RecentProjectProps) {
                   src={image.src}
                   alt={image.alt}
                   classname="rounded-[7px]"
+                  fill={true}
                 />
               </div>
               {lightMode && (

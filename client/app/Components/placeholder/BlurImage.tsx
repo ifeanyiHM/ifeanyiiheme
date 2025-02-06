@@ -5,9 +5,19 @@ interface BlurProps {
   src: string;
   alt: string;
   classname?: string;
+  width?: number;
+  height?: number;
+  fill?: boolean;
 }
 
-export default function BlurImage({ src, alt, classname }: BlurProps) {
+export default function BlurImage({
+  src,
+  alt,
+  classname,
+  width,
+  height,
+  fill,
+}: BlurProps) {
   const [blurDataURL, setBlurDataURL] = useState<string | null>(null);
 
   useEffect(() => {
@@ -26,7 +36,9 @@ export default function BlurImage({ src, alt, classname }: BlurProps) {
   return (
     <Image
       className={`${classname} object-cover`}
-      fill
+      width={width}
+      height={height}
+      fill={fill}
       src={src}
       alt={alt}
       placeholder="blur"

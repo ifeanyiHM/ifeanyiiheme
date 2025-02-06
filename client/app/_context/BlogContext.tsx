@@ -15,8 +15,10 @@ const BlogContext = createContext<BlogContextProps>(defaultBlogProps);
 
 function BlogProvider({ children }: BlogProviderProps) {
   const [blogs, setBlogs] = useState<BlogPostProps[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchBlogs = async () => {
+    setLoading(true);
     try {
       const url = `/api/getAllBlogs?cache_buster=${new Date().getTime()}`;
       const res = await fetch(url, {
@@ -33,6 +35,8 @@ function BlogProvider({ children }: BlogProviderProps) {
       setBlogs(data.data.data);
     } catch (err) {
       // setError((err as Error).message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -41,7 +45,7 @@ function BlogProvider({ children }: BlogProviderProps) {
   }, []);
 
   return (
-    <BlogContext.Provider value={{ blogs, fetchBlogs }}>
+    <BlogContext.Provider value={{ blogs, fetchBlogs, loading }}>
       {children}
     </BlogContext.Provider>
   );

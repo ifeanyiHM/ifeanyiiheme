@@ -13,6 +13,7 @@ import { formatDate } from "@/app/Utils/formatString";
 import HomeSkeleton from "@/app/Components/skeleton/HomeSkeleton";
 import ShareIcons from "@/app/Components/ShareIcons";
 import { PageProps } from "./page";
+import BlurImage from "@/app/Components/placeholder/BlurImage";
 
 function BlogPage({ params }: PageProps) {
   const { lightMode } = usePortfolio();
@@ -96,20 +97,17 @@ function BlogPage({ params }: PageProps) {
               }
               onClick={() => handleZoomCover(index)}
             >
-              <Image
-                className={`${
+              <BlurImage
+                classname={
                   isZoomedCover === index
                     ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full"
                     : "cursor-zoom-in w-full h-full max-h-[510px]"
-                } object-cover`}
+                }
                 src={isZoomedCover === index ? image.zoomedImage : image.image}
+                alt={blogPost.alt}
                 width={1280}
                 height={855}
-                alt={blogPost.alt}
-                placeholder="blur"
-                blurDataURL={image.image}
-                title={blogPost.alt}
-              />{" "}
+              />
             </div>
           ))}
         </div>
@@ -175,20 +173,17 @@ function BlogPage({ params }: PageProps) {
                           }
                           onClick={() => handleZoom(sectionIndex, imageId)}
                         >
-                          <Image
-                            className={`${
+                          <BlurImage
+                            classname={
                               zoomed
                                 ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full"
                                 : "cursor-zoom-in w-full h-full max-h-[510px]"
-                            } object-cover`}
+                            }
                             src={zoomed ? image.zoomedImage : image.image}
                             width={1280}
                             height={855}
                             alt={blogPost.alt}
-                            placeholder="blur"
-                            blurDataURL={image.image}
-                            title={blogPost.alt}
-                          />{" "}
+                          />
                         </div>
                       );
                     })}
@@ -234,15 +229,12 @@ function BlogPage({ params }: PageProps) {
         }  border-b pt-8 pb-12 px-[1.5rem] md:px-14 lg:px-0 lg:max-w-[680px] mx-auto lg:text-[1.1rem]`}
       >
         <div className="w-16 h-16 rounded-full">
-          <Image
+          <BlurImage
             src={blogPost.authorImage || "/default-avatar-icon.jpg"}
             alt="author identity"
             width={100}
             height={100}
-            className="w-full h-full object-cover rounded-full"
-            placeholder="blur"
-            blurDataURL={blogPost.authorImage}
-            title={blogPost.author}
+            classname="w-full h-full object-cover rounded-full"
           />
         </div>
         <h2 className="my-3 text-[1.55rem] font-semibold">

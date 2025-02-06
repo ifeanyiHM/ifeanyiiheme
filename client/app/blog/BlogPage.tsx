@@ -8,10 +8,16 @@ import { FaComment } from "react-icons/fa";
 import useBlog from "../_context/useBlog";
 import { MdRemoveRedEye } from "react-icons/md";
 import { formatDate } from "../Utils/formatString";
+import BlurImage from "../Components/placeholder/BlurImage";
+import BlogsSkeleton from "../Components/skeleton/BlogsSkeleton";
 
 function BlogPage() {
   const { lightMode } = usePortfolio();
-  const { blogs } = useBlog();
+  const { blogs, loading } = useBlog();
+
+  if (loading) {
+    return <BlogsSkeleton />;
+  }
 
   return (
     <div
@@ -31,15 +37,12 @@ function BlogPage() {
             >
               <div className="flex items-center gap-2">
                 <div className="w-16 h-16 flex-shrink-0">
-                  <Image
-                    className="w-full h-full object-cover rounded-md"
+                  <BlurImage
+                    classname="w-full h-full object-cover rounded-md"
                     src={preview.coverImage[0].image}
                     width={100}
                     height={100}
                     alt={preview.alt}
-                    placeholder="blur"
-                    blurDataURL={preview.coverImage[0].image}
-                    title={preview.title}
                   />
                 </div>
                 <div className="flex flex-col gap-0">

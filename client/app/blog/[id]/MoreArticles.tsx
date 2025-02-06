@@ -1,5 +1,6 @@
 import useBlog from "@/app/_context/useBlog";
 import usePortfolio from "@/app/_context/usePortfolio";
+import BlurImage from "@/app/Components/placeholder/BlurImage";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,29 +36,22 @@ function MoreArticles({ params }: MoreArticlesProps) {
                 } flex flex-col gap-4 border-b pb-4`}
               >
                 <div className="relative h-[13.696rem]">
-                  <Image
-                    className="object-cover"
+                  <BlurImage
                     src={data.coverImage[0].image}
                     alt={data.alt}
-                    fill
-                    placeholder="blur"
-                    blurDataURL={data.coverImage[0].image}
-                    title={data.alt}
+                    fill={true}
                   />
                 </div>
 
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 flex-shrink-0">
-                    <Image
-                      className="w-full h-full object-cover rounded-full"
+                    <BlurImage
+                      classname="w-full h-full object-cover rounded-full"
                       src={data.authorImage || "/default-avatar-icon.jpg"}
                       width={100}
                       height={100}
-                      alt={data.coverImage[0].image}
-                      placeholder="blur"
-                      blurDataURL={data.coverImage[0].image}
-                      title={data.alt}
-                    />
+                      alt={data.author}
+                    />{" "}
                   </div>
                   <span>{data.author}</span>
                 </div>
