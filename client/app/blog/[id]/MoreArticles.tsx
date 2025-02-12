@@ -37,6 +37,7 @@ function MoreArticles({ params }: MoreArticlesProps) {
               >
                 <div className="relative h-[13.696rem]">
                   <BlurImage
+                    classname="object-cover"
                     src={data.coverImage[0].image}
                     alt={data.alt}
                     fill={true}
@@ -55,10 +56,15 @@ function MoreArticles({ params }: MoreArticlesProps) {
                   </div>
                   <span>{data.author}</span>
                 </div>
-                <h2 className="text-2xl font-bold md:leading-tight">
+                <h2 className="hidden md:block text-2xl font-bold md:leading-tight">
+                  {data.title.length >= 25
+                    ? `${data.title.slice(0, 24)}.... `
+                    : data.title}
+                </h2>
+                <h2 className="md:hidden text-2xl font-bold md:leading-tight">
                   {data.title}
                 </h2>
-                <p className="md:hidden">
+                <p className="lg:hidden">
                   {data.headParagraph.slice(0, 80)}...
                 </p>
                 <p className="hidden lg:block">

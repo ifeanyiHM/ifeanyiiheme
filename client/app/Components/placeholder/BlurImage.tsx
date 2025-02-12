@@ -35,7 +35,7 @@ export default function BlurImage({
 
   return (
     <Image
-      className={`${classname} object-cover`}
+      className={classname}
       width={width}
       height={height}
       fill={fill}

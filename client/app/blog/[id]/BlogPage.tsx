@@ -1,19 +1,20 @@
 "use client";
 
-import usePortfolio from "@/app/_context/usePortfolio";
-import { lora } from "@/app/fonts/fonts";
-import Image from "next/image";
 import { useState } from "react";
 import { IoIosShareAlt } from "react-icons/io";
+
 import Comments from "./Comments";
 import MoreArticles from "./MoreArticles";
-import useBlog from "@/app/_context/useBlog";
 import LikesandViews from "./LikesandViews";
-import { formatDate } from "@/app/Utils/formatString";
-import HomeSkeleton from "@/app/Components/skeleton/HomeSkeleton";
-import ShareIcons from "@/app/Components/ShareIcons";
 import { PageProps } from "./page";
+
+import usePortfolio from "@/app/_context/usePortfolio";
+import { lora } from "@/app/fonts/fonts";
+import useBlog from "@/app/_context/useBlog";
+import { formatDate } from "@/app/Utils/formatString";
+import ShareIcons from "@/app/Components/ShareIcons";
 import BlurImage from "@/app/Components/placeholder/BlurImage";
+import MoreBlogsSkeleton from "@/app/Components/skeleton/MoreBlogsSkeleton";
 
 function BlogPage({ params }: PageProps) {
   const { lightMode } = usePortfolio();
@@ -26,7 +27,7 @@ function BlogPage({ params }: PageProps) {
   const blogPost = blogs.find((post) => (params?.id as string) === post.slug);
 
   if (!blogPost) {
-    return <HomeSkeleton />;
+    return <MoreBlogsSkeleton />;
   }
 
   const handleZoomCover = (index: number) => {
@@ -100,8 +101,8 @@ function BlogPage({ params }: PageProps) {
               <BlurImage
                 classname={
                   isZoomedCover === index
-                    ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full"
-                    : "cursor-zoom-in w-full h-full max-h-[510px]"
+                    ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full object-cover"
+                    : "cursor-zoom-in w-full h-full max-h-[510px] object-cover"
                 }
                 src={isZoomedCover === index ? image.zoomedImage : image.image}
                 alt={blogPost.alt}
@@ -176,8 +177,8 @@ function BlogPage({ params }: PageProps) {
                           <BlurImage
                             classname={
                               zoomed
-                                ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full"
-                                : "cursor-zoom-in w-full h-full max-h-[510px]"
+                                ? "cursor-zoom-out w-auto h-auto max-w-full max-h-full object-cover"
+                                : "cursor-zoom-in w-full h-full max-h-[510px] object-cover"
                             }
                             src={zoomed ? image.zoomedImage : image.image}
                             width={1280}

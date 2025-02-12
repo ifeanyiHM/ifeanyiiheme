@@ -61,7 +61,7 @@ function RecentProject({ project, index }: RecentProjectProps) {
                 <BlurImage
                   src={image.src}
                   alt={image.alt}
-                  classname="rounded-[7px]"
+                  classname="rounded-[7px] object-cover"
                   fill={true}
                 />
               </div>

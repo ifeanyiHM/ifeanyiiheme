@@ -1,12 +1,13 @@
 "use client";
-import Image from "next/image";
-import { IoIosHeart, IoIosShareAlt } from "react-icons/io";
-import usePortfolio from "../_context/usePortfolio";
+
 import Link from "next/link";
-import { lora } from "../fonts/fonts";
-import { FaComment } from "react-icons/fa";
-import useBlog from "../_context/useBlog";
+import { IoIosHeart, IoIosShareAlt } from "react-icons/io";
 import { MdRemoveRedEye } from "react-icons/md";
+import { FaComment } from "react-icons/fa";
+
+import usePortfolio from "../_context/usePortfolio";
+import useBlog from "../_context/useBlog";
+import { lora } from "../fonts/fonts";
 import { formatDate } from "../Utils/formatString";
 import BlurImage from "../Components/placeholder/BlurImage";
 import BlogsSkeleton from "../Components/skeleton/BlogsSkeleton";
@@ -38,7 +39,7 @@ function BlogPage() {
               <div className="flex items-center gap-2">
                 <div className="w-16 h-16 flex-shrink-0">
                   <BlurImage
-                    classname="w-full h-full object-cover rounded-md"
+                    classname="w-full h-full object-center rounded-md"
                     src={preview.coverImage[0].image}
                     width={100}
                     height={100}
@@ -74,7 +75,7 @@ function BlogPage() {
                         <MdRemoveRedEye /> {preview.reaction.views}
                       </span>
                     )}
-                    <IoIosShareAlt />
+                    {/* <IoIosShareAlt /> */}
                   </div>
                 </div>
               </div>
@@ -100,7 +101,7 @@ function BlogPage() {
                       <MdRemoveRedEye /> {preview.reaction.views}
                     </span>
                   )}
-                  <IoIosShareAlt />
+                  {/* <IoIosShareAlt /> */}
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import ContactSkeleton from "./Components/skeleton/ContactSkeleton";
 import AboutSkeleton from "./Components/skeleton/AboutSkeleton";
 import ProjectSkeleton from "./Components/skeleton/ProjectSkeleton";
 import HomeSkeleton from "./Components/skeleton/HomeSkeleton";
+import BlogsSkeleton from "./Components/skeleton/BlogsSkeleton";
 
 function Loading() {
   const pathname = usePathname();
@@ -18,6 +19,8 @@ function Loading() {
       return <ProjectSkeleton />;
     } else if (pathname.includes("contact")) {
       return <ContactSkeleton />;
+    } else if (pathname.includes("blog")) {
+      return <BlogsSkeleton />;
     } else {
       return <HomeSkeleton />;
     }
