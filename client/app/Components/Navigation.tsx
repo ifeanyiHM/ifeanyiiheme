@@ -1,9 +1,9 @@
 "use client";
-import { MdOutlineLightMode } from "react-icons/md";
-import { MdOutlineDarkMode } from "react-icons/md";
-import usePortfolio from "../_context/usePortfolio";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import usePortfolio from "../_context/usePortfolio";
+import { lora } from "../fonts/fonts";
 
 function Navigation() {
   const { lightMode, setLightMode, isMenuOpen, setIsMenuOpen } = usePortfolio();
@@ -23,7 +23,9 @@ function Navigation() {
           lightMode ? "text-[#444452]" : "text-[#e7e7e7]"
         } text-[1.2rem] mr-2`}
       >
-        <Link href="/blog">Blog</Link>
+        <Link href="/blog" className={lora.className}>
+          Article
+        </Link>
       </span>
       <span
         onClick={() => setIsMenuOpen(!isMenuOpen)}

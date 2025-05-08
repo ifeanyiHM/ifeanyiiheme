@@ -1,5 +1,5 @@
-import BlogPage from "./BlogPage";
 import { Metadata } from "next";
+import BlogPage from "./BlogPage";
 
 interface Params {
   id: string;
