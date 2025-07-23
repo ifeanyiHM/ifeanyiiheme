@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { BsLinkedin } from "react-icons/bs";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaGithub } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
+import { BsLinkedin } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
 
 export interface PortfolioContextProps {
   lightMode: boolean;
@@ -35,19 +35,24 @@ export const menuItems = [
 
 export const recentWorks = [
   {
+    title: "1502 Properties",
+    link: "https://1502properties.com/",
+    delay: "delay-[0.7s]",
+  },
+  {
+    title: "Race Edu Consult",
+    link: "https://raceeduconsult.com/",
+    delay: "delay-[0.8s]",
+  },
+  {
     title: "inkshare",
     link: "https://inkshare.vercel.app/",
-    delay: "delay-[0.7s]",
+    delay: "delay-[0.9s]",
   },
   {
     title: "kickoffkit",
     link: "https://kickoffkit.vercel.app/",
-    delay: "delay-[0.8s]",
-  },
-  {
-    title: "pheonixGlobal",
-    link: "https://phoenixglobal.vercel.app/",
-    delay: "delay-[0.9s]",
+    delay: "delay-[0.10s]",
   },
 ];
 
@@ -142,7 +147,7 @@ export interface ProjectProps {
 
 export const recentProjects = [
   {
-    title: "Pheonix Global",
+    title: "1502 Properties",
     images: [
       {
         src: "/images/pheonixdesktop.png",
@@ -160,7 +165,7 @@ export const recentProjects = [
     description:
       "The Phoenix Global website is a platform that helps people find and buy apartments or homes. It lists various properties with all the important details. The site guides users through the buying process, making it simple to find and purchase their ideal home.",
     links: [
-      { href: "https://phoenixglobal.vercel.app/", label: "Link" },
+      { href: "https://1502properties.com/", label: "Link" },
       { href: "https://github.com/ifeanyiHM/phoenixglobal", label: "Code" },
     ],
     technologies: ["Javascript", "TypeScript", "React", "Sass"],
