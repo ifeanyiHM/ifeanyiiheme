@@ -237,6 +237,12 @@ export const recentProjects = [
 
 export const otherProjects = [
   {
+    name: "Race Edu Consult",
+    tools: ["Next.Js", "Tailwind", "React", "JavaScript"],
+    liveLink: "https://raceeduconsult.com/",
+    codeLink: "https://github.com/ifeanyiHM/race",
+  },
+  {
     name: "Pinterest Clone",
     tools: ["HTML", "Css", "SCSS", "JavaScript"],
     liveLink: "https://interest-gamma.vercel.app/",
