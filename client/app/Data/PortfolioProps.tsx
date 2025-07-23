@@ -163,7 +163,7 @@ export const recentProjects = [
       },
     ],
     description:
-      "The Phoenix Global website is a platform that helps people find and buy apartments or homes. It lists various properties with all the important details. The site guides users through the buying process, making it simple to find and purchase their ideal home.",
+      "The 1502 Properties web app is a platform that helps people find and buy apartments or homes. It lists various properties with all the important details. The site guides users through the buying process, making it simple to find and purchase their ideal home.",
     links: [
       { href: "https://1502properties.com/", label: "Link" },
       { href: "https://github.com/ifeanyiHM/phoenixglobal", label: "Code" },
