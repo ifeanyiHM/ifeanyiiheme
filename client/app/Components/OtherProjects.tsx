@@ -59,13 +59,20 @@ function OtherProjects() {
               ))}
             </td>
             <td className="hidden lg:table-cell py-[0.8rem] md:py-[1rem] lg:pr-[0.5rem]">
-              <Link href={project.liveLink} className="hover:underline">
+              <Link 
+                href={project.liveLink}  
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
                 {project.liveLink.slice(8)}
               </Link>
             </td>
             <td className="hidden md:table-cell text-left xl:w-[12%]">
               <Link
                 href={project.codeLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${
                   lightMode ? "text-[#417dbd]" : "text-[#fff] font-[300]"
                 } hover:underline`}
