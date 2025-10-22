@@ -45,7 +45,7 @@ export const recentWorks = [
     delay: "delay-[0.8s]",
   },
   {
-    title: "Starsight Employee Form Portal",
+    title: "Starsight Employee Portal",
     link: "https://starsight-employee-form-portal.vercel.app/",
     delay: "delay-[0.9s]",
   },
