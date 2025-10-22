@@ -20,7 +20,13 @@ export function RecentWorks({ item }: RecentWorkProps) {
         isMenuOpen ? `${item.delay} scale-y-[1]` : "scale-y-0"
       } transition-all duration-500 ease-in-out `}
     >
-      <Link href={item.link}>{item.title}</Link>
+      <
+        Link href={item.link}  
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {item.title}
+      </Link>
     </li>
   );
 }
