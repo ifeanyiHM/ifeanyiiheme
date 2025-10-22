@@ -45,13 +45,13 @@ export const recentWorks = [
     delay: "delay-[0.8s]",
   },
   {
-    title: "inkshare",
-    link: "https://inkshare.vercel.app/",
+    title: "Starsight Employee Form Portal",
+    link: "https://starsight-employee-form-portal.vercel.app/",
     delay: "delay-[0.9s]",
   },
   {
-    title: "kickoffkit",
-    link: "https://kickoffkit.vercel.app/",
+    title: "inkshare",
+    link: "https://inkshare.vercel.app/",
     delay: "delay-[0.10s]",
   },
 ];
@@ -237,6 +237,12 @@ export const recentProjects = [
 
 export const otherProjects = [
   {
+    name: "Starsight Employee Form Portal",
+    tools: ["Next.Js", "Tailwind", "React", "JavaScript"],
+    liveLink: "https://starsight-employee-form-portal.vercel.app/",
+    codeLink: "https://github.com/ifeanyiHM/starsight-employee-form-portal",
+  },
+  {
     name: "Race Edu Consult",
     tools: ["Next.Js", "Tailwind", "React", "JavaScript"],
     liveLink: "https://raceeduconsult.com/",
@@ -245,7 +251,7 @@ export const otherProjects = [
   {
     name: "Pinterest Clone",
     tools: ["HTML", "Css", "SCSS", "JavaScript"],
-    liveLink: "https://interest-gamma.vercel.app/",
+    liveLink: "https://pinterest-clone-ten-silk.vercel.app/",
     codeLink: "https://github.com/ifeanyiHM/Pinterest-Clone",
   },
   {
