@@ -39,20 +39,16 @@ export const recentWorks = [
     link: "https://1502properties.com/",
     delay: "delay-[0.7s]",
   },
+  { title: "Axign", link: "https://axign.vercel.app/", delay: "delay-[0.8s]" },
   {
     title: "Race Edu Consult",
-    link: "https://raceeduconsult.com/",
-    delay: "delay-[0.8s]",
+    link: "https://race-navy.vercel.app/",
+    delay: "delay-[0.9s]",
   },
   {
     title: "Starsight Employee Portal",
     link: "https://starsight-employee-form-portal.vercel.app/",
-    delay: "delay-[0.9s]",
-  },
-  {
-    title: "inkshare",
-    link: "https://inkshare.vercel.app/",
-    delay: "delay-[0.10s]",
+    delay: "delay-[1.0s]",
   },
 ];
 
@@ -150,16 +146,16 @@ export const recentProjects = [
     title: "1502 Properties",
     images: [
       {
-        src: "/images/pheonixdesktop.png",
-        alt: "phoenixdesktop",
+        src: "/images/1502propertiesdesktop.png",
+        alt: "1502propertiesdesktop",
       },
       {
-        src: "/images/pheonixtablet.png",
-        alt: "phoenixtablet",
+        src: "/images/1502propertiestablet.png",
+        alt: "1502propertiestablet",
       },
       {
-        src: "/images/pheonixmobile.png",
-        alt: "phoenixmobile",
+        src: "/images/1502propertiesmobile.png",
+        alt: "1502propertiesmobile",
       },
     ],
     description:
@@ -168,84 +164,85 @@ export const recentProjects = [
       { href: "https://1502properties.com/", label: "Link" },
       { href: "https://github.com/ifeanyiHM/phoenixglobal", label: "Code" },
     ],
-    technologies: ["Javascript", "TypeScript", "React", "Sass"],
+    technologies: ["Javascript", "Supabase", "TypeScript", "React", "SCSS"],
   },
   {
-    title: "Inkshare",
+    title: "Axign",
     images: [
       {
-        src: "/images/inksharedesktop.png",
-        alt: "inksharedesktop",
+        src: "/images/axigndesktop.png",
+        alt: "axigndesktop",
       },
       {
-        src: "/images/inksharetablet.png",
-        alt: "inksharetablet",
+        src: "/images/axigntablet.png",
+        alt: "axigntablet",
       },
       {
-        src: "/images/inksharemobile.png",
+        src: "/images/axignmobile.png",
+        alt: "axignmobile",
+      },
+    ],
+    description:
+      "Axign is a comprehensive task management platform designed to streamline organizational operations and enhance team productivity. Built specifically for businesses, it provides CEOs with powerful tools to create, assign, and track tasks while offering employees an intuitive interface to manage their work and update progress. With role-based access control, real-time analytics, and automated notifications, Axign replaces scattered emails and messages with a centralized system that ensures clear accountability, eliminates missed deadlines, and enables seamless collaboration—whether teams are working remotely or on-site.",
+    links: [
+      { href: "https://axign.vercel.app/", label: "Link" },
+      { href: "https://github.com/ifeanyiHM/axign", label: "Code" },
+    ],
+    technologies: [
+      "Nexjs",
+      "Fullstack",
+      "Javascript",
+      "TypeScript",
+      "Storybook",
+      "Shadcn UI",
+      "React",
+      "Tailwind Css",
+    ],
+  },
+  {
+    title: "Starsight Employee Form Portal",
+    images: [
+      {
+        src: "/images/starsightdesktop.png",
+        alt: "starsightdesktop",
+      },
+      {
+        src: "/images/starsighttablet.png",
+        alt: "starsighttablet",
+      },
+      {
+        src: "/images/starsightmobile.png",
         alt: "inksharemobile",
       },
     ],
     description:
-      "Inkshare is a handy app for software developers and engineers to save and organize important links. It helps you keep track of useful resources like documentation, tutorials, and tools.",
+      "Starsight Employee Form Portal is a centralized digital platform designed to streamline employee documentation and internal HR processes. It enables staff to easily access, complete, and track essential company forms while providing quick access to important organizational documents. Built with a focus on clarity and efficiency, the portal simplifies administrative workflows and improves overall employee experience through an organized, user-friendly interface.",
     links: [
-      { href: "https://inkshare.vercel.app/", label: "Link" },
-      { href: "https://github.com/ifeanyiHM/inkshare", label: "Code" },
       {
-        href: "https://www.figma.com/design/gY3QlGMHxB81euVxIYfBSr/link-sharing-app?node-id=86-23257&t=U2GSBnFEpag5Xn2J-1",
-        label: "Design",
+        href: "https://starsight-employee-form-portal.vercel.app/",
+        label: "Link",
+      },
+      {
+        href: "https://github.com/ifeanyiHM/starsight-employee-form-portal",
+        label: "Code",
       },
     ],
     technologies: [
       "Nexjs",
-      "Supabase",
+      "Fullstack",
       "Javascript",
       "TypeScript",
       "React",
       "Tailwind Css",
     ],
   },
-  {
-    title: "Kickoffkit",
-    images: [
-      {
-        src: "/images/kickoffkitdesktop.png",
-        alt: "kickoffkitdesktop",
-      },
-      {
-        src: "/images/kickoffkittablet.png",
-        alt: "kickoffkittablet",
-      },
-      {
-        src: "/images/kickoffkitmobile.png",
-        alt: "kickoffkitmobile",
-      },
-    ],
-    description:
-      "KickoffKit is a basic online store specializing in sports jerseys. As an intern project, I developed a simplified version with core functionalities. Customers can browse through a list of available jerseys, view specific product details, add items to a virtual shopping cart, and proceed to checkout to complete their purchase. This is not a fully functional ecommerce store.",
-    links: [
-      { href: "https://kickoffkit.vercel.app/", label: "Link" },
-      { href: "https://github.com/ifeanyiHM/kickoffkit", label: "Code" },
-      {
-        href: "https://www.figma.com/design/bV1FJwUq3Ukb21MEC3inyh/Kickoff-Kits-HNG---Williams-Balogun?node-id=11-2&t=OvaXSxwd8sKjXvhL-1",
-        label: "Design",
-      },
-    ],
-    technologies: ["Javascript", "TypeScript", "React", "Sass"],
-  },
 ];
 
 export const otherProjects = [
   {
-    name: "Starsight Employee Form Portal",
-    tools: ["Next.Js", "Tailwind", "React", "JavaScript"],
-    liveLink: "https://starsight-employee-form-portal.vercel.app/",
-    codeLink: "https://github.com/ifeanyiHM/starsight-employee-form-portal",
-  },
-  {
     name: "Race Edu Consult",
     tools: ["Next.Js", "Tailwind", "React", "JavaScript"],
-    liveLink: "https://raceeduconsult.com/",
+    liveLink: "https://race-navy.vercel.app/",
     codeLink: "https://github.com/ifeanyiHM/race",
   },
   {

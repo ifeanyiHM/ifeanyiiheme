@@ -18,7 +18,7 @@ process.on("uncaughtException", (err) => {
 
 const DB = process.env.DATABASE.replace(
   "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
+  process.env.DATABASE_PASSWORD,
 );
 
 mongoose.connect(DB).then((con) => {
@@ -41,7 +41,7 @@ app.use(
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
-  })
+  }),
 );
 
 app.options("*", cors());
@@ -51,7 +51,7 @@ app.disable("etag");
 app.use((req, res, next) => {
   res.set(
     "Cache-Control",
-    "no-store, no-cache, must-revalidate, proxy-revalidate"
+    "no-store, no-cache, must-revalidate, proxy-revalidate",
   );
   res.set("Pragma", "no-cache");
   res.set("Expires", "0");

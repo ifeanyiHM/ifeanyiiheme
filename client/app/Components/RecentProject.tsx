@@ -23,7 +23,7 @@ interface RecentProjectProps {
 
 function RecentProject({ project, index }: RecentProjectProps) {
   const [expandedTexts, setExpandedTexts] = useState<boolean[]>(
-    recentProjects.map(() => false)
+    recentProjects.map(() => false),
   );
 
   const { lightMode } = usePortfolio();
@@ -54,8 +54,8 @@ function RecentProject({ project, index }: RecentProjectProps) {
                   lightMode && idx > 0
                     ? "shadow-[5px_-5px_5px_rgb(68,68,82,0.1),-5px_5px_5px_rgb(68,68,82,0.1)]"
                     : idx === 0 && lightMode
-                    ? "shadow-[0_0_10px_rgb(68,68,82,0.3)]"
-                    : ""
+                      ? "shadow-[0_0_10px_rgb(68,68,82,0.3)]"
+                      : ""
                 } ${classes[idx]} absolute bottom-0 rounded-[7px]`}
               >
                 <BlurImage
@@ -104,7 +104,7 @@ function RecentProject({ project, index }: RecentProjectProps) {
             ))}
           </div>
         </div>
-        <p className="my-[1rem] md:mr-[3rem] md:text-[1.2rem] lg:w-[60%]">
+        <p className="my-[1rem] md:mr-[3rem] md:text-[1.2rem] lg:w-[90%]">
           {expandedTexts[index]
             ? project.description
             : `${project.description.slice(0, 70)}`}
