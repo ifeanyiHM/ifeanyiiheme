@@ -40,14 +40,19 @@ export const recentWorks = [
     delay: "delay-[0.7s]",
   },
   { title: "Axign", link: "https://axign.vercel.app/", delay: "delay-[0.8s]" },
-  {
-    title: "Race Edu Consult",
-    link: "https://race-navy.vercel.app/",
-    delay: "delay-[0.9s]",
-  },
+  // {
+  //   title: "Race Edu Consult",
+  //   link: "https://race-navy.vercel.app/",
+  //   delay: "delay-[0.9s]",
+  // },
   {
     title: "Starsight Employee Portal",
     link: "https://starsight-employee-form-portal.vercel.app/",
+    delay: "delay-[0.9s]",
+  },
+  {
+    title: "Starsight Atlas",
+    link: "https://starsight-solar.app/",
     delay: "delay-[1.0s]",
   },
 ];
@@ -212,7 +217,7 @@ export const recentProjects = [
       },
       {
         src: "/images/starsightmobile.png",
-        alt: "inksharemobile",
+        alt: "starsightmobile",
       },
     ],
     description:
@@ -224,6 +229,43 @@ export const recentProjects = [
       },
       {
         href: "https://github.com/ifeanyiHM/starsight-employee-form-portal",
+        label: "Code",
+      },
+    ],
+    technologies: [
+      "Nexjs",
+      "Fullstack",
+      "Javascript",
+      "TypeScript",
+      "React",
+      "Tailwind Css",
+    ],
+  },
+  {
+    title: "Starsight Atlas",
+    images: [
+      {
+        src: "/images/starsightatlasdesktop.png",
+        alt: "starsightatlasdesktop",
+      },
+      {
+        src: "/images/starsightatlastablet.png",
+        alt: "starsightatlastablet",
+      },
+      {
+        src: "/images/starsightatlasmobile.png",
+        alt: "starsightatlasmobile",
+      },
+    ],
+    description:
+      "This project is a modern environmental analytics dashboard that allows users to retrieve and visualize real-time climate and energy data from the NASA POWER API. Users can search for any location or use their current device location to access environmental insights such as temperature, rainfall, and solar radiation within a selected date range. The platform features intelligent location search suggestions, responsive data visualization, and a professional dashboard interface designed for energy analysis, climate monitoring, and environmental research applications.",
+    links: [
+      {
+        href: "https://starsight-solar.vercel.app/",
+        label: "Link",
+      },
+      {
+        href: "https://github.com/ifeanyiHM/starsight-solar",
         label: "Code",
       },
     ],
